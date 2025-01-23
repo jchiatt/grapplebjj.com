@@ -32,7 +32,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${metrophobic.variable} font-sans antialiased`}
       >
-        <ThemeProvider defaultTheme="system">
+        <ThemeProvider defaultTheme="purple">
           <Layout>{children}</Layout>
         </ThemeProvider>
       </body>

@@ -121,6 +121,8 @@ export default {
         "fade-out": "fade-out 0.5s ease-out",
         "slide-in": "slide-in 0.3s ease-out",
         "slide-out": "slide-out 0.3s ease-out",
+        "spin-slow": "spin 8s linear infinite",
+        "spin-reverse-slower": "spin-reverse 12s linear infinite",
       },
       keyframes: {
         "accordion-down": {
@@ -146,6 +148,10 @@ export default {
         "slide-out": {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(100%)" },
+        },
+        "spin-reverse": {
+          "0%": { transform: "rotate(360deg)" },
+          "100%": { transform: "rotate(0deg)" },
         },
       },
       fontFamily: {
