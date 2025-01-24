@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun, Paintbrush2 } from "lucide-react";
+import { Paintbrush2, Orbit, Sun } from "lucide-react";
 import { useTheme as useNextTheme } from "next-themes";
 import { useTheme } from "./theme-provider";
 import {
@@ -36,14 +36,14 @@ export function ThemeSwitcher() {
             className="flex items-center gap-2"
           >
             <div className="h-4 w-4 rounded-full bg-purple-primary" />
-            <span>Purple</span>
+            <span>Enable Purple Theme</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => setTheme("blue")}
             className="flex items-center gap-2"
           >
             <div className="h-4 w-4 rounded-full bg-blue-primary" />
-            <span>Blue</span>
+            <span>Enable Blue Theme</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -53,9 +53,9 @@ export function ThemeSwitcher() {
         size="icon"
         onClick={() => setMode(resolvedTheme === "dark" ? "light" : "dark")}
       >
-        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-        <span className="sr-only">Toggle theme</span>
+        <Orbit className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <Sun className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <span className="sr-only">Toggle Galaxy Mode</span>
       </Button>
     </div>
   );
