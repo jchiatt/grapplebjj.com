@@ -11,6 +11,8 @@ export function LivestreamBanner() {
   return (
     <Link
       href={liveStatus.streamUrl || "/livestream"}
+      target={liveStatus.streamUrl ? "_blank" : "_self"}
+      rel={liveStatus.streamUrl ? "noopener noreferrer" : undefined}
       className="block w-full bg-primary hover:bg-primary/90 transition-colors"
     >
       <div className="container py-2 text-center">

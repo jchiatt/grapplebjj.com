@@ -12,6 +12,8 @@ export function LivestreamCallout() {
   return (
     <Link
       href={liveStatus.streamUrl || "/livestream"}
+      target={liveStatus.streamUrl ? "_blank" : "_self"}
+      rel={liveStatus.streamUrl ? "noopener noreferrer" : undefined}
       className="no-underline mb-8"
     >
       <div className="animate-bounce">

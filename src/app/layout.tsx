@@ -18,8 +18,8 @@ const metrophobic = Metrophobic({
 });
 
 export const metadata: Metadata = {
-  title: "Grapple BJJ",
-  description: "Brazilian Jiu-Jitsu in Mississippi",
+  title: "Grapple Jiu Jitsu",
+  description: "No-Gi submission grappling gym in Pearl, Mississippi.",
 };
 
 export default function RootLayout({

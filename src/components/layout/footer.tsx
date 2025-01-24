@@ -109,7 +109,7 @@ export function Footer() {
         <div className="mt-8 border-t pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Grapple BJJ. All rights reserved.
+              © {new Date().getFullYear()} Grapple LLC. All rights reserved.
             </p>
             <div className="flex gap-4">
               <a

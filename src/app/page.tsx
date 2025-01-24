@@ -84,7 +84,7 @@ const features = [
   {
     title: "Competition Team",
     description:
-      "Join our competition team and represent Grapple BJJ at local and international tournaments.",
+      "Join our competition team and represent Grapple at local and international tournaments.",
     link: "/competition",
   },
 ];

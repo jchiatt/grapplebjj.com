@@ -26,7 +26,7 @@ export function MobileNav() {
         <SheetHeader>
           <SheetTitle>Menu</SheetTitle>
           <SheetDescription className="sr-only">
-            Quick access to all pages on Grapple BJJ
+            Quick access to all pages
           </SheetDescription>
         </SheetHeader>
         <nav className="flex flex-col gap-4 mt-6">

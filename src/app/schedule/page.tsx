@@ -2,9 +2,9 @@ import { Schedule } from "@/components/schedule/schedule";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Class Schedule | Grapple BJJ",
+  title: "Class Schedule | Grapple",
   description:
-    "View our class schedule and book your next training session at Grapple BJJ.",
+    "View our class schedule and book your next training session at Grapple.",
 };
 
 export default function SchedulePage() {
