@@ -299,3 +299,7 @@ A modern, responsive website redesign for Grapple, a submission grappling gym in
 3. Create detailed wireframes
 4. Develop component library
 5. Begin implementation
+
+## More Ideas
+
+- Floating video embed when we are live

@@ -5,15 +5,18 @@ import { ThemeSwitcher } from "../theme/theme-switcher";
 import { Logo } from "../ui/logo";
 import { MobileNav } from "./mobile-nav";
 import { LivestreamLink } from "../livestream/livestream-link";
+import { useTheme } from "../theme/theme-provider";
 
 export function Header() {
+  const { theme } = useTheme();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 md:h-32 items-center justify-between">
         <div className="flex items-center gap-4 md:gap-8">
           <Link href="/" className="flex items-center">
             <Logo
-              theme="purple"
+              theme={theme ?? "purple"}
               size="lg"
               className="w-auto h-12 md:h-[84px]"
             />
