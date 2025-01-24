@@ -2,6 +2,7 @@ import { Poppins, Metrophobic } from "next/font/google";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Layout } from "@/components/layout/layout";
+import { LiveStreamProvider } from "@/components/livestream/livestream-context";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -18,8 +19,7 @@ const metrophobic = Metrophobic({
 
 export const metadata: Metadata = {
   title: "Grapple BJJ",
-  description:
-    "A submission grappling gym in Pearl, Mississippi, dedicated to the art of Brazilian Jiu-Jitsu.",
+  description: "Brazilian Jiu-Jitsu in Mississippi",
 };
 
 export default function RootLayout({
@@ -32,8 +32,10 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${metrophobic.variable} font-sans antialiased`}
       >
-        <ThemeProvider defaultTheme="purple">
-          <Layout>{children}</Layout>
+        <ThemeProvider>
+          <LiveStreamProvider>
+            <Layout>{children}</Layout>
+          </LiveStreamProvider>
         </ThemeProvider>
       </body>
     </html>

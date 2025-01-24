@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero/hero";
+import { FeaturedVideos } from "@/components/videos/featured-videos";
 import Link from "next/link";
 
 export default function Home() {
@@ -28,6 +29,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <FeaturedVideos />
 
       {/* CTA Section */}
       <section className="container pb-24">
