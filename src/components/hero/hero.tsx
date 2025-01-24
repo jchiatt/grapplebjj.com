@@ -14,7 +14,7 @@ export function Hero() {
 
       {/* Content overlay */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative flex min-h-[80vh] flex-col items-center justify-center text-center">
-        <LivestreamCallout isLive={true} />
+        <LivestreamCallout />
         <h1 className="max-w-4xl bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-5xl md:text-6xl lg:text-7xl font-bold text-transparent">
           Good things come to those who Grapple.
         </h1>
