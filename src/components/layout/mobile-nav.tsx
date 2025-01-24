@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sheet,
   SheetContent,
@@ -9,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { LivestreamLink } from "../livestream/livestream-link";
 
 export function MobileNav() {
   return (
@@ -29,31 +32,26 @@ export function MobileNav() {
         <nav className="flex flex-col gap-4 mt-6">
           <Link
             href="/schedule"
-            className="text-lg font-medium transition-colors hover:text-primary"
+            className="text-foreground/60 transition-colors hover:text-foreground/80"
           >
             Schedule
           </Link>
-          <Link
-            href="/livestream"
-            className="text-lg font-medium transition-colors hover:text-primary"
-          >
-            Livestream
-          </Link>
+          <LivestreamLink />
           <Link
             href="/pricing"
-            className="text-lg font-medium transition-colors hover:text-primary"
+            className="text-foreground/60 transition-colors hover:text-foreground/80"
           >
             Pricing
           </Link>
           <Link
             href="/articles"
-            className="text-lg font-medium transition-colors hover:text-primary"
+            className="text-foreground/60 transition-colors hover:text-foreground/80"
           >
             Articles
           </Link>
           <Link
             href="/events"
-            className="text-lg font-medium transition-colors hover:text-primary"
+            className="text-foreground/60 transition-colors hover:text-foreground/80"
           >
             Events
           </Link>

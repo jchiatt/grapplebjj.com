@@ -42,6 +42,10 @@ interface YouTubeSearchResponse {
 }
 
 export async function getFeaturedVideos(limit = 3): Promise<YouTubeVideo[]> {
+  if (process.env.NODE_ENV === "development") {
+    return [];
+  }
+
   const response = await fetch(
     `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${limit}&type=video`
   );
@@ -51,7 +55,6 @@ export async function getFeaturedVideos(limit = 3): Promise<YouTubeVideo[]> {
   }
 
   const data = (await response.json()) as YouTubeSearchResponse;
-
   return data.items.map((item) => ({
     id: item.id.videoId,
     title: item.snippet.title,
@@ -62,24 +65,55 @@ export async function getFeaturedVideos(limit = 3): Promise<YouTubeVideo[]> {
 }
 
 export async function getLiveStreamStatus(): Promise<LiveStreamStatus> {
-  const response = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&eventType=live&type=video`
-  );
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch live stream status");
+  if (process.env.NODE_ENV === "development") {
+    return {
+      isLive: true,
+      streamUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      videoId: "dQw4w9WgXcQ",
+    };
   }
 
-  const data = (await response.json()) as YouTubeSearchResponse;
-  const liveStream = data.items[0];
+  try {
+    // Fetch the channel's live page
+    const response = await fetch(
+      `https://www.youtube.com/channel/${CHANNEL_ID}/live`,
+      {
+        headers: {
+          "User-Agent":
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        },
+      }
+    );
 
-  if (!liveStream) {
+    if (!response.ok) {
+      throw new Error("Failed to fetch live page");
+    }
+
+    const html = await response.text();
+
+    // Look for canonical link in the HTML
+    const canonicalMatch = html.match(
+      /<link\s+rel="canonical"\s+href="(https:\/\/www\.youtube\.com\/watch[^"]+)"/i
+    );
+
+    if (!canonicalMatch) {
+      return { isLive: false };
+    }
+
+    const canonicalUrl = canonicalMatch[1];
+    const videoId = new URL(canonicalUrl).searchParams.get("v");
+
+    if (!videoId) {
+      return { isLive: false };
+    }
+
+    return {
+      isLive: true,
+      streamUrl: canonicalUrl,
+      videoId,
+    };
+  } catch (error) {
+    console.error("Failed to check live status:", error);
     return { isLive: false };
   }
-
-  return {
-    isLive: true,
-    streamUrl: `https://www.youtube.com/watch?v=${liveStream.id.videoId}`,
-    videoId: liveStream.id.videoId,
-  };
 }
