@@ -11,6 +11,7 @@ interface GalaxyBackgroundProps {
 
 export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const { theme } = useTheme();
   const { resolvedTheme } = useNextTheme();
   const isDark = resolvedTheme === "dark";
@@ -30,12 +31,35 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
     camera.position.set(0, 2, 5);
     camera.lookAt(0, 0, 0);
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvasRef.current,
-      alpha: true,
-    });
+    if (!rendererRef.current) {
+      rendererRef.current = new THREE.WebGLRenderer({
+        canvas: canvasRef.current,
+        alpha: true,
+        powerPreference: "high-performance",
+      });
+    }
+
+    const renderer = rendererRef.current;
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Check if context is lost
+    const handleContextLost = (event: Event): boolean => {
+      event.preventDefault();
+      console.log("WebGL context lost. Stopping render loop.");
+      return false;
+    };
+
+    const handleContextRestored = () => {
+      console.log("WebGL context restored. Restarting render loop.");
+      animate();
+    };
+
+    canvasRef.current.addEventListener("webglcontextlost", handleContextLost);
+    canvasRef.current.addEventListener(
+      "webglcontextrestored",
+      handleContextRestored
+    );
 
     // Galaxy parameters
     const parameters = {
@@ -138,11 +162,13 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
 
     // Animation
     const clock = new THREE.Clock();
+    let animationFrameId: number;
+
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
       points.rotation.y = elapsedTime * 0.05;
       renderer.render(scene, camera);
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     };
     animate();
 
@@ -158,9 +184,29 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
+      canvasRef.current?.removeEventListener(
+        "webglcontextlost",
+        handleContextLost
+      );
+      canvasRef.current?.removeEventListener(
+        "webglcontextrestored",
+        handleContextRestored
+      );
+
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+
+      scene.remove(points);
       geometry.dispose();
       material.dispose();
-      renderer.dispose();
+
+      // Don't dispose of the renderer on cleanup since we're keeping it in the ref
+      // Only dispose when component is fully unmounted
+      if (rendererRef.current && !canvasRef.current) {
+        rendererRef.current.dispose();
+        rendererRef.current = null;
+      }
     };
   }, [theme, isDark]); // Regenerate galaxy when theme changes or dark mode changes
 
