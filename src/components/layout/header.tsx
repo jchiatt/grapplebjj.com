@@ -47,6 +47,14 @@ export function Header() {
             >
               Events
             </Link>
+            <a
+              href="https://www.grapple.store"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/60 transition-colors hover:text-foreground/80"
+            >
+              Merch
+            </a>
           </nav>
         </div>
         <div className="flex items-center gap-2">

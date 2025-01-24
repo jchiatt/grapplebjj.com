@@ -19,6 +19,9 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
   useEffect(() => {
     if (!canvasRef.current || !isDark) return;
 
+    // Store canvas reference
+    const canvas = canvasRef.current;
+
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -184,11 +187,8 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
-      canvasRef.current?.removeEventListener(
-        "webglcontextlost",
-        handleContextLost
-      );
-      canvasRef.current?.removeEventListener(
+      canvas?.removeEventListener("webglcontextlost", handleContextLost);
+      canvas?.removeEventListener(
         "webglcontextrestored",
         handleContextRestored
       );
@@ -203,7 +203,7 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
 
       // Don't dispose of the renderer on cleanup since we're keeping it in the ref
       // Only dispose when component is fully unmounted
-      if (rendererRef.current && !canvasRef.current) {
+      if (rendererRef.current && !canvas) {
         rendererRef.current.dispose();
         rendererRef.current = null;
       }

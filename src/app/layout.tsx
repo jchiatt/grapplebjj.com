@@ -20,6 +20,7 @@ const metrophobic = Metrophobic({
 export const metadata: Metadata = {
   title: "Grapple Jiu Jitsu",
   description: "No-Gi submission grappling gym in Pearl, Mississippi.",
+  metadataBase: new URL("https://grapplejj.com"),
 };
 
 export default function RootLayout({

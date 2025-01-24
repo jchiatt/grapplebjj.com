@@ -12,8 +12,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              A submission grappling gym in Pearl, Mississippi, dedicated to the
-              art of Brazilian Jiu-Jitsu.
+              A no-gi jiu jitsu school in Pearl, Mississippi, dedicated to the
+              art of submission grappling.
             </p>
           </div>
           <div>

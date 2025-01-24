@@ -49,13 +49,19 @@ export function MobileNav() {
           >
             Articles
           </Link>
+          <Link
+            href="/events"
+            className="text-foreground/60 transition-colors hover:text-foreground/80"
+          >
+            Events
+          </Link>
           <a
             href="https://www.grapple.store"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/60 transition-colors hover:text-foreground/80"
           >
-            Events
+            Merch
           </a>
         </nav>
       </SheetContent>
