@@ -15,9 +15,40 @@ interface LiveStreamContextType {
   error: string | null;
 }
 
+interface StoredLiveStreamData {
+  status: LiveStreamStatus;
+  timestamp: number;
+}
+
+const CACHE_KEY = "livestream_cache";
+const CACHE_DURATION = 30 * 1000; // 30 seconds in milliseconds
+
 const LiveStreamContext = createContext<LiveStreamContextType | undefined>(
   undefined
 );
+
+function getStoredLiveStreamData(): StoredLiveStreamData | null {
+  if (typeof window === "undefined") return null;
+
+  const stored = localStorage.getItem(CACHE_KEY);
+  if (!stored) return null;
+
+  try {
+    const data = JSON.parse(stored) as StoredLiveStreamData;
+    const age = Date.now() - data.timestamp;
+
+    // Return null if cache is expired
+    if (age > CACHE_DURATION) {
+      localStorage.removeItem(CACHE_KEY);
+      return null;
+    }
+
+    return data;
+  } catch {
+    localStorage.removeItem(CACHE_KEY);
+    return null;
+  }
+}
 
 export function LiveStreamProvider({ children }: { children: ReactNode }) {
   const [liveStatus, setLiveStatus] = useState<LiveStreamStatus | null>(null);
@@ -26,10 +57,26 @@ export function LiveStreamProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     async function checkLiveStatus() {
+      // Check cache first
+      const cachedData = getStoredLiveStreamData();
+      if (cachedData) {
+        setLiveStatus(cachedData.status);
+        setIsLoading(false);
+        return;
+      }
+
       try {
-        const response = await fetch("/api/youtube");
+        const response = await fetch("/api/livestream");
         if (!response.ok) throw new Error("Failed to fetch live status");
         const data = await response.json();
+
+        // Store in localStorage with timestamp
+        const storageData: StoredLiveStreamData = {
+          status: data.liveStatus,
+          timestamp: Date.now(),
+        };
+        localStorage.setItem(CACHE_KEY, JSON.stringify(storageData));
+
         setLiveStatus(data.liveStatus);
       } catch (err) {
         setError("Failed to check live status");
@@ -40,11 +87,7 @@ export function LiveStreamProvider({ children }: { children: ReactNode }) {
     }
 
     checkLiveStatus();
-
-    // Check live status every 5 minutes
-    const interval = setInterval(checkLiveStatus, 5 * 60 * 1000);
-    return () => clearInterval(interval);
-  }, []);
+  }, []); // Only run once on mount
 
   return (
     <LiveStreamContext.Provider value={{ liveStatus, isLoading, error }}>

@@ -1,8 +1,22 @@
 import { Hero } from "@/components/hero/hero";
 import { FeaturedVideos } from "@/components/videos/featured-videos";
 import Link from "next/link";
+import { getFeaturedVideos } from "@/lib/youtube";
 
-export default function Home() {
+export const revalidate = 3600; // Revalidate every hour
+
+async function getVideos() {
+  try {
+    return await getFeaturedVideos();
+  } catch (error) {
+    console.error("Failed to fetch videos:", error);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const videos = await getVideos();
+
   return (
     <div>
       <Hero />
@@ -30,7 +44,7 @@ export default function Home() {
         </div>
       </section>
 
-      <FeaturedVideos />
+      <FeaturedVideos initialVideos={videos} />
 
       {/* CTA Section */}
       <section className="container pb-24">

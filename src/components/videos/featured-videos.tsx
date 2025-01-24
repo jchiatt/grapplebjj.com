@@ -1,49 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import type { YouTubeVideo } from "@/lib/youtube";
 
-export function FeaturedVideos() {
-  const [videos, setVideos] = useState<YouTubeVideo[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+interface FeaturedVideosProps {
+  initialVideos: YouTubeVideo[];
+}
 
-  useEffect(() => {
-    async function fetchVideos() {
-      try {
-        const response = await fetch("/api/youtube");
-        if (!response.ok) throw new Error("Failed to fetch videos");
-        const data = await response.json();
-        setVideos(data.videos);
-      } catch (err) {
-        setError("Failed to load videos");
-        console.error(err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchVideos();
-  }, []);
-
-  if (isLoading) {
+export function FeaturedVideos({ initialVideos }: FeaturedVideosProps) {
+  if (!initialVideos.length) {
     return (
       <section className="py-16 bg-muted/50">
         <div className="container">
           <div className="text-center">
-            <p className="text-muted-foreground">Loading videos...</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className="py-16 bg-muted/50">
-        <div className="container">
-          <div className="text-center">
-            <p className="text-red-500">{error}</p>
+            <p className="text-muted-foreground">No videos available</p>
           </div>
         </div>
       </section>
@@ -61,7 +30,7 @@ export function FeaturedVideos() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {videos.map((video) => (
+          {initialVideos.map((video) => (
             <div
               key={video.id}
               className="rounded-lg overflow-hidden bg-card shadow-lg"
