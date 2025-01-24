@@ -28,9 +28,11 @@ export function CallToAction({
     <div
       className={`rounded-lg border-2 border-secondary/10 p-12 text-center ${className}`}
     >
-      <h1 className="max-w-4xl mx-auto bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-5xl md:text-6xl lg:text-7xl font-bold text-transparent">
-        {title}
-      </h1>
+      <div className="relative">
+        <h1 className="max-w-4xl mx-auto bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-4xl md:text-6xl lg:text-7xl font-bold text-transparent pb-8">
+          {title}
+        </h1>
+      </div>
       <p className="mt-8 max-w-2xl mx-auto text-xl md:text-2xl text-gray-700 dark:text-white/90">
         {description}
       </p>
