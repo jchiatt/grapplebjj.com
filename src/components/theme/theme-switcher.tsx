@@ -36,14 +36,16 @@ export function ThemeSwitcher() {
             className="flex items-center gap-2"
           >
             <div className="h-4 w-4 rounded-full bg-purple-primary" />
-            <span>Enable Purple Theme</span>
+            <span aria-hidden="true">Purple</span>
+            <span className="sr-only">Enable Purple Theme</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() => setTheme("blue")}
             className="flex items-center gap-2"
           >
             <div className="h-4 w-4 rounded-full bg-blue-primary" />
-            <span>Enable Blue Theme</span>
+            <span aria-hidden="true">Blue</span>
+            <span className="sr-only">Enable Blue Theme</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
