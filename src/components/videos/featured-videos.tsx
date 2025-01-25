@@ -8,15 +8,7 @@ interface FeaturedVideosProps {
 
 export function FeaturedVideos({ initialVideos }: FeaturedVideosProps) {
   if (!initialVideos.length) {
-    return (
-      <section className="py-16 bg-muted/50">
-        <div className="container">
-          <div className="text-center">
-            <p className="text-muted-foreground">No videos available</p>
-          </div>
-        </div>
-      </section>
-    );
+    return null;
   }
 
   return (
