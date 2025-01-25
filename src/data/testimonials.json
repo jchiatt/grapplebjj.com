@@ -1,74 +1,46 @@
 {
   "testimonials": [
     {
+      "id": 0,
+      "name": "Camden Hanks",
+      "role": "Student",
+      "content": "Love this gym great instructor, great people, very clean and is good for all levels of jujitsu.",
+      "image": "/images/testimonials/camden_hanks.jpg"
+    },
+    {
       "id": 1,
-      "name": "Sarah Johnson",
-      "role": "Software Engineer",
-      "content": "I was looking for a way to stay active that wasn't just going to the gym. Jiu-jitsu has completely transformed my life. Not only am I in the best shape ever, but I've gained incredible confidence in myself. The community here is amazing - everyone is so supportive and encouraging.",
-      "image": "/images/testimonials/sarah.jpg"
+      "name": "Anonymous",
+      "role": "Police Officer",
+      "content": "I was training in another martial arts gym that's build around a belt system. While I did learn the basics, I didn't like the \"pay to advance\" system. I did a lot of research, and I spoke with many other martial arts practitioners. I told them I don't want to learn a program, but that I want to learn how to fight effectively and proficiently. Many from the law enforcement community pointed me to Grapple. I can't even begin to calculate how many tactic classes I've had. All fall short to your method of instruction. You demonstrate, make sure the class can see all angles, instruct your students to apply the tactic being taught, and follow up with each pair to make sure it's done correctly. Brother, you are an outstanding trainer. You communicate well and have a passion for what you do. Don't change a thing. The only feedback I have is gratitude. Thank you for being law enforcement friendly. Thank you for realizing that cops don't make a lot, and making it financially possible for me to do this. I've already applied these tactics in fights in my job. They work, and have kept me and my teammates safe.",
+      "image": "/images/testimonials/avatar.svg"
     },
     {
       "id": 2,
-      "name": "Michael Chen",
-      "role": "Business Owner",
-      "content": "As someone who runs their own business, stress management is crucial. Jiu-jitsu has become my meditation. The focus required on the mats helps me clear my mind, and the physical workout is unmatched. Plus, the problem-solving aspects of BJJ keep my mind sharp. As someone who runs their own business, stress management is crucial. Jiu-jitsu has become my meditation. The focus required on the mats helps me clear my mind, and the physical workout is unmatched. Plus, the problem-solving aspects of BJJ keep my mind sharp.",
-      "image": "/images/testimonials/michael.jpg"
+      "name": "Seth Torres",
+      "role": "Student",
+      "content": "I've trained here for 3 years next month. This is the best training environment I've ever been in. Never been afraid to ask a question, the coach doesn't think he knows everything and he will go out of his way to make sure your question is answered. I always feel welcome, everyone is there to learn and improve together and nobody has an ego. We're all equals just trying to improve in the sport we love. We compete in tournaments and we push each other to do the best we can and leave it all on the mat. If you're wanting to get into jiu jitsu, this is the place I would recommend every time I'm asked. Could not recommend this place enough!!",
+      "image": "/images/testimonials/seth_torres.jpg"
     },
     {
       "id": 3,
-      "name": "Emily Rodriguez",
-      "role": "Mother of Two",
-      "content": "I started jiu-jitsu to learn self-defense, but I found so much more. The supportive environment has helped me build strength both physically and mentally. My kids now train in the youth program, and it's amazing to see how it's helping them develop discipline and confidence.",
-      "image": "/images/testimonials/emily.jpg"
+      "name": "David Smith",
+      "role": "Father of Two",
+      "content": "Grapple is a great school for adults and kids. Cutting edge JuJitsu is being taught. Grapple has a good clean environment. There is plenty of individual instruction. We have plenty of drilling time and implement a large amount of mat time. It's also one of the most affordable schools in the area.",
+      "image": "/images/testimonials/david_smith.jpg"
     },
     {
       "id": 4,
-      "name": "David Park",
-      "role": "College Student",
+      "name": "Chance Keenan",
+      "role": "Healthcare Worker",
       "content": "The mental game in jiu-jitsu is incredible. Every session is like a physical chess match, and the principles I've learned on the mats have helped me in my studies too. The focus on continuous improvement and learning from failure has changed how I approach challenges.",
-      "image": "/images/testimonials/david.jpg"
+      "image": "/images/testimonials/chance_keenan.jpg"
     },
     {
       "id": 5,
-      "name": "Lisa Thompson",
-      "role": "Healthcare Worker",
-      "content": "After a long day at work, there's nothing better than hitting the mats. The community here has become like a second family. I've lost 30 pounds since starting, but more importantly, I've gained a whole new perspective on what I'm capable of achieving.",
-      "image": "/images/testimonials/lisa.jpg"
-    },
-    {
-      "id": 6,
-      "name": "James Wilson",
-      "role": "Police Officer",
-      "content": "As a law enforcement officer, the skills I've learned here are invaluable. Beyond the physical aspects, jiu-jitsu has taught me patience and control in high-pressure situations. The instructors really emphasize technique over strength, which is crucial in real-world applications.",
-      "image": "/images/testimonials/james.jpg"
-    },
-    {
-      "id": 7,
-      "name": "Maria Sanchez",
-      "role": "High School Teacher",
-      "content": "The parallels between learning jiu-jitsu and teaching are remarkable. Every class reinforces the importance of breaking down complex concepts into manageable steps. I've become a better teacher since starting BJJ, and my students notice the positive change in my energy levels.",
-      "image": "/images/testimonials/maria.jpg"
-    },
-    {
-      "id": 8,
-      "name": "Tom Anderson",
-      "role": "Retired Veteran",
-      "content": "After retiring from the military, I was looking for something to keep me active and engaged. The discipline and camaraderie at this academy remind me of my service days. It's been incredible for my physical and mental health, especially in transitioning back to civilian life.",
-      "image": "/images/testimonials/tom.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Rachel Kim",
-      "role": "Physical Therapist",
-      "content": "From a healthcare perspective, the attention to proper body mechanics and injury prevention here is outstanding. I've recommended BJJ to several of my patients, and those who've joined have seen remarkable improvements in their mobility and strength.",
-      "image": "/images/testimonials/rachel.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Marcus Johnson",
-      "role": "Marketing Executive",
-      "content": "In the corporate world, we talk a lot about growth mindset and continuous improvement. BJJ embodies these principles perfectly. Each training session is a lesson in humility, perseverance, and the importance of small, consistent improvements. It's changed how I approach challenges at work.",
-      "image": "/images/testimonials/marcus.jpg"
+      "name": "Greg Guidry",
+      "role": "Visitor",
+      "content": "Very knowledgeable instructor, gym was very clean and spacious. Anyone in the area needs to train here for sure.",
+      "image": "/images/testimonials/greg_guidry.jpg"
     }
   ]
 }

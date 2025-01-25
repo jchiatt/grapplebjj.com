@@ -55,9 +55,8 @@ export function ThemeProvider({
     <ThemeContext.Provider value={{ theme, setTheme: handleThemeChange }}>
       <NextThemeProvider
         attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
+        defaultTheme="dark"
+        enableSystem={false}
       >
         {children}
       </NextThemeProvider>
