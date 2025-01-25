@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { CallToAction } from "@/components/ui/call-to-action";
+import { FeaturedPhotos } from "@/components/photos/featured-photos";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -59,6 +60,8 @@ export default function AboutPage() {
           ))}
         </div>
       </div>
+
+      <FeaturedPhotos className="mt-24" title="Life at Grapple" />
 
       {/* CTA Section */}
       <div className="mt-24">

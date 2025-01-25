@@ -1,6 +1,7 @@
 import { Hero } from "@/components/hero/hero";
 import { FeaturedVideos } from "@/components/videos/featured-videos";
 import { Testimonials } from "@/components/testimonials/testimonials";
+import { FeaturedPhotos } from "@/components/photos/featured-photos";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 
@@ -21,6 +22,8 @@ export default async function Home() {
   return (
     <div>
       <Hero />
+
+      <FeaturedPhotos title="Photo Gallery" />
 
       {/* Features Section */}
       <section className="container py-24">
