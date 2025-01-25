@@ -4,6 +4,7 @@ import { GalaxyBackground } from "./galaxy-background";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme/theme-provider";
 import { LivestreamCallout } from "../livestream/livestream-callout";
+import Link from "next/link";
 
 export function Hero() {
   const { theme } = useTheme();
@@ -23,11 +24,11 @@ export function Hero() {
           submission grappling.
         </p>
         <div className="mt-12 flex gap-6 justify-center">
-          <Button size="lg" className="text-lg px-8">
-            Trial Class
+          <Button size="lg" className="text-lg px-8" asChild>
+            <Link href="/trial">Trial Class</Link>
           </Button>
-          <Button size="lg" variant="outline" className="text-lg px-8">
-            Learn More
+          <Button size="lg" variant="outline" className="text-lg px-8" asChild>
+            <Link href="/about">Learn More</Link>
           </Button>
         </div>
       </div>

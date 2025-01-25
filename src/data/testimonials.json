@@ -1,0 +1,74 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "role": "Software Engineer",
+      "content": "I was looking for a way to stay active that wasn't just going to the gym. Jiu-jitsu has completely transformed my life. Not only am I in the best shape ever, but I've gained incredible confidence in myself. The community here is amazing - everyone is so supportive and encouraging.",
+      "image": "/images/testimonials/sarah.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "role": "Business Owner",
+      "content": "As someone who runs their own business, stress management is crucial. Jiu-jitsu has become my meditation. The focus required on the mats helps me clear my mind, and the physical workout is unmatched. Plus, the problem-solving aspects of BJJ keep my mind sharp. As someone who runs their own business, stress management is crucial. Jiu-jitsu has become my meditation. The focus required on the mats helps me clear my mind, and the physical workout is unmatched. Plus, the problem-solving aspects of BJJ keep my mind sharp.",
+      "image": "/images/testimonials/michael.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Emily Rodriguez",
+      "role": "Mother of Two",
+      "content": "I started jiu-jitsu to learn self-defense, but I found so much more. The supportive environment has helped me build strength both physically and mentally. My kids now train in the youth program, and it's amazing to see how it's helping them develop discipline and confidence.",
+      "image": "/images/testimonials/emily.jpg"
+    },
+    {
+      "id": 4,
+      "name": "David Park",
+      "role": "College Student",
+      "content": "The mental game in jiu-jitsu is incredible. Every session is like a physical chess match, and the principles I've learned on the mats have helped me in my studies too. The focus on continuous improvement and learning from failure has changed how I approach challenges.",
+      "image": "/images/testimonials/david.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Lisa Thompson",
+      "role": "Healthcare Worker",
+      "content": "After a long day at work, there's nothing better than hitting the mats. The community here has become like a second family. I've lost 30 pounds since starting, but more importantly, I've gained a whole new perspective on what I'm capable of achieving.",
+      "image": "/images/testimonials/lisa.jpg"
+    },
+    {
+      "id": 6,
+      "name": "James Wilson",
+      "role": "Police Officer",
+      "content": "As a law enforcement officer, the skills I've learned here are invaluable. Beyond the physical aspects, jiu-jitsu has taught me patience and control in high-pressure situations. The instructors really emphasize technique over strength, which is crucial in real-world applications.",
+      "image": "/images/testimonials/james.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Maria Sanchez",
+      "role": "High School Teacher",
+      "content": "The parallels between learning jiu-jitsu and teaching are remarkable. Every class reinforces the importance of breaking down complex concepts into manageable steps. I've become a better teacher since starting BJJ, and my students notice the positive change in my energy levels.",
+      "image": "/images/testimonials/maria.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Tom Anderson",
+      "role": "Retired Veteran",
+      "content": "After retiring from the military, I was looking for something to keep me active and engaged. The discipline and camaraderie at this academy remind me of my service days. It's been incredible for my physical and mental health, especially in transitioning back to civilian life.",
+      "image": "/images/testimonials/tom.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Rachel Kim",
+      "role": "Physical Therapist",
+      "content": "From a healthcare perspective, the attention to proper body mechanics and injury prevention here is outstanding. I've recommended BJJ to several of my patients, and those who've joined have seen remarkable improvements in their mobility and strength.",
+      "image": "/images/testimonials/rachel.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Marcus Johnson",
+      "role": "Marketing Executive",
+      "content": "In the corporate world, we talk a lot about growth mindset and continuous improvement. BJJ embodies these principles perfectly. Each training session is a lesson in humility, perseverance, and the importance of small, consistent improvements. It's changed how I approach challenges at work.",
+      "image": "/images/testimonials/marcus.jpg"
+    }
+  ]
+}

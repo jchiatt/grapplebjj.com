@@ -28,7 +28,7 @@ export default function LiveStreamContent() {
         </div>
         <CallToAction
           title="Tired of just watching?"
-          description="Join us on the mats and start your journey in Brazilian Jiu-Jitsu today."
+          description="Join us on the mats and start your jiu jitsu journey today."
           primaryAction={{
             label: "Start Training Today",
             href: "/trial",
@@ -46,7 +46,7 @@ export default function LiveStreamContent() {
       </div>
       <CallToAction
         title="Just watching not good enough for you?"
-        description="Get off the sidelines and onto the mats. Start your journey in Brazilian Jiu-Jitsu today."
+        description="Get off the sidelines and onto the mats. Start your jiu jitsu journey today."
         primaryAction={{
           label: "Start Training Today",
           href: "/trial",

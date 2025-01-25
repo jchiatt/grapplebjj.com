@@ -3,6 +3,7 @@ import { getAllArticles } from "@/lib/articles";
 import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, Tag } from "lucide-react";
+import { CallToAction } from "@/components/ui/call-to-action";
 
 export const metadata: Metadata = {
   title: "Articles | Grapple",
@@ -111,6 +112,21 @@ export default function ArticlesPage() {
           </p>
         </div>
       )}
+
+      <div className="mt-16">
+        <CallToAction
+          title="Tired of just reading?"
+          description="Join us on the mats and see how jiu jitsu can transform your life."
+          primaryAction={{
+            label: "Schedule Free Class",
+            href: "/trial",
+          }}
+          secondaryAction={{
+            label: "FAQ",
+            href: "/faq",
+          }}
+        />
+      </div>
     </div>
   );
 }

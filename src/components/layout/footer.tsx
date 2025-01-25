@@ -50,6 +50,14 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
+                  href="/about"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/articles"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
@@ -79,20 +87,22 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href="https://maps.google.com"
+                  href="https://maps.google.com/?q=5709+US+80+E,+Pearl,+MS+39208"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Pearl, Mississippi
+                  5709 US 80 E, 2nd Floor
+                  <br />
+                  Pearl, MS 39208
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+17692570260"
                   className="font-technical text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  (123) 456-7890
+                  (769) 257-0260
                 </a>
               </li>
               <li>
@@ -102,6 +112,9 @@ export function Footer() {
                 >
                   info@grapplebjj.com
                 </a>
+              </li>
+              <li className="text-sm text-muted-foreground">
+                <em>Located on the 2nd floor of Focus Fit</em>
               </li>
             </ul>
           </div>
@@ -113,7 +126,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/grapplebjj"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -121,7 +134,7 @@ export function Footer() {
                 Instagram
               </a>
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/grapplejj"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -129,7 +142,7 @@ export function Footer() {
                 Facebook
               </a>
               <a
-                href="https://youtube.com"
+                href="https://youtube.com/@mississippibjj"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"

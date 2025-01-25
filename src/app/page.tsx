@@ -1,5 +1,6 @@
 import { Hero } from "@/components/hero/hero";
 import { FeaturedVideos } from "@/components/videos/featured-videos";
+import { Testimonials } from "@/components/testimonials/testimonials";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 
@@ -25,24 +26,26 @@ export default async function Home() {
       <section className="container py-24">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {features.map((feature) => (
-            <div
+            <Link
               key={feature.title}
-              className="rounded-lg border bg-card p-6 text-card-foreground shadow-sm transition-colors hover:bg-accent/10"
+              href={feature.link}
+              className="group rounded-lg border bg-card p-6 text-card-foreground shadow-sm transition-colors hover:bg-primary"
             >
               <h3 className="mb-2 font-heading text-lg font-semibold">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-              <Link
-                href={feature.link}
-                className="mt-4 inline-flex items-center text-sm text-primary hover:text-primary/80"
-              >
-                Learn more →
-              </Link>
-            </div>
+              <p className="text-muted-foreground group-hover:text-black dark:group-hover:text-white">
+                {feature.description}
+              </p>
+              <span className="mt-4 inline-flex items-center text-sm text-primary dark:group-hover:text-white group-hover:text-black">
+                Get Started →
+              </span>
+            </Link>
           ))}
         </div>
       </section>
+
+      <Testimonials />
 
       <FeaturedVideos initialVideos={videos} />
 
@@ -70,21 +73,39 @@ export default async function Home() {
 
 const features = [
   {
-    title: "Adult Programs",
+    title: "Build Confidence",
     description:
-      "Comprehensive BJJ training for all skill levels, with both Gi and No-Gi classes available.",
-    link: "/programs/adult",
+      "Feel unsure of yourself? Grappling is a great way to build confidence and keep a steady head in difficult situations.",
+    link: "/trial",
   },
   {
-    title: "Kids Programs",
+    title: "Self-Defense",
     description:
-      "Age-appropriate classes that teach discipline, respect, and self-defense in a fun environment.",
-    link: "/programs/kids",
+      "Learn practical self-defense skills that could save your life if you're ever forced to defend yourself.",
+    link: "/trial",
   },
   {
-    title: "Competition Team",
+    title: "Sharpen Your Mind",
     description:
-      "Join our competition team and represent Grapple at local and international tournaments.",
-    link: "/competition",
+      "Jiu jitsu is a cerebral art that combines strategy, problem-solving, and physical chess. Engage and sharpen your mind while getting fit.",
+    link: "/trial",
+  },
+  {
+    title: "Get Fit Safely",
+    description:
+      "Looking to lose a few pounds? Jiu jitsu provides a safe, fun, and engaging way to get in the best shape of your life.",
+    link: "/trial",
+  },
+  {
+    title: "Join a Culture of Growth",
+    description:
+      "Surround yourself with people who are serious about self-improvement and push each other to reach new heights every day.",
+    link: "/trial",
+  },
+  {
+    title: "Build Character",
+    description:
+      "The mats teach invaluable life lessons through humility and perseverance. Develop mental fortitude that extends far beyond training.",
+    link: "/trial",
   },
 ];

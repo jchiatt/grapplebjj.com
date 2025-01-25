@@ -303,3 +303,18 @@ A modern, responsive website redesign for Grapple, a submission grappling gym in
 ## More Ideas
 
 - Floating video embed when we are live
+
+## Company Metadata
+
+Phone
+(769) 257-0260
+
+Address
+5709 US 80 E
+2nd Floor
+Pearl, MS 39208
+
+We are located in the 2nd floor of Focus Fit. Walk in, check in with their front desk, and then walk all the way back. Staircase is on the left after you've walked all the way back. Call if you have trouble finding us!
+
+Email
+info@grapplebjj.com
