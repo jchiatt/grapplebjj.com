@@ -127,7 +127,7 @@ export default function PricingPage() {
 
       <div className="mt-16 grid gap-8 lg:grid-cols-3">
         <PriceCard
-          title="Free Trial"
+          title="Free Trial Class"
           price="$0"
           description="Experience a class with no commitment"
           features={[
@@ -136,7 +136,7 @@ export default function PricingPage() {
             "Bring a friend, get $10",
             "Meet the community",
           ]}
-          cta={{ text: "Schedule Trial", href: "/contact" }}
+          cta={{ text: "Schedule Trial", href: "/trial" }}
         />
 
         <PriceCard
@@ -149,7 +149,7 @@ export default function PricingPage() {
             "No commitment or other fees",
             "No gear or equipment required",
           ]}
-          cta={{ text: "Get Started", href: "/contact" }}
+          cta={{ text: "Get Started", href: "/signup" }}
         />
 
         <PriceCard
@@ -162,7 +162,7 @@ export default function PricingPage() {
             "Access to private online learning",
             "Access to special events",
           ]}
-          cta={{ text: "Join Now", href: "/contact" }}
+          cta={{ text: "Join Now", href: "/signup" }}
           highlighted
         />
       </div>
