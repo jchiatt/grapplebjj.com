@@ -4,8 +4,7 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About | Grapple",
-  description:
-    "Learn about our mission, values, and the team behind Grapple Jiu Jitsu.",
+  description: "Learn about our mission and values.",
 };
 
 export default function AboutPage() {
@@ -23,7 +22,7 @@ export default function AboutPage() {
       <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
         <div className="relative aspect-[4/3] lg:aspect-[3/4]">
           <Image
-            src="/images/ancient-grapplers.jpeg"
+            src="/images/squad.jpg"
             alt="Ancient grapplers depicted in art"
             fill
             className="object-cover rounded-2xl"
@@ -80,31 +79,30 @@ const values = [
   {
     title: "Technical Excellence",
     description:
-      "We emphasize proper technique and fundamentals, ensuring our students build a strong foundation for long-term growth.",
+      "We emphasize proper technique and fundamentals, ensuring our students build a strong foundation for long-term growth. We are deeply interested in skill development and are always looking for ways to improve.",
   },
   {
-    title: "Inclusive Community",
+    title: "Supportive Community",
     description:
-      "Everyone is welcome at Grapple. We foster a supportive environment where students help each other learn and grow.",
+      "Anyone and everyone with a good attitude is welcome at Grapple. We foster a supportive environment where students help each other learn and grow. You don't have to be a fighter to train here, but you do need to be willing to learn and grow.",
   },
   {
     title: "Continuous Learning",
     description:
-      "We're always students first. Our commitment to learning keeps us humble and hungry for improvement.",
+      "We're always students first. Our commitment to learning keeps us humble and hungry for improvement. We heavily promote a culture of self-education and experimentation.",
   },
   {
     title: "Safety First",
     description:
-      "Training safely is our top priority. We maintain a controlled environment where students can practice effectively without unnecessary risks.",
+      "Training safely is our top priority. We maintain a controlled environment where students can practice effectively without unnecessary risks. Injuries are very rare, and we take them seriously and do our best to prevent them.",
   },
   {
     title: "Positive Culture",
-    description:
-      "We cultivate a positive, ego-free atmosphere where everyone feels comfortable pushing their limits and trying new things.",
+    description: `We cultivate a positive, ego-free atmosphere where everyone feels comfortable pushing their limits and trying new things. There are no "masters" here, we are all equal and we are all here to learn and grow.`,
   },
   {
     title: "Competition Ready",
     description:
-      "For those interested in competition, we provide the training and support needed to compete at any level.",
+      "For those interested in competition, we provide the training and support needed to compete at any level. Competition is not required by an means, nor will you be treated any differently should you choose not to compete, but it is encouraged to help you grow and improve.",
   },
 ];
