@@ -23,14 +23,18 @@ export default function AboutPage() {
       <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
         <div className="relative aspect-[4/3] lg:aspect-[3/4]">
           <Image
-            src="/images/squad.jpg"
-            alt="Ancient grapplers depicted in art"
+            src="/images/training_shots/training-1.jpg"
+            alt="Grappling instruction at Grapple."
             fill
-            className="object-cover rounded-2xl"
+            placeholder="blur"
+            blurDataURL="/images/training_shots/training-1.jpg"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover rounded-2xl transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 dark:brightness-90 dark:group-hover:brightness-100"
           />
+          <div className="absolute inset-0 bg-primary/50 mix-blend-overlay transition-opacity duration-300 opacity-50 group-hover:opacity-100" />
         </div>
         <div>
-          <h2 className="text-3xl font-bold">Our Mission</h2>
+          <h2 className="text-3xl font-bold">Just Grapple.</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             At Grapple, we believe in the transformative power of submission
             grappling. Our mission is to create an inclusive environment where

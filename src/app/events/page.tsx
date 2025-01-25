@@ -3,6 +3,7 @@ import { CallToAction } from "@/components/ui/call-to-action";
 import Image from "next/image";
 import { Event, upcomingEvents } from "@/data/events";
 import { CalendarDays, Clock, MapPin, Users, Tag } from "lucide-react";
+import { Headline } from "@/components/ui/headline";
 
 export const metadata: Metadata = {
   title: "Events | Grapple",
@@ -199,7 +200,9 @@ export default function EventsPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">Upcoming Events</h1>
+        <Headline as="h1" size="h1">
+          Upcoming Events
+        </Headline>
         <p className="mt-4 text-xl text-foreground/80">
           Join us for tournaments, seminars, and special events
         </p>

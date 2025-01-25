@@ -4,8 +4,10 @@ import { Testimonials } from "@/components/testimonials/testimonials";
 import { FeaturedPhotos } from "@/components/photos/featured-photos";
 import { FullWidthSection } from "@/components/ui/full-width-section";
 import { SlotMachineText } from "@/components/animations/slot-machine-text";
+import { CoachProfiles } from "@/components/coaches/coach-profiles";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
+import { CallToAction } from "@/components/ui/call-to-action";
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -89,30 +91,25 @@ export default async function Home() {
         </div>
       </FullWidthSection>
 
+      {/* Coach Profiles */}
+      <CoachProfiles />
+
       <Testimonials />
 
       <FeaturedVideos initialVideos={videos} />
 
       <FeaturedPhotos title="" />
 
-      {/* CTA Section */}
-      <section className="container pb-24">
-        <div className="rounded-lg bg-accent/10 p-8 text-center">
-          <h2 className="mb-4 font-heading text-2xl font-bold">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="mx-auto mb-6 max-w-2xl text-muted-foreground">
-            Join our community of dedicated practitioners and start your BJJ
-            journey today.
-          </p>
-          <Link
-            href="/join"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          >
-            Start Free Trial
-          </Link>
-        </div>
-      </section>
+      <div className="py-24">
+        <CallToAction
+          title="Ready to Start Your Journey?"
+          description="Join our community of dedicated practitioners and start your jiu jitsu journey today."
+          primaryAction={{
+            label: "Start Free Trial",
+            href: "/trial",
+          }}
+        />
+      </div>
     </div>
   );
 }

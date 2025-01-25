@@ -132,7 +132,7 @@ export default async function ArticlePage(props: Props) {
       <div className="mt-16 md:mt-24">
         <CallToAction
           title="Ready to Start Your Journey?"
-          description="Join us on the mats and experience the art of Brazilian Jiu-Jitsu firsthand."
+          description="Join us on the mats and experience the art of jiu jitsu firsthand."
           primaryAction={{
             label: "Start Free Trial",
             href: "/trial",

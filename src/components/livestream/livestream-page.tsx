@@ -8,8 +8,8 @@ const LiveStreamContent = dynamic(() => import("./livestream-content"), {
 
 export function LiveStreamPage() {
   return (
-    <main className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8">
       <LiveStreamContent />
-    </main>
+    </div>
   );
 }

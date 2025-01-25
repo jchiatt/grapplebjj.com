@@ -29,6 +29,7 @@ export function FeaturedVideos({ initialVideos }: FeaturedVideosProps) {
             >
               <div className="relative pb-[56.25%] h-0">
                 <iframe
+                  title={`Grapple Video: ${video.title}`}
                   src={`https://www.youtube.com/embed/${video.id}`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

@@ -2,6 +2,7 @@
 
 import { useLiveStream } from "./livestream-context";
 import { CallToAction } from "../ui/call-to-action";
+import { Headline } from "../ui/headline";
 
 export default function LiveStreamContent() {
   const { liveStatus, isLoading } = useLiveStream();
@@ -18,8 +19,12 @@ export default function LiveStreamContent() {
   if (liveStatus?.isLive && liveStatus.videoId) {
     return (
       <div className="space-y-8">
+        <Headline as="h1" size="h1" className="text-center my-8 md:my-16">
+          Live Stream
+        </Headline>
         <div className="w-full aspect-video">
           <iframe
+            title="Grapple Live Stream"
             src={`https://www.youtube.com/embed/${liveStatus.videoId}?autoplay=1&mute=1`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

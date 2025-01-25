@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, Tag } from "lucide-react";
 import { CallToAction } from "@/components/ui/call-to-action";
+import { Headline } from "@/components/ui/headline";
 
 export const metadata: Metadata = {
   title: "Articles | Grapple",
@@ -92,7 +93,9 @@ export default function ArticlesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">Articles</h1>
+        <Headline as="h1" size="h1">
+          Articles
+        </Headline>
         <p className="mt-4 text-xl text-foreground/80">
           Learn more about submission grappling through our collection of
           articles

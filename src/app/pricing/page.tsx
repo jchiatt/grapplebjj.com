@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { CallToAction } from "@/components/ui/call-to-action";
 import pricingFaqs from "@/data/faqs.json";
+import { Headline } from "@/components/ui/headline";
 
 export const metadata: Metadata = {
   title: "Pricing | Grapple",
@@ -14,6 +15,7 @@ function PriceCard({
   description,
   features,
   cta,
+  disclaimer,
   highlighted = false,
 }: {
   title: string;
@@ -21,6 +23,7 @@ function PriceCard({
   description: string;
   features: string[];
   cta: { text: string; href: string };
+  disclaimer?: string;
   highlighted?: boolean;
 }) {
   return (
@@ -64,6 +67,15 @@ function PriceCard({
       >
         {cta.text}
       </a>
+      {disclaimer && (
+        <p
+          className={`mt-4 text-xs text-center ${
+            highlighted ? "text-white/80" : "text-muted-foreground"
+          }`}
+        >
+          {disclaimer}
+        </p>
+      )}
     </div>
   );
 }
@@ -90,8 +102,8 @@ function DiscountSection() {
         <div>
           <h3 className="text-xl font-semibold">💸 Financial Hardship</h3>
           <p className="mt-2">
-            We have sponsorship opportunities available. Contact us to learn
-            more.
+            Going through a tough time? We have sponsorship opportunities
+            available. Contact us to learn more.
           </p>
         </div>
       </div>
@@ -119,7 +131,9 @@ export default function PricingPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="text-center">
-        <h1 className="text-4xl font-bold">Simple, Transparent Pricing</h1>
+        <Headline as="h1" size="h1" className="mb-4 md:mb-8">
+          Simple, Transparent Pricing
+        </Headline>
         <p className="mt-4 text-xl">
           Start your journey with a free trial class
         </p>
@@ -155,7 +169,7 @@ export default function PricingPage() {
         <PriceCard
           title="Monthly Membership"
           price="$100"
-          description="Unlimited access to all classes"
+          description="Unlimited access to all classes."
           features={[
             "All classes included",
             "No contracts or other fees",
@@ -164,6 +178,7 @@ export default function PricingPage() {
           ]}
           cta={{ text: "Join Now", href: "/signup" }}
           highlighted
+          disclaimer="Focus Fit membership required ($30/month, paid separately to Focus Fit)."
         />
       </div>
 

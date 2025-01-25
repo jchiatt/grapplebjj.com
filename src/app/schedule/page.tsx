@@ -1,4 +1,5 @@
 import { Schedule } from "@/components/schedule/schedule";
+import { Headline } from "@/components/ui/headline";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,9 +10,11 @@ export const metadata: Metadata = {
 
 export default function SchedulePage() {
   return (
-    <main className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">Class Schedule</h1>
+    <div className="container mx-auto px-4 py-8">
+      <Headline as="h1" size="h1" className="mb-8 md:mb-16 text-center">
+        Class Schedule
+      </Headline>
       <Schedule />
-    </main>
+    </div>
   );
 }

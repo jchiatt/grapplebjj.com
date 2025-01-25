@@ -7,12 +7,19 @@ const words = [
   "adults",
   "military",
   "police",
-  "healthcare workers",
+  "doctors",
+  "nurses",
   "students",
   "men",
   "women",
+  "big",
+  "small",
+  "strong",
+  "weak",
   "young",
   "old",
+  "jocks",
+  "nerds",
   "competitors",
   "hobbyists",
   "you",
@@ -68,7 +75,7 @@ export function SlotMachineText() {
         }
         return prev + 1;
       });
-    }, 600);
+    }, 400);
 
     return () => clearInterval(interval);
   }, [isAnimating]);

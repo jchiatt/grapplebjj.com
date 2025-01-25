@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Testimonials | Grapple BJJ",
+  title: "Testimonials | Grapple Jiu Jitsu",
   description:
     "Read what our students say about their jiu jitsu journey at Grapple.",
 };
