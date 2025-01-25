@@ -9,7 +9,7 @@ import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 import { CallToAction } from "@/components/ui/call-to-action";
 
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 86400; // Revalidate every day
 
 async function getVideos() {
   try {
