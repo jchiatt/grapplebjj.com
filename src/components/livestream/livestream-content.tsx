@@ -26,14 +26,17 @@ export default function LiveStreamContent() {
             className="w-full h-full rounded-lg"
           />
         </div>
-        <CallToAction
-          title="Tired of just watching?"
-          description="Join us on the mats and start your jiu jitsu journey today."
-          primaryAction={{
-            label: "Start Training Today",
-            href: "/trial",
-          }}
-        />
+
+        <div className="mt-16 md:mt-24">
+          <CallToAction
+            title="Tired of just watching?"
+            description="Join us on the mats and start your jiu jitsu journey today."
+            primaryAction={{
+              label: "Start Training Today",
+              href: "/trial",
+            }}
+          />
+        </div>
       </div>
     );
   }
@@ -44,14 +47,17 @@ export default function LiveStreamContent() {
         <h1 className="text-4xl font-bold mb-4">Next Live Class</h1>
         <p className="text-xl text-gray-400">Coming Soon</p>
       </div>
-      <CallToAction
-        title="Just watching not good enough for you?"
-        description="Get off the sidelines and onto the mats. Start your jiu jitsu journey today."
-        primaryAction={{
-          label: "Start Training Today",
-          href: "/trial",
-        }}
-      />
+
+      <div className="mt-16 md:mt-24">
+        <CallToAction
+          title="Just watching not good enough for you?"
+          description="Get off the sidelines and onto the mats. Start your jiu jitsu journey today."
+          primaryAction={{
+            label: "Start Training Today",
+            href: "/trial",
+          }}
+        />
+      </div>
     </div>
   );
 }

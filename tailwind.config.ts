@@ -124,6 +124,8 @@ export default {
         "slide-out": "slide-out 0.3s ease-out",
         "spin-slow": "spin 8s linear infinite",
         "spin-reverse-slower": "spin-reverse 12s linear infinite",
+        fadeIn: "fadeIn 0.6s ease-out forwards",
+        highlightSlide: "highlightSlide 0.6s ease-out forwards",
       },
       keyframes: {
         "accordion-down": {
@@ -153,6 +155,20 @@ export default {
         "spin-reverse": {
           "0%": { transform: "rotate(360deg)" },
           "100%": { transform: "rotate(0deg)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "0.8" },
+        },
+        highlightSlide: {
+          "0%": {
+            transform: "scaleX(0) skewY(-2deg)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scaleX(1) skewY(-2deg)",
+            opacity: "1",
+          },
         },
       },
       fontFamily: {

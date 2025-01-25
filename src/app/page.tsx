@@ -2,6 +2,8 @@ import { Hero } from "@/components/hero/hero";
 import { FeaturedVideos } from "@/components/videos/featured-videos";
 import { Testimonials } from "@/components/testimonials/testimonials";
 import { FeaturedPhotos } from "@/components/photos/featured-photos";
+import { FullWidthSection } from "@/components/ui/full-width-section";
+import { SlotMachineText } from "@/components/animations/slot-machine-text";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 
@@ -23,10 +25,8 @@ export default async function Home() {
     <div>
       <Hero />
 
-      <FeaturedPhotos title="Photo Gallery" />
-
       {/* Features Section */}
-      <section className="container py-24">
+      <FullWidthSection className="py-24">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {features.map((feature) => (
             <Link
@@ -46,11 +46,54 @@ export default async function Home() {
             </Link>
           ))}
         </div>
-      </section>
+      </FullWidthSection>
+
+      {/* Who We Serve Section */}
+      <FullWidthSection className="bg-primary dark:bg-primary/20 backdrop-blur-sm py-24">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+            Grapple is for <br />
+            <SlotMachineText />
+          </h2>
+          <p className="text-xl text-white/90 mb-16">
+            If you&apos;re looking to build confidence, learn self-defense, get
+            fit, or simply challenge yourself with something new, we&apos;d love
+            to have you. If you want to learn and grow, we&apos;re here to help.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {audiences.map((audience) => (
+            <Link
+              key={audience.title}
+              href="/trial"
+              className="group relative overflow-hidden rounded-lg bg-black/50 backdrop-blur-sm p-6 transition-all hover:bg-black/40"
+            >
+              <div className="relative z-10">
+                <h3 className="font-heading text-lg font-semibold mb-2 text-white">
+                  For {audience.title}
+                </h3>
+                <p className="text-sm text-white/90 group-hover:text-white transition-colors mb-4">
+                  {audience.description}
+                </p>
+                <span className="text-sm text-white/90 group-hover:text-white inline-flex items-center">
+                  Learn More{" "}
+                  <span className="ml-1 transition-transform group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-white/5 opacity-0 transition-opacity group-hover:opacity-100" />
+            </Link>
+          ))}
+        </div>
+      </FullWidthSection>
 
       <Testimonials />
 
       <FeaturedVideos initialVideos={videos} />
+
+      <FeaturedPhotos title="" />
 
       {/* CTA Section */}
       <section className="container pb-24">
@@ -110,5 +153,37 @@ const features = [
     description:
       "The mats teach invaluable life lessons through humility and perseverance. Develop mental fortitude that extends far beyond training.",
     link: "/trial",
+  },
+];
+
+const audiences = [
+  {
+    title: "Kids",
+    description:
+      "Build confidence, discipline, and healthy habits from an early age.",
+  },
+  {
+    title: "Adults",
+    description:
+      "Get fit, learn self-defense, and join a community of lifelong learners.",
+  },
+  {
+    title: "Law Enforcement",
+    description:
+      "Enhance your tactical skills with proven grappling techniques.",
+  },
+  {
+    title: "Healthcare Workers",
+    description:
+      "Learn practical skills for managing challenging situations safely.",
+  },
+  {
+    title: "Competitors",
+    description: "Train with dedicated athletes and prepare for tournaments.",
+  },
+  {
+    title: "Hobbyists",
+    description:
+      "Enjoy the art of grappling at your own pace in a supportive environment.",
   },
 ];

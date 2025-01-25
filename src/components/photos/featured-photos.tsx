@@ -9,6 +9,7 @@ const photos = [
   {
     src: "/images/training_shots/squad-2.jpg",
     alt: "Training at Grapple",
+    span: "col-span-2 md:col-span-3 md:row-span-2 lg:row-span-1 lg:col-span-1",
   },
   {
     src: "/images/training_shots/training-3.jpg",
@@ -19,36 +20,37 @@ const photos = [
   {
     src: "/images/training_shots/squad-1.jpg",
     alt: "Training at Grapple",
+    span: "col-span-2 md:col-span-1",
   },
   {
     src: "/images/training_shots/training-1.jpg",
     alt: "Training at Grapple",
-    span: "row-span-2",
+    span: "md:row-span-2",
   },
   {
     src: "/images/training_shots/squad-3.jpg",
     alt: "Training at Grapple",
-    span: "col-span-2 row-span-2",
+    span: "col-span-1 md:col-span-2 md:row-span-2",
   },
   {
     src: "/images/training_shots/training-2.jpg",
     alt: "Training at Grapple",
-    span: "row-span-2",
+    span: "col-span-2 md:col-span-1 md:row-span-2",
   },
   {
     src: "/images/training_shots/emergency-medicine-seminar.jpg",
     alt: "Women in Emergency Medicine Seminar at Grapple",
-    span: "col-span-2 row-span-2",
+    span: "col-span-2 lg:row-span-2",
   },
   {
     src: "/images/training_shots/training-5.jpg",
     alt: "Training at Grapple",
-    span: "col-span-2",
+    span: "lg:col-span-2",
   },
   {
     src: "/images/training_shots/training-4.jpg",
     alt: "Training at Grapple",
-    span: "col-span-2",
+    span: "lg:col-span-2",
   },
 ];
 
@@ -71,6 +73,9 @@ export function FeaturedPhotos({ className = "", title }: FeaturedPhotosProps) {
               alt={photo.alt}
               fill
               className="object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 dark:brightness-90 dark:group-hover:brightness-100"
+              placeholder="blur"
+              blurDataURL={photo.src}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-primary/50 mix-blend-overlay transition-opacity duration-300 opacity-50 group-hover:opacity-100" />
           </div>

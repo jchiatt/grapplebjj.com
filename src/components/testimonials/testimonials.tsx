@@ -25,6 +25,9 @@ export function Testimonials() {
                   alt={testimonial.name}
                   fill
                   className="object-cover"
+                  placeholder="blur"
+                  blurDataURL={testimonial.image}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div>

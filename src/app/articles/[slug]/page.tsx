@@ -129,7 +129,7 @@ export default async function ArticlePage(props: Props) {
         <Markdown>{article.content}</Markdown>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-16 md:mt-24">
         <CallToAction
           title="Ready to Start Your Journey?"
           description="Join us on the mats and experience the art of Brazilian Jiu-Jitsu firsthand."

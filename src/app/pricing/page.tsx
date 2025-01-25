@@ -170,7 +170,7 @@ export default function PricingPage() {
       <DiscountSection />
       <FAQ />
 
-      <div className="mt-16">
+      <div className="mt-16 md:mt-24">
         <CallToAction
           title="Ready to start your journey?"
           description="Join us for a free trial class and experience the amazing art of jiu jitsu firsthand."

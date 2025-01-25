@@ -237,7 +237,7 @@ export default function EventsPage() {
         </div>
       )}
 
-      <div className="mt-16">
+      <div className="mt-16 md:mt-24">
         <CallToAction
           title="Want to host an event?"
           description="Get in touch to discuss hosting your tournament or seminar with Grapple."

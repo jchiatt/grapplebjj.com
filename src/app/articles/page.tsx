@@ -113,7 +113,7 @@ export default function ArticlesPage() {
         </div>
       )}
 
-      <div className="mt-16">
+      <div className="mt-16 md:mt-24">
         <CallToAction
           title="Tired of just reading?"
           description="Join us on the mats and see how jiu jitsu can transform your life."

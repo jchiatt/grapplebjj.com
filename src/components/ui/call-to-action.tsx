@@ -26,7 +26,7 @@ export function CallToAction({
 }: CallToActionProps) {
   return (
     <div
-      className={`rounded-lg border-2 border-secondary/10 p-12 text-center ${className}`}
+      className={`rounded-lg border-2 border-secondary/10 p-4 md:p-8 lg:p-12 text-center ${className}`}
     >
       <div className="relative">
         <h1 className="max-w-4xl mx-auto bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-4xl md:text-6xl lg:text-7xl font-bold text-transparent pb-8">

@@ -130,18 +130,20 @@ export function Schedule() {
         ))}
       </div>
 
-      <CallToAction
-        title="Ready to Grapple?"
-        description="Jiu jitsu is a great way to get fit, challenge yourself, conquer fears, and engage your mind."
-        primaryAction={{
-          label: "Trial Class",
-          href: "/trial",
-        }}
-        secondaryAction={{
-          label: "FAQ",
-          href: "/faq",
-        }}
-      />
+      <div className="mt-16 md:mt-24">
+        <CallToAction
+          title="Ready to Grapple?"
+          description="Jiu jitsu is a great way to get fit, challenge yourself, conquer fears, and engage your mind."
+          primaryAction={{
+            label: "Trial Class",
+            href: "/trial",
+          }}
+          secondaryAction={{
+            label: "FAQ",
+            href: "/faq",
+          }}
+        />
+      </div>
     </div>
   );
 }

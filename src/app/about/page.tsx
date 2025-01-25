@@ -61,10 +61,10 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <FeaturedPhotos className="mt-24" title="Life at Grapple" />
+      <FeaturedPhotos className="mt-24" title="" />
 
       {/* CTA Section */}
-      <div className="mt-24">
+      <div className="mt-16 md:mt-24">
         <CallToAction
           title="Ready to Join Our Community?"
           description="Experience the art of submission grappling firsthand with a free trial class."

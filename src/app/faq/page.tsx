@@ -47,7 +47,7 @@ export default function FAQPage() {
         <FAQSection title="Pricing & Membership" questions={faqs.pricing} />
       </div>
 
-      <div className="mt-16">
+      <div className="mt-16 md:mt-24">
         <CallToAction
           title="Still have questions?"
           description="We're here to help! Reach out to us and we'll get back to you as soon as possible."

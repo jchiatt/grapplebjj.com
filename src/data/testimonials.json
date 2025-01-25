@@ -30,13 +30,20 @@
     },
     {
       "id": 4,
+      "name": "Bryan Pedan",
+      "role": "Student of 3 Years",
+      "content": "I love it , I love the people, the teachers/ coaches, the gym atmosphere , the skills you will learn in Jiu Jitsu here are top of the game, training stays safe as possible I would recommend grapple Jiu Jitsu to anyone that wants to learn self defense or a skill and great exercise as well to keep fit 😀",
+      "image": "/images/testimonials/avatar.svg"
+    },
+    {
+      "id": 5,
       "name": "Chance Keenan",
       "role": "Healthcare Worker",
       "content": "The mental game in jiu-jitsu is incredible. Every session is like a physical chess match, and the principles I've learned on the mats have helped me in my studies too. The focus on continuous improvement and learning from failure has changed how I approach challenges.",
       "image": "/images/testimonials/chance_keenan.jpg"
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Greg Guidry",
       "role": "Visitor",
       "content": "Very knowledgeable instructor, gym was very clean and spacious. Anyone in the area needs to train here for sure.",

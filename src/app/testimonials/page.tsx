@@ -32,18 +32,20 @@ export default function TestimonialsPage() {
         ))}
       </motion.div>
 
-      <CallToAction
-        title="Ready to start your own journey?"
-        description="Join us on the mats and see how jiu jitsu can transform your life."
-        primaryAction={{
-          label: "Schedule Free Class",
-          href: "/trial",
-        }}
-        secondaryAction={{
-          label: "FAQ",
-          href: "/faq",
-        }}
-      />
+      <div className="mt-16 md:mt-24">
+        <CallToAction
+          title="Ready to start your own journey?"
+          description="Join us on the mats and see how jiu jitsu can transform your life."
+          primaryAction={{
+            label: "Schedule Free Class",
+            href: "/trial",
+          }}
+          secondaryAction={{
+            label: "FAQ",
+            href: "/faq",
+          }}
+        />
+      </div>
     </div>
   );
 }
