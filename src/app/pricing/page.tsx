@@ -41,7 +41,7 @@ function PriceCard({
       <p className="mt-4 text-sm">{description}</p>
       <ul className="mt-8 space-y-4">
         {features.map((feature) => (
-          <li key={feature} className="flex items-center">
+          <li key={feature} className="flex items-start">
             <svg
               className="h-5 w-5 flex-shrink-0"
               viewBox="0 0 20 20"
@@ -147,8 +147,9 @@ export default function PricingPage() {
           features={[
             "One full class",
             "No gear or equipment required",
-            "Bring a friend, get $10",
+            "Bring a friend, get $10 cash",
             "Meet the community",
+            "Shower available",
           ]}
           cta={{ text: "Schedule Trial", href: "/trial" }}
         />
@@ -161,7 +162,9 @@ export default function PricingPage() {
             "Access to all classes",
             "Valid for one day",
             "No commitment or other fees",
+            "Bring a friend, get $10 cash",
             "No gear or equipment required",
+            "Shower available",
           ]}
           cta={{ text: "Get Started", href: "/signup" }}
         />
@@ -173,8 +176,10 @@ export default function PricingPage() {
           features={[
             "All classes included",
             "No contracts or other fees",
+            "Shower available",
             "Access to private online learning",
             "Access to special events",
+            "Off-schedule access to gym for self-directed training with other Grapplers",
           ]}
           cta={{ text: "Join Now", href: "/signup" }}
           highlighted
