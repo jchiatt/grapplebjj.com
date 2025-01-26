@@ -4,6 +4,7 @@ import { useLiveStream } from "./livestream-context";
 import { CallToAction } from "../ui/call-to-action";
 import { Headline } from "../ui/headline";
 import { getNextLiveStreamedClass, formatTime } from "@/lib/schedule";
+import Link from "next/link";
 
 export default function LiveStreamContent() {
   const { liveStatus, isLoading } = useLiveStream();
@@ -52,12 +53,22 @@ export default function LiveStreamContent() {
     <div className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">Next Live Class</h1>
-        <p className="text-xl text-gray-400">
+        <p className="text-xl text-foreground/60">
           {nextClass
             ? `${
                 nextClass.day.charAt(0).toUpperCase() + nextClass.day.slice(1)
               } at ${formatTime(nextClass.class.start)}`
             : "Coming Soon"}
+        </p>
+        <p className="text-md text-primary">
+          <Link
+            href="https://www.youtube.com/@mississippibjj"
+            target="_blank"
+            className="underline"
+            rel="noopener noreferrer"
+          >
+            Subscribe on YouTube &rarr;
+          </Link>
         </p>
       </div>
 

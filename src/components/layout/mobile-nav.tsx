@@ -68,9 +68,7 @@ export function MobileNav() {
         </SheetHeader>
         <nav className="flex flex-col gap-4 mt-6">
           <NavLink href="/schedule">Schedule</NavLink>
-          <SheetClose asChild>
-            <LivestreamLink />
-          </SheetClose>
+          <LivestreamLink mobile={true} />
           <NavLink href="/pricing">Pricing</NavLink>
           <NavLink href="/articles">Articles</NavLink>
           <NavLink href="/events">Events</NavLink>
