@@ -27,8 +27,15 @@ export default async function Home() {
     <div>
       <Hero />
 
+      <FeaturedVideos initialVideos={videos} />
+
+      <FeaturedPhotos title="" />
+
       {/* Features Section */}
       <FullWidthSection className="py-24">
+        <h2 className="max-w-4xl mx-auto bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-4xl md:text-6xl lg:text-7xl font-bold text-transparent pb-8 text-center">
+          Why Grapple?
+        </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {features.map((feature) => (
             <Link
@@ -93,10 +100,6 @@ export default async function Home() {
 
       {/* Coach Profiles */}
       <CoachProfiles />
-
-      <FeaturedVideos initialVideos={videos} />
-
-      <FeaturedPhotos title="" />
 
       <Testimonials />
 

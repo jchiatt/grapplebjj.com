@@ -43,8 +43,9 @@ export default function FAQPage() {
       </div>
 
       <div className="mt-16">
-        <FAQSection title="General Questions" questions={faqs.general} />
+        <FAQSection title="Visiting" questions={faqs.visiting} />
         <FAQSection title="Pricing & Membership" questions={faqs.pricing} />
+        <FAQSection title="General Questions" questions={faqs.general} />
       </div>
 
       <div className="mt-16 md:mt-24">
