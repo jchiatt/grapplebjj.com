@@ -74,7 +74,7 @@ export function CoachProfiles() {
             role="Owner & Head Coach"
             bio="I'm passionate about creating an environment where people can learn and grow through the art of submission grappling. With years of experience in no-gi submission grappling and a background in software engineering, I try to bring a systematic, technical approach to both learning and teaching that helps students understand not just the how, but the why behind every technique."
             imageSrc="/images/coaches/jc-hiatt.png"
-            learnMoreHref="/about/jc"
+            learnMoreHref="/coach/jc"
             featured
           />
         </div>

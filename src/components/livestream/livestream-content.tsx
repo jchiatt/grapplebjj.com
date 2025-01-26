@@ -3,9 +3,11 @@
 import { useLiveStream } from "./livestream-context";
 import { CallToAction } from "../ui/call-to-action";
 import { Headline } from "../ui/headline";
+import { getNextLiveStreamedClass, formatTime } from "@/lib/schedule";
 
 export default function LiveStreamContent() {
   const { liveStatus, isLoading } = useLiveStream();
+  const nextClass = getNextLiveStreamedClass();
 
   if (isLoading) {
     return (
@@ -47,10 +49,16 @@ export default function LiveStreamContent() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">Next Live Class</h1>
-        <p className="text-xl text-gray-400">Coming Soon</p>
+        <p className="text-xl text-gray-400">
+          {nextClass
+            ? `${
+                nextClass.day.charAt(0).toUpperCase() + nextClass.day.slice(1)
+              } at ${formatTime(nextClass.class.start)}`
+            : "Coming Soon"}
+        </p>
       </div>
 
       <div className="mt-16 md:mt-24">

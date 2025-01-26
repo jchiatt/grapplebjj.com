@@ -66,6 +66,7 @@ export async function getFeaturedVideos(limit = 3): Promise<YouTubeVideo[]> {
 
 export async function getLiveStreamStatus(): Promise<LiveStreamStatus> {
   if (process.env.NODE_ENV === "development") {
+    return { isLive: false };
     return {
       isLive: true,
       streamUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",

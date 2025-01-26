@@ -64,7 +64,7 @@ export default async function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {audiences.map((audience) => (
             <Link
               key={audience.title}
@@ -94,11 +94,11 @@ export default async function Home() {
       {/* Coach Profiles */}
       <CoachProfiles />
 
-      <Testimonials />
-
       <FeaturedVideos initialVideos={videos} />
 
       <FeaturedPhotos title="" />
+
+      <Testimonials />
 
       <div className="py-24">
         <CallToAction
