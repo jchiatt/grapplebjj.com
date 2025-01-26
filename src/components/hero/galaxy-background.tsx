@@ -4,6 +4,7 @@ import { useTheme } from "@/components/theme/theme-provider";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { useTheme as useNextTheme } from "next-themes";
+import debounce from "lodash/debounce";
 
 interface GalaxyBackgroundProps {
   className?: string;
@@ -24,14 +25,8 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
 
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      100
-    );
-    // Position camera to better center the galaxy
-    camera.position.set(0, 2, 5);
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 100);
+    camera.position.set(0, 2, 6);
     camera.lookAt(0, 0, 0);
 
     if (!rendererRef.current) {
@@ -43,8 +38,33 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
     }
 
     const renderer = rendererRef.current;
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Function to update sizes
+    const updateSizes = () => {
+      const container = canvas.parentElement;
+      if (!container) return;
+
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      // Update camera
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+
+      // Update renderer
+      renderer.setSize(width, height, false);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    };
+
+    // Initial size setup
+    updateSizes();
+
+    // Handle resize with debounce
+    const debouncedResize = debounce(() => {
+      updateSizes();
+    }, 250);
+
+    window.addEventListener("resize", debouncedResize);
 
     // Check if context is lost
     const handleContextLost = (event: Event): boolean => {
@@ -68,7 +88,7 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
     const parameters = {
       count: 100000,
       size: 0.01,
-      radius: 4,
+      radius: 5,
       branches: 3,
       spin: 1,
       randomness: 0.2,
@@ -175,18 +195,10 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
     };
     animate();
 
-    // Handle resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    };
-    window.addEventListener("resize", handleResize);
-
     // Cleanup
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedResize);
+      debouncedResize.cancel();
       canvas?.removeEventListener("webglcontextlost", handleContextLost);
       canvas?.removeEventListener(
         "webglcontextrestored",
@@ -201,20 +213,23 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
       geometry.dispose();
       material.dispose();
 
-      // Don't dispose of the renderer on cleanup since we're keeping it in the ref
-      // Only dispose when component is fully unmounted
       if (rendererRef.current && !canvas) {
         rendererRef.current.dispose();
         rendererRef.current = null;
       }
     };
-  }, [theme, isDark]); // Regenerate galaxy when theme changes or dark mode changes
+  }, [theme, isDark]);
 
   if (!isDark) return null;
 
   return (
     <div className={`fixed inset-0 -z-10 ${className ?? ""}`}>
-      <canvas ref={canvasRef} className="h-screen w-screen" />
+      <div className="absolute inset-0">
+        <canvas
+          ref={canvasRef}
+          style={{ width: "100%", height: "100%", display: "block" }}
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/50 to-background/80" />
     </div>
   );
