@@ -325,7 +325,6 @@ info@grapplebjj.com
 - Update about page copy
 - Update my coach profile copy
 - More FAQs
-- Link to log in for existing members
 
 # Automations
 
@@ -355,3 +354,4 @@ info@grapplebjj.com
 - Latest articles preview on homepage
 - Recent streams to livestream page
 - Optimize all images (tinypng plus blur data urls)
+- Add Skool link for members
