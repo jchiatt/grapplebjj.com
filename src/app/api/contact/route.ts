@@ -5,30 +5,25 @@ const ZAPIER_WEBHOOK_URL =
 
 export async function POST(request: Request) {
   try {
-    const data = await request.json();
+    const body = await request.json();
 
     const response = await fetch(ZAPIER_WEBHOOK_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
       throw new Error("Failed to submit form");
     }
 
-    const result = await response.json();
-
-    return NextResponse.json(
-      { message: "Form submitted successfully", id: result.id },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error submitting form:", error);
+    console.error("Error submitting contact form:", error);
     return NextResponse.json(
-      { message: "Failed to submit form" },
+      { error: "Failed to submit form" },
       { status: 500 }
     );
   }

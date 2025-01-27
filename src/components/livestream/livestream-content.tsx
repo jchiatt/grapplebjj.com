@@ -64,7 +64,7 @@ export default function LiveStreamContent() {
         </p>
         <p className="text-md text-primary">
           <Link
-            href="https://www.youtube.com/@mississippibjj"
+            href="https://www.youtube.com/@gr4ppletheworld"
             target="_blank"
             className="underline"
             rel="noopener noreferrer"

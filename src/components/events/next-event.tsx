@@ -23,12 +23,6 @@ function formatDate(dateString: string) {
   });
 }
 
-function getGoogleMapsUrl(address: string): string {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    address
-  )}`;
-}
-
 function isPriceStillPayWhatYouWant(price: Event["price"]): boolean {
   if ("type" in price || !price.payWhatYouWant?.enabled) return false;
   if (!price.payWhatYouWant.availableUntil) return true;
@@ -131,16 +125,17 @@ export function NextEvent() {
                   <MapPin className="h-4 w-4 mt-1" />
                   <div>
                     <div>{nextEvent.location.name}</div>
-                    {nextEvent.location.address && (
-                      <a
-                        href={getGoogleMapsUrl(nextEvent.location.address)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:text-primary/80 transition-colors"
-                      >
-                        {nextEvent.location.address}
-                      </a>
-                    )}
+                    {nextEvent.location.address &&
+                      nextEvent.location.mapsLink && (
+                        <a
+                          href={nextEvent.location.mapsLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary/80 transition-colors"
+                        >
+                          {nextEvent.location.address} &rarr;
+                        </a>
+                      )}
                     {nextEvent.location.instructions && (
                       <p className="text-foreground/60 mt-1">
                         {nextEvent.location.instructions}

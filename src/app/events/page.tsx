@@ -43,12 +43,6 @@ function formatPrice(price: Event["price"]): string {
   return `$${price.amount}`;
 }
 
-function getGoogleMapsUrl(address: string): string {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    address
-  )}`;
-}
-
 function EventCard({ event }: { event: Event }) {
   const eventDate = new Date(event.date + "T00:00:00-06:00");
   const formattedDate = eventDate.toLocaleDateString("en-US", {
@@ -122,14 +116,14 @@ function EventCard({ event }: { event: Event }) {
             <MapPin className="h-4 w-4 mt-1" />
             <div>
               <div>{event.location.name}</div>
-              {event.location.address && (
+              {event.location.address && event.location.mapsLink && (
                 <a
-                  href={getGoogleMapsUrl(event.location.address)}
+                  href={event.location.mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:text-primary/80 transition-colors"
                 >
-                  {event.location.address}
+                  {event.location.address} &rarr;
                 </a>
               )}
               {event.location.instructions && (

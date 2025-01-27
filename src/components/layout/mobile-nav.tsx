@@ -75,6 +75,7 @@ export function MobileNav() {
           <NavLink href="https://www.grapple.store" external>
             Merch
           </NavLink>
+          <NavLink href="/contact">Contact</NavLink>
         </nav>
       </SheetContent>
     </Sheet>

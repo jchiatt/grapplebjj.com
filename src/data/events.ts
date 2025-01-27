@@ -12,6 +12,7 @@ export interface Event {
     name: string;
     address?: string;
     instructions?: string;
+    mapsLink?: string;
   };
   price:
     | {
@@ -50,6 +51,8 @@ export const upcomingEvents: Event[] = [
     location: {
       name: "Grapple Jiu Jitsu",
       address: "5709 US-80 E, Pearl, MS 39208",
+      mapsLink:
+        "https://www.google.com/maps/place/Grapple/@32.2846794,-90.0599141,15z/data=!3m1!4b1!4m6!3m5!1s0x86282be6569a058b:0x6fa2de5de2bfc836!8m2!3d32.2846807!4d-90.0414817!16s%2Fg%2F11k7vbhgm5?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D",
       instructions:
         "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
     },
@@ -83,6 +86,8 @@ export const upcomingEvents: Event[] = [
     location: {
       name: "Grapple Jiu Jitsu",
       address: "5709 US-80 E, Pearl, MS 39208",
+      mapsLink:
+        "https://www.google.com/maps/place/Grapple/@32.2846794,-90.0599141,15z/data=!3m1!4b1!4m6!3m5!1s0x86282be6569a058b:0x6fa2de5de2bfc836!8m2!3d32.2846807!4d-90.0414817!16s%2Fg%2F11k7vbhgm5?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D",
       instructions:
         "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
     },

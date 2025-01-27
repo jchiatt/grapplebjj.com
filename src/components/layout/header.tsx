@@ -55,6 +55,12 @@ export function Header() {
             >
               Merch
             </a>
+            <Link
+              href="/contact"
+              className="text-foreground/60 transition-colors hover:text-foreground/80"
+            >
+              Contact
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-2">

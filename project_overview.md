@@ -322,7 +322,6 @@ info@grapplebjj.com
 - Floating video embed when we are live
 - Video from me on homepage
 - Video from me on about page
-- Contact page
 - Connect kids interest form and contact form to zapier
 - Floating finances/growth metrics widget
 - Video from me on trial page
@@ -330,15 +329,12 @@ info@grapplebjj.com
 - Video from me on drop in page
 - GIF from us on drop-in, trial, and join pages
 - Video from me on thank you page
-- Gather more testimonials
 - Update about page copy
 - Update my coach profile copy
-- Add coach profiles for all coaches
 - Write articles related to various audiences
 - Latest articles preview on homepage
 - Recent streams to livestream page
 - More FAQs
-- Add pop up chat bot where they can ask questions about Grapple or jiu jitsu, it can also direct them to pages on the site when they have specific questions about those respective topics
 - Link to log in for existing members
 - Make GIFs
 
@@ -350,3 +346,9 @@ info@grapplebjj.com
 - Send a thank you email to new members after they sign up for a membership
 - Create a task to create a personalized welcome video for new members
 - Invite to Skool and WhatsApp
+
+# Post-Launch Todos
+
+- Gather more testimonials
+- Add coach profiles for all coaches
+- Add pop up chat bot where they can ask questions about Grapple or jiu jitsu, it can also direct them to pages on the site when they have specific questions about those respective topics
