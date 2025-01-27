@@ -319,13 +319,11 @@ info@grapplebjj.com
 
 # TODO
 
-- Floating video embed when we are live
 - Floating finances/growth metrics widget
 - Make GIFs
 - Make videos
 - Update about page copy
 - Update my coach profile copy
-
 - More FAQs
 - Link to log in for existing members
 
