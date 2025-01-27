@@ -76,6 +76,25 @@ export function MobileNav() {
             Merch
           </NavLink>
           <NavLink href="/contact">Contact</NavLink>
+
+          <div className="pt-4 mt-4 border-t flex flex-col gap-3">
+            <SheetClose asChild>
+              <Button asChild className="w-full">
+                <Link href="/trial">Free Trial Class</Link>
+              </Button>
+            </SheetClose>
+            <SheetClose asChild>
+              <Button asChild variant="outline" className="w-full">
+                <a
+                  href="https://portal.grapplejj.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Login
+                </a>
+              </Button>
+            </SheetClose>
+          </div>
         </nav>
       </SheetContent>
     </Sheet>

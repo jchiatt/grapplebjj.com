@@ -63,7 +63,17 @@ export function Header() {
             </Link>
           </nav>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
+          <nav className="hidden md:flex">
+            <a
+              href="https://portal.grapplejj.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Login
+            </a>
+          </nav>
           <ThemeSwitcher />
           <MobileNav />
         </div>

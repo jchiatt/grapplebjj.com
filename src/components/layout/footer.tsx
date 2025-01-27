@@ -51,6 +51,16 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <a
+                  href="https://portal.grapplejj.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Login
+                </a>
+              </li>
             </ul>
           </div>
           <div>
@@ -122,7 +132,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="text-sm text-muted-foreground">
-                <em>Located on the 2nd floor of Focus Fit</em>
+                <em>Located on the 2nd floor of Focus Fit Gym</em>
               </li>
             </ul>
           </div>

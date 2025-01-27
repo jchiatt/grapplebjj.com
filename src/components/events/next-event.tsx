@@ -89,7 +89,8 @@ export function NextEvent() {
             alt={nextEvent.title}
             fill
             className="object-cover"
-            priority
+            loading="lazy"
+            placeholder="empty"
           />
           <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
             {nextEvent.category.charAt(0).toUpperCase() +

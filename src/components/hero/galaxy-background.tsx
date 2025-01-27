@@ -18,7 +18,14 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
   const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
-    if (!canvasRef.current || !isDark) return;
+    if (!canvasRef.current || !isDark) {
+      // Clean up if we switch to light mode
+      if (rendererRef.current) {
+        rendererRef.current.dispose();
+        rendererRef.current = null;
+      }
+      return;
+    }
 
     // Store canvas reference
     const canvas = canvasRef.current;
@@ -293,7 +300,7 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
         rendererRef.current = null;
       }
     };
-  }, [theme, isDark]);
+  }, [theme, isDark, resolvedTheme]);
 
   if (!isDark) return null;
 

@@ -28,16 +28,9 @@ export default async function Home() {
     <div>
       <Hero />
 
-      <div className="container mx-auto px-4 py-24">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-          Next Event at Grapple
-        </h2>
-        <NextEvent />
-      </div>
+      <FeaturedPhotos title="" />
 
       <FeaturedVideos initialVideos={videos} />
-
-      <FeaturedPhotos title="" />
 
       {/* Features Section */}
       <FullWidthSection className="py-24">
@@ -105,6 +98,13 @@ export default async function Home() {
           ))}
         </div>
       </FullWidthSection>
+
+      <div className="container mx-auto px-4 py-24">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+          Next Event at Grapple
+        </h2>
+        <NextEvent />
+      </div>
 
       {/* Coach Profiles */}
       <CoachProfiles />
@@ -174,7 +174,7 @@ const audiences = [
   {
     title: "Adults",
     description:
-      "Get fit, learn self-defense, and join a community of lifelong learners.",
+      "Challenge yourself, get fit, and join a community of lifelong learners.",
     link: "/trial",
   },
   {
@@ -191,7 +191,8 @@ const audiences = [
   },
   {
     title: "Competitors",
-    description: "Train with dedicated athletes and prepare for tournaments.",
+    description:
+      "Train with others who are dedicated to improving and prepare for tournaments.",
     link: "/trial",
   },
   {

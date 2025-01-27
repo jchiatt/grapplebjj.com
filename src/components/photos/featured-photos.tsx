@@ -73,9 +73,9 @@ export function FeaturedPhotos({ className = "", title }: FeaturedPhotosProps) {
               alt={photo.alt}
               fill
               className="object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 dark:brightness-90 dark:group-hover:brightness-100"
-              placeholder="blur"
-              blurDataURL={photo.src}
+              placeholder="empty"
               sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-primary/50 mix-blend-overlay transition-opacity duration-300 opacity-50 group-hover:opacity-100" />
           </div>
