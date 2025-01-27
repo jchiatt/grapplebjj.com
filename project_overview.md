@@ -338,7 +338,6 @@ info@grapplebjj.com
 - Add coach profiles for all coaches
 - Write articles related to various audiences
 - Latest articles preview on homepage
-- Floating link on the side of the page to go to trial page
 - Recent streams to livestream page
 - More FAQs
 - Add pop up chat bot where they can ask questions about Grapple or jiu jitsu, it can also direct them to pages on the site when they have specific questions about those respective topics

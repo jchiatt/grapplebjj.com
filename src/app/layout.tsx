@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Layout } from "@/components/layout/layout";
 import { LiveStreamProvider } from "@/components/livestream/livestream-context";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { FloatingCTA } from "@/components/ui/floating-cta";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -20,7 +23,6 @@ const metrophobic = Metrophobic({
 export const metadata: Metadata = {
   title: "Grapple Jiu Jitsu",
   description: "No-Gi submission grappling gym in Pearl, Mississippi.",
-  metadataBase: new URL("https://grapplejj.com"),
 };
 
 export default function RootLayout({
@@ -37,6 +39,9 @@ export default function RootLayout({
           <LiveStreamProvider>
             <Layout>{children}</Layout>
           </LiveStreamProvider>
+          <FloatingCTA />
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
