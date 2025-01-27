@@ -9,7 +9,7 @@ export function useScrollPastHero() {
     // Create a sentinel element at 100vh
     const sentinel = document.createElement("div");
     sentinel.style.position = "absolute";
-    sentinel.style.top = "100vh"; // Place it at exactly one viewport height
+    sentinel.style.top = "120vh"; // Place it at exactly one viewport height
     sentinel.style.height = "1px";
     sentinel.style.width = "1px";
     sentinel.style.pointerEvents = "none";
