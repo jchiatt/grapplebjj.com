@@ -86,7 +86,7 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
 
     // Galaxy parameters
     const parameters = {
-      count: theme === "valentine" ? 25000 : 100000,
+      count: theme === "valentine" ? 10000 : 100000,
       size: theme === "valentine" ? 0.04 : 0.01,
       radius: 5,
       branches: 3,
