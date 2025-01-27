@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLiveStream } from "./livestream-context";
 import { useRouter, usePathname } from "next/navigation";
 import { useScrollPastHero } from "@/hooks/use-scroll-past-hero";
@@ -8,11 +8,17 @@ import { useScrollPastHero } from "@/hooks/use-scroll-past-hero";
 export function FloatingPlayer() {
   const { liveStatus, isLoading } = useLiveStream();
   const [isVisible, setIsVisible] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const showPlayer = useScrollPastHero();
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   if (
+    !isMounted ||
     isLoading ||
     !liveStatus?.isLive ||
     !isVisible ||

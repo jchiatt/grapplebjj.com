@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function useScrollPastHero() {
   const [hasScrolledPastHero, setHasScrolledPastHero] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -13,39 +15,54 @@ export function useScrollPastHero() {
   useEffect(() => {
     if (!isMounted) return;
 
-    // Create a sentinel element at 100vh
-    const sentinel = document.createElement("div");
-    sentinel.style.position = "absolute";
-    sentinel.style.top = "120vh"; // Place it at exactly one viewport height
-    sentinel.style.height = "1px";
-    sentinel.style.width = "1px";
-    sentinel.style.pointerEvents = "none";
-    sentinel.style.opacity = "0";
-    document.body.appendChild(sentinel);
+    // Create a sentinel element at 100vh if it doesn't exist
+    if (!sentinelRef.current) {
+      const sentinel = document.createElement("div");
+      sentinel.style.position = "absolute";
+      sentinel.style.top = "100vh"; // Place it at exactly one viewport height
+      sentinel.style.height = "1px";
+      sentinel.style.width = "1px";
+      sentinel.style.pointerEvents = "none";
+      sentinel.style.opacity = "0";
+      document.body.appendChild(sentinel);
+      sentinelRef.current = sentinel;
+    }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // On mobile, we use the intersection observer
-        // On desktop (>= 768px), we always show
-        const shouldShow = window.innerWidth >= 768 || !entry.isIntersecting;
-        setHasScrolledPastHero(shouldShow);
-      },
-      {
-        threshold: 0, // Trigger as soon as even 1px is passed
-      }
-    );
+    // Create observer if it doesn't exist
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver(
+        ([entry]) => {
+          // On mobile, we use the intersection observer and show only when scrolled past
+          // On desktop (>= 768px), we always show
+          const isMobile = window.innerWidth < 768;
+          const shouldShow = !isMobile || (isMobile && !entry.isIntersecting);
+          setHasScrolledPastHero(shouldShow);
+        },
+        {
+          threshold: 0, // Trigger as soon as even 1px is passed
+        }
+      );
+    }
 
-    observer.observe(sentinel);
+    // Start observing
+    if (sentinelRef.current && observerRef.current) {
+      observerRef.current.observe(sentinelRef.current);
+    }
 
-    // Also handle resize events for the desktop override
+    // Handle resize events for the desktop override
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      const isMobile = window.innerWidth < 768;
+      if (!isMobile) {
+        // On desktop, always show
         setHasScrolledPastHero(true);
       } else {
-        // Reset state on mobile to let intersection observer handle it
-        const entry = observer.takeRecords()[0];
+        // On mobile, check intersection
+        const entry = observerRef.current?.takeRecords()[0];
         if (entry) {
           setHasScrolledPastHero(!entry.isIntersecting);
+        } else {
+          // If no intersection record yet, hide on mobile
+          setHasScrolledPastHero(false);
         }
       }
     };
@@ -56,14 +73,21 @@ export function useScrollPastHero() {
     handleResize();
 
     return () => {
-      observer.disconnect();
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
       window.removeEventListener("resize", handleResize);
-      document.body.removeChild(sentinel);
+      if (sentinelRef.current) {
+        document.body.removeChild(sentinelRef.current);
+        sentinelRef.current = null;
+      }
     };
   }, [isMounted]); // Only run effect when mounted
 
-  // Return false during SSR and initial mount
-  if (!isMounted) return false;
+  // Only return false during SSR/initial mount
+  if (!isMounted) {
+    return false;
+  }
 
   return hasScrolledPastHero;
 }
