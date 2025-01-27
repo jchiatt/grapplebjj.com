@@ -331,8 +331,6 @@ info@grapplebjj.com
 - Video from me on thank you page
 - Update about page copy
 - Update my coach profile copy
-- Write articles related to various audiences
-- Latest articles preview on homepage
 - Recent streams to livestream page
 - More FAQs
 - Link to log in for existing members
@@ -352,3 +350,5 @@ info@grapplebjj.com
 - Gather more testimonials
 - Add coach profiles for all coaches
 - Add pop up chat bot where they can ask questions about Grapple or jiu jitsu, it can also direct them to pages on the site when they have specific questions about those respective topics
+- Write articles related to various audiences
+- Latest articles preview on homepage
