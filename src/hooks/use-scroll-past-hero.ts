@@ -4,8 +4,15 @@ import { useState, useEffect } from "react";
 
 export function useScrollPastHero() {
   const [hasScrolledPastHero, setHasScrolledPastHero] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     // Create a sentinel element at 100vh
     const sentinel = document.createElement("div");
     sentinel.style.position = "absolute";
@@ -34,12 +41,18 @@ export function useScrollPastHero() {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setHasScrolledPastHero(true);
+      } else {
+        // Reset state on mobile to let intersection observer handle it
+        const entry = observer.takeRecords()[0];
+        if (entry) {
+          setHasScrolledPastHero(!entry.isIntersecting);
+        }
       }
     };
 
     window.addEventListener("resize", handleResize, { passive: true });
 
-    // Initial check for desktop
+    // Initial check for desktop/mobile
     handleResize();
 
     return () => {
@@ -47,7 +60,10 @@ export function useScrollPastHero() {
       window.removeEventListener("resize", handleResize);
       document.body.removeChild(sentinel);
     };
-  }, []);
+  }, [isMounted]); // Only run effect when mounted
+
+  // Return false during SSR and initial mount
+  if (!isMounted) return false;
 
   return hasScrolledPastHero;
 }

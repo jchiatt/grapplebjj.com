@@ -2,18 +2,19 @@ import { getLiveStreamStatus } from "@/lib/youtube";
 import { NextResponse } from "next/server";
 
 export const runtime = "edge"; // Optional: Use edge runtime for faster response
-export const revalidate = 300; // Revalidate every 5 minutes
+export const revalidate = 300; // 5 minutes
 
 export async function GET() {
   try {
     const liveStatus = await getLiveStreamStatus();
 
-    // Add cache control headers
+    // Add cache control headers with timestamp-based ETag
     return NextResponse.json(
       { liveStatus },
       {
         headers: {
           "Cache-Control": "public, s-maxage=300, stale-while-revalidate=59",
+          ETag: `"${liveStatus.lastChecked}"`,
         },
       }
     );

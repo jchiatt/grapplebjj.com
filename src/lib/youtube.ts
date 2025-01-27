@@ -24,6 +24,7 @@ export interface LiveStreamStatus {
   isLive: boolean;
   streamUrl?: string;
   videoId?: string;
+  lastChecked: number;
 }
 
 interface YouTubeSearchResponse {
@@ -51,7 +52,8 @@ export const getFeaturedVideos = cache(
     }
 
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${limit}&type=video`
+      `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${limit}&type=video`,
+      { next: { revalidate: 3600 } }
     );
 
     if (!response.ok) {
@@ -71,16 +73,18 @@ export const getFeaturedVideos = cache(
 
 export const getLiveStreamStatus = cache(
   async (): Promise<LiveStreamStatus> => {
+    const now = Math.floor(Date.now() / (5 * 60 * 1000)) * (5 * 60 * 1000);
+
     if (process.env.NODE_ENV === "development") {
       return {
         isLive: true,
         streamUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         videoId: "dQw4w9WgXcQ",
+        lastChecked: now,
       };
     }
 
     try {
-      // Fetch the channel's live page
       const response = await fetch(
         `https://www.youtube.com/channel/${CHANNEL_ID}/live`,
         {
@@ -88,6 +92,7 @@ export const getLiveStreamStatus = cache(
             "User-Agent":
               "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
           },
+          next: { revalidate: 300 },
         }
       );
 
@@ -97,30 +102,30 @@ export const getLiveStreamStatus = cache(
 
       const html = await response.text();
 
-      // Look for canonical link in the HTML
       const canonicalMatch = html.match(
         /<link\s+rel="canonical"\s+href="(https:\/\/www\.youtube\.com\/watch[^"]+)"/i
       );
 
       if (!canonicalMatch) {
-        return { isLive: false };
+        return { isLive: false, lastChecked: now };
       }
 
       const canonicalUrl = canonicalMatch[1];
       const videoId = new URL(canonicalUrl).searchParams.get("v");
 
       if (!videoId) {
-        return { isLive: false };
+        return { isLive: false, lastChecked: now };
       }
 
       return {
         isLive: true,
         streamUrl: canonicalUrl,
         videoId,
+        lastChecked: now,
       };
     } catch (error) {
       console.error("Failed to check live status:", error);
-      return { isLive: false };
+      return { isLive: false, lastChecked: now };
     }
   }
 );
