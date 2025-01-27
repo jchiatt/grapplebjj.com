@@ -323,14 +323,12 @@ info@grapplebjj.com
 - Video from me on homepage
 - Video from me on about page
 - Contact page
-- Kids page
+- Connect kids interest form and contact form to zapier
 - Floating finances/growth metrics widget
 - Video from me on trial page
-- GIF from us on join page
 - Video from me on the join page
-- GIF from us on join page
 - Video from me on drop in page
-- GIF from us on join page
+- GIF from us on drop-in, trial, and join pages
 - Video from me on thank you page
 - Gather more testimonials
 - Update about page copy
