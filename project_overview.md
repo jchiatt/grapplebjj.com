@@ -302,8 +302,6 @@ A modern, responsive website redesign for Grapple, a submission grappling gym in
 
 ## More Ideas
 
-- Floating video embed when we are live
-
 ## Company Metadata
 
 Phone
@@ -318,3 +316,39 @@ We are located in the 2nd floor of Focus Fit. Walk in, check in with their front
 
 Email
 info@grapplebjj.com
+
+# TODO
+
+- Floating video embed when we are live
+- Video from me on homepage
+- Video from me on about page
+- Contact page
+- Kids page
+- Video from me on trial page
+- GIF from us on join page
+- Video from me on the join page
+- GIF from us on join page
+- Video from me on drop in page
+- GIF from us on join page
+- Video from me on thank you page
+- Gather more testimonials
+- Update about page copy
+- Update my coach profile copy
+- Add coach profiles for all coaches
+- Write articles related to various audiences
+- Latest articles preview on homepage
+- Floating link on the side of the page to go to trial page
+- Recent streams to livestream page
+- More FAQs
+- Add pop up chat bot where they can ask questions about Grapple or jiu jitsu, it can also direct them to pages on the site when they have specific questions about those respective topics
+- Link to log in for existing members
+- Make GIFs
+
+# Automations
+
+- Send a thank you email to new members after they sign up for a trial class
+- Send a thank you email to new members after they sign up for a membership
+- Send a thank you email to new members after they sign up for a drop in class
+- Send a thank you email to new members after they sign up for a membership
+- Create a task to create a personalized welcome video for new members
+- Invite to Skool and WhatsApp

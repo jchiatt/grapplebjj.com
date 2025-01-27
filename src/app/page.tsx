@@ -5,6 +5,7 @@ import { FeaturedPhotos } from "@/components/photos/featured-photos";
 import { FullWidthSection } from "@/components/ui/full-width-section";
 import { SlotMachineText } from "@/components/animations/slot-machine-text";
 import { CoachProfiles } from "@/components/coaches/coach-profiles";
+import { NextEvent } from "@/components/events/next-event";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 import { CallToAction } from "@/components/ui/call-to-action";
@@ -26,6 +27,13 @@ export default async function Home() {
   return (
     <div>
       <Hero />
+
+      <div className="container mx-auto px-4 py-24">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+          Next Event at Grapple
+        </h2>
+        <NextEvent />
+      </div>
 
       <FeaturedVideos initialVideos={videos} />
 

@@ -142,7 +142,7 @@ export function Footer() {
                 Facebook
               </a>
               <a
-                href="https://youtube.com/@mississippibjj"
+                href="https://youtube.com/@gr4ppletheworld"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"

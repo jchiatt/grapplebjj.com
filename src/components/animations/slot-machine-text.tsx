@@ -82,7 +82,7 @@ export function SlotMachineText() {
 
   return (
     <span ref={containerRef} className="inline-block relative">
-      <span className="relative z-10 bg-gradient-to-r from-black/80 via-primary-70 to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-transparent">
+      <span className="relative z-10 bg-gradient-to-r from-black/40 via-black to-black/50 dark:from-primary dark:via-white dark:to-primary bg-clip-text text-transparent">
         {words[currentIndex]}
         <span>.</span>
       </span>
