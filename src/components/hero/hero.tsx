@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme/theme-provider";
 import { LivestreamCallout } from "../livestream/livestream-callout";
 import { Headline } from "@/components/ui/headline";
+import { FloatingMetrics } from "@/components/metrics/floating-metrics";
 import Link from "next/link";
 
 export function Hero() {
@@ -24,6 +25,7 @@ export function Hero() {
           We&apos;re obsessed with learning and growing the beautiful art of
           submission grappling.
         </p>
+
         <div className="mt-12 flex gap-6 justify-center">
           <Button size="lg" className="text-lg px-8" asChild>
             <Link href="/trial">Trial Class</Link>
@@ -31,6 +33,10 @@ export function Hero() {
           <Button size="lg" variant="outline" className="text-lg px-8" asChild>
             <Link href="/about">Learn More</Link>
           </Button>
+        </div>
+
+        <div className="my-12">
+          <FloatingMetrics />
         </div>
       </div>
     </section>

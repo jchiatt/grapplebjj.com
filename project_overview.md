@@ -319,11 +319,10 @@ info@grapplebjj.com
 
 # TODO
 
-- Floating finances/growth metrics widget
 - Make GIFs
 - Make videos
 - Update about page copy
-- Update my coach profile copy
+- Add galaxy background to coach profile
 - More FAQs
 
 # Automations
@@ -355,3 +354,5 @@ info@grapplebjj.com
 - Recent streams to livestream page
 - Optimize all images (tinypng plus blur data urls)
 - Add Skool link for members
+- Wire up growth metrics to a database
+- Add analytics
