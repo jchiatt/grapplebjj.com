@@ -23,10 +23,12 @@ export function ThemeSwitcher() {
           <Button variant="outline" size="icon" className="relative">
             <Paintbrush2 className="h-4 w-4" />
             <div
-              className={cn(
-                "absolute bottom-1 right-1 h-2 w-2 rounded-full",
-                theme === "purple" ? "bg-purple-primary" : "bg-blue-primary"
-              )}
+              className={cn("absolute bottom-1 right-1 h-2 w-2 rounded-full", {
+                "bg-purple-primary": theme === "purple",
+                "bg-blue-primary": theme === "blue",
+                "bg-gradient-to-r from-white via-pink-500 to-red-500":
+                  theme === "valentine",
+              })}
             />
           </Button>
         </DropdownMenuTrigger>
@@ -46,6 +48,14 @@ export function ThemeSwitcher() {
             <div className="h-4 w-4 rounded-full bg-blue-primary" />
             <span aria-hidden="true">Blue</span>
             <span className="sr-only">Enable Blue Theme</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => setTheme("valentine")}
+            className="flex items-center gap-2"
+          >
+            <div className="h-4 w-4 rounded-full bg-gradient-to-b from-white via-pink-300 to-red-500" />
+            <span aria-hidden="true">Valentine&apos;s ❤️</span>
+            <span className="sr-only">Enable Valentine Theme</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

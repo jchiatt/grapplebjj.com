@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 
-type Theme = "purple" | "blue";
+type Theme = "purple" | "blue" | "valentine";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -31,7 +31,7 @@ export function ThemeProvider({
   React.useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
-    if (savedTheme && (savedTheme === "purple" || savedTheme === "blue")) {
+    if (savedTheme && ["purple", "blue", "valentine"].includes(savedTheme)) {
       setTheme(savedTheme);
       document.documentElement.setAttribute("data-theme", savedTheme);
     } else {

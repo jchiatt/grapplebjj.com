@@ -324,6 +324,7 @@ info@grapplebjj.com
 - Video from me on about page
 - Contact page
 - Kids page
+- Floating finances/growth metrics widget
 - Video from me on trial page
 - GIF from us on join page
 - Video from me on the join page
