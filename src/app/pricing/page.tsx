@@ -102,8 +102,11 @@ function DiscountSection() {
         <div>
           <h3 className="text-xl font-semibold">💸 Financial Hardship</h3>
           <p className="mt-2">
-            Going through a tough time? We have sponsorship opportunities
-            available. Contact us to learn more.
+            <span className="font-bold">
+              We never let anyone go without training purely because of money.
+            </span>{" "}
+            We have sponsorship opportunities available. Contact us to learn
+            more.{" "}
           </p>
         </div>
       </div>
@@ -141,20 +144,6 @@ export default function PricingPage() {
 
       <div className="mt-16 grid gap-8 lg:grid-cols-3">
         <PriceCard
-          title="Free Trial Class"
-          price="$0"
-          description="Experience a class with no commitment"
-          features={[
-            "One full class",
-            "No gear or equipment required",
-            "Bring a friend, get $10 cash",
-            "Meet the community",
-            "Shower available",
-          ]}
-          cta={{ text: "Schedule Trial", href: "/trial" }}
-        />
-
-        <PriceCard
           title="Drop-In"
           price="$20"
           description="Perfect for visitors or occasional training"
@@ -166,11 +155,27 @@ export default function PricingPage() {
             "No gear or equipment required",
             "Shower available",
           ]}
-          cta={{ text: "Get Started", href: "/signup" }}
+          cta={{ text: "Get Started", href: "/drop-in" }}
         />
 
         <PriceCard
-          title="Monthly Membership"
+          title="Free Trial Class"
+          price="$0"
+          description="Experience a class with no commitment"
+          features={[
+            "One full class",
+            "Safe, fun, and friendly environment",
+            "No gear or equipment required",
+            "Bring a friend, get $10 cash",
+            "Meet the community",
+            "Shower available",
+          ]}
+          cta={{ text: "Schedule Trial", href: "/trial" }}
+          highlighted
+        />
+
+        <PriceCard
+          title="Grapple Membership"
           price="$100"
           description="Unlimited access to all classes."
           features={[
@@ -179,10 +184,9 @@ export default function PricingPage() {
             "Shower available",
             "Access to private online learning",
             "Access to special events",
-            "Off-schedule access to gym for self-directed training with other Grapplers",
+            "Off-schedule access to gym",
           ]}
-          cta={{ text: "Join Now", href: "/signup" }}
-          highlighted
+          cta={{ text: "Join Now", href: "/join" }}
           disclaimer="Focus Fit membership required ($30/month, paid separately to Focus Fit)."
         />
       </div>

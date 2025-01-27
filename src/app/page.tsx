@@ -75,7 +75,7 @@ export default async function Home() {
           {audiences.map((audience) => (
             <Link
               key={audience.title}
-              href="/trial"
+              href={audience.link}
               className="group relative overflow-hidden rounded-lg bg-black/50 backdrop-blur-sm p-6 transition-all hover:bg-black/40"
             >
               <div className="relative z-10">
@@ -158,32 +158,38 @@ const features = [
 
 const audiences = [
   {
-    title: "Kids",
+    title: "Kids (Coming Soon)",
     description:
       "Build confidence, discipline, and healthy habits from an early age.",
+    link: "/kids",
   },
   {
     title: "Adults",
     description:
       "Get fit, learn self-defense, and join a community of lifelong learners.",
+    link: "/trial",
   },
   {
     title: "Law Enforcement",
     description:
       "Enhance your tactical skills with proven grappling techniques.",
+    link: "/trial",
   },
   {
     title: "Healthcare Workers",
     description:
       "Learn practical skills for managing challenging situations safely.",
+    link: "/trial",
   },
   {
     title: "Competitors",
     description: "Train with dedicated athletes and prepare for tournaments.",
+    link: "/trial",
   },
   {
     title: "Hobbyists",
     description:
       "Enjoy the art of grappling at your own pace in a supportive environment.",
+    link: "/trial",
   },
 ];

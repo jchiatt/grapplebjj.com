@@ -52,7 +52,9 @@ export default function LiveStreamContent() {
   return (
     <div className="space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Next Live Class</h1>
+        <Headline as="h1" size="h1" className="text-center my-8 md:my-16">
+          Next Live Class
+        </Headline>
         <p className="text-xl text-foreground/60">
           {nextClass
             ? `${
