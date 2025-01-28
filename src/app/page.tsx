@@ -9,6 +9,8 @@ import { NextEvent } from "@/components/events/next-event";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 import { CallToAction } from "@/components/ui/call-to-action";
+import { FloatingMetrics } from "@/components/metrics/floating-metrics";
+import { Suspense } from "react";
 
 export const revalidate = 86400; // Revalidate every day
 
@@ -31,6 +33,25 @@ export default async function Home() {
       <FeaturedPhotos title="" />
 
       <FeaturedVideos initialVideos={videos} />
+
+      {/* Growth Metrics Section */}
+      <FullWidthSection className="py-24">
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          <h2 className="max-w-4xl mx-auto bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-4xl md:text-6xl lg:text-7xl font-bold text-transparent pb-8 text-center">
+            We take transparency seriously
+          </h2>
+          <p className="text-center text-lg text-foreground mb-16">
+            We believe in transparency and learning and building in public. To
+            prove it, here&apos;s our business financials and growth metrics.
+            Yes, really!
+          </p>
+        </div>
+        <Suspense fallback={null}>
+          <div className="max-w-md mx-auto">
+            <FloatingMetrics />
+          </div>
+        </Suspense>
+      </FullWidthSection>
 
       {/* Features Section */}
       <FullWidthSection className="py-24">

@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme/theme-provider";
 import { LivestreamCallout } from "../livestream/livestream-callout";
-import { FloatingMetrics } from "@/components/metrics/floating-metrics";
 import { Headline } from "@/components/ui/headline";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -62,12 +61,6 @@ export function Hero() {
             </Link>
           </Button>
         </div>
-
-        <Suspense fallback={null}>
-          <div className="my-12">
-            <FloatingMetrics />
-          </div>
-        </Suspense>
       </div>
     </section>
   );
