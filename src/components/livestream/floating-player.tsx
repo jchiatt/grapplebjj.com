@@ -1,31 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLiveStream } from "./livestream-context";
 import { useRouter, usePathname } from "next/navigation";
 import { useScrollPastHero } from "@/hooks/use-scroll-past-hero";
+import dynamic from "next/dynamic";
 
-export function FloatingPlayer() {
+// Create a client-only version of the component
+const FloatingPlayerClient = () => {
   const { liveStatus, isLoading } = useLiveStream();
   const [isVisible, setIsVisible] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const showPlayer = useScrollPastHero();
 
-  // Handle mounting separately to avoid hydration mismatch
-  useEffect(() => {
-    setIsMounted(true);
-    return () => setIsMounted(false);
-  }, []);
-
-  // Early return during SSR and initial mount
-  if (!isMounted || !showPlayer) {
-    return null;
-  }
-
-  // Return null for other conditions after hydration
   if (
+    !showPlayer ||
     isLoading ||
     !liveStatus?.isLive ||
     !isVisible ||
@@ -116,4 +106,12 @@ export function FloatingPlayer() {
       </div>
     </div>
   );
-}
+};
+
+// Export a dynamic version that only renders on the client
+export const FloatingPlayer = dynamic(
+  () => Promise.resolve(FloatingPlayerClient),
+  {
+    ssr: false,
+  }
+);
