@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "@/components/theme/theme-provider";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { useTheme as useNextTheme } from "next-themes";
 import debounce from "lodash/debounce";
@@ -16,6 +16,13 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
   const { theme } = useTheme();
   const { resolvedTheme } = useNextTheme();
   const isDark = resolvedTheme === "dark";
+  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set a timeout to indicate full load after initial render
+    const timer = setTimeout(() => setIsFullyLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (!canvasRef.current || !isDark) {
@@ -91,9 +98,15 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
       handleContextRestored
     );
 
-    // Galaxy parameters
+    // Galaxy parameters - start with fewer particles, increase after full load
     const parameters = {
-      count: theme === "valentine" ? 10000 : 100000,
+      count: isFullyLoaded
+        ? theme === "valentine"
+          ? 10000
+          : 100000
+        : theme === "valentine"
+        ? 2000
+        : 20000,
       size: theme === "valentine" ? 0.04 : 0.01,
       radius: 5,
       branches: 3,
@@ -300,7 +313,7 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
         rendererRef.current = null;
       }
     };
-  }, [theme, isDark, resolvedTheme]);
+  }, [theme, isDark, resolvedTheme, isFullyLoaded]);
 
   if (!isDark) return null;
 
