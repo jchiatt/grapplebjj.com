@@ -139,17 +139,28 @@ const values = [
 
 const philosophy = [
   {
-    title: "Embrace Exploration",
-    description:
-      "Doing things the way it's always been done is a sure way to never evolve. We embrace exploring new ways of doing things. We embrace lifelong learning and experimentation, never afraid to try something. We keep what is effective, and throw out what isn't.",
+    title: "People Over Profits",
+    description: `You, the customer, pay to be here. We don't take that lightly. We're here to serve you, and we're here to help you grow. While we would like to make money like any other business, we love the art of jiu jitsu and aren't in this for the money. Our aim is to see you learn to grapple and fall in love with the art just as we have. We prioritize making the best experience possible for you and earning your business every day over making a quick buck. You won't find setup fees, required gear purchases, pay-to-progress fees, or any other hidden costs here.`,
+  },
+  {
+    title: "Transparency",
+    description: `We believe in transparency and learning and building this business in public. We make our financials and growth metrics available to the public. We share our journey and our learnings with the world. We believe in the power of community and collaboration.`,
+  },
+  {
+    title: "Innovation Over Tradition",
+    description: `While tradition has its place and value, we belive tradition for tradition's sake is silly and counterproductive. We embrace innovation and experimentation, never afraid to try something new. We keep what is effective, and throw out what isn't. Doing things the way it's always been done is a sure way to never evolve.`,
   },
   {
     title: "Humility Over Hierarchy",
-    description: `We believe hierarchy in the gym purely as a means to exert dominance or "pull rank" over others is counterproductive and juvenille.`,
+    description: `We believe hierarchy in the gym purely as a means to exert dominance or "pull rank" over others is counterproductive and juvenille. We believe respect is earned every day, and it's a two-way street. And we believe the further you progress, the more you should build bridges for those coming behind you.`,
   },
   {
-    title: "Why so serious?",
+    title: "Self Education",
     description:
-      "We don't take ourselves too seriously, and you shouldn't either. There's a time for the competitive spirit — a time for intensity — but at the end of the day we're just grappling, and 'grappler' isn't much of a well-rounded identity on its own.",
+      "We believe in creating self-learners. We believe in the power of the internet and the ability to learn anything from anywhere. We believe in the power of community and collaboration. Studying outside of class is encouraged. Study, experiment, observe, refine, repeat.",
+  },
+  {
+    title: "Why So Serious?",
+    description: `We don't take ourselves too seriously, and you shouldn't either. There's a time for the competitive spirit — a time for intensity — but at the end of the day we're just grappling, and "grappler" isn't much of a well-rounded identity on its own.`,
   },
 ];

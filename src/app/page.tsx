@@ -65,7 +65,7 @@ export default async function Home() {
               href={feature.link}
               className="group rounded-lg border bg-card p-6 text-card-foreground shadow-sm transition-colors hover:bg-primary"
             >
-              <h3 className="mb-2 font-heading text-lg font-semibold text-primary">
+              <h3 className="mb-2 font-heading text-lg font-semibold text-primary group-hover:text-white">
                 {feature.title}
               </h3>
               <p className="text-black dark:text-white group-hover:text-black dark:group-hover:text-white">
@@ -199,15 +199,14 @@ const audiences = [
     link: "/trial",
   },
   {
-    title: "Law Enforcement",
+    title: "Military & Law Enforcement",
     description:
-      "Enhance your tactical skills with proven grappling techniques.",
+      "Enhance your tactical skills with proven grappling techniques. And at Grapple, you can pay whatever you can afford, even if it's $0.",
     link: "/trial",
   },
   {
     title: "Healthcare Workers",
-    description:
-      "Learn practical skills for managing challenging situations safely.",
+    description: `Learn practical skills for managing challenging situations safely. And medical professionals working in a hospital can take advantage of our "pay what you want" discount`,
     link: "/trial",
   },
   {
