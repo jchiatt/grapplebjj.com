@@ -342,6 +342,7 @@ info@grapplebjj.com
 - Video from me on trial page
 - Video from me on the join page
 - Video from me on drop in page
+- GIF on the 404 page of me unconscious and a black hole animation
 - GIF from us on drop-in, trial, and join pages
 - Video from me on thank you page
 
