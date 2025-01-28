@@ -88,7 +88,7 @@ export default function TrialPage() {
         .padStart(2, "0")}/${birthdayDate.getFullYear()}`;
 
       // Create the URL with query parameters
-      const baseUrl = "https://grapplebjj.com/signup";
+      const baseUrl = "members.grapplejj.com/signup";
       const queryParams = new URLSearchParams({
         membership_id: "6824",
         type: "1",

@@ -88,7 +88,7 @@ export default function JoinPage() {
         .padStart(2, "0")}/${birthdayDate.getFullYear()}`;
 
       // Create the URL with query parameters
-      const baseUrl = "https://grapplebjj.com/signup";
+      const baseUrl = "https://members.grapplejj.com/signup";
       const queryParams = new URLSearchParams({
         membership_id: "6823",
         type: "2",
