@@ -66,7 +66,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <nav className="hidden md:flex">
             <a
-              href="https://portal.grapplejj.com/login"
+              href="https://members.grapplejj.com/login"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"

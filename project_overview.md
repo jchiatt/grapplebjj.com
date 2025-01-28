@@ -357,3 +357,4 @@ info@grapplebjj.com
 - Add Skool link for members
 - Wire up growth metrics to a database
 - Add analytics
+- Make Grapple its own Zapier account
