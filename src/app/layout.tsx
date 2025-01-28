@@ -40,9 +40,9 @@ export default function RootLayout({
             <Layout>{children}</Layout>
           </LiveStreamProvider>
           <FloatingCTA />
-          <Analytics />
-          <SpeedInsights />
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
