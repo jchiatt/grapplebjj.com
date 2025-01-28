@@ -13,19 +13,26 @@ export function FloatingPlayer() {
   const pathname = usePathname();
   const showPlayer = useScrollPastHero();
 
+  // Handle mounting separately to avoid hydration mismatch
   useEffect(() => {
     setIsMounted(true);
+    return () => setIsMounted(false);
   }, []);
 
+  // Early return during SSR and initial mount
+  if (!isMounted || !showPlayer) {
+    return null;
+  }
+
+  // Return null for other conditions after hydration
   if (
-    !isMounted ||
     isLoading ||
     !liveStatus?.isLive ||
     !isVisible ||
-    pathname === "/livestream" ||
-    !showPlayer
-  )
+    pathname === "/livestream"
+  ) {
     return null;
+  }
 
   const handleVideoClick = () => {
     router.push("/livestream");

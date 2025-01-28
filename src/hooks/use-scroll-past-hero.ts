@@ -8,47 +8,59 @@ export function useScrollPastHero() {
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // Handle mounting separately to avoid hydration mismatch
   useEffect(() => {
     setIsMounted(true);
+    return () => setIsMounted(false);
   }, []);
 
   useEffect(() => {
+    // Only run after component is mounted and hydrated
     if (!isMounted) return;
 
-    // Create a sentinel element at viewport height if it doesn't exist
-    if (!sentinelRef.current) {
-      const sentinel = document.createElement("div");
-      sentinel.style.position = "absolute";
-      sentinel.style.top = "80vh"; // Place it at 80% of viewport height (matches hero height)
-      sentinel.style.height = "1px";
-      sentinel.style.width = "1px";
-      sentinel.style.pointerEvents = "none";
-      sentinel.style.opacity = "0";
-      document.body.appendChild(sentinel);
-      sentinelRef.current = sentinel;
+    // Cleanup previous sentinel if it exists
+    if (sentinelRef.current) {
+      document.body.removeChild(sentinelRef.current);
+      sentinelRef.current = null;
     }
 
-    // Create observer if it doesn't exist
-    if (!observerRef.current) {
-      observerRef.current = new IntersectionObserver(
-        ([entry]) => {
-          setHasScrolledPastHero(!entry.isIntersecting);
-        },
-        {
-          threshold: 0, // Trigger as soon as even 1px is passed
-        }
-      );
-    }
+    // Create sentinel in a requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      if (!sentinelRef.current) {
+        const sentinel = document.createElement("div");
+        sentinel.style.position = "absolute";
+        sentinel.style.top = "80vh";
+        sentinel.style.height = "1px";
+        sentinel.style.width = "1px";
+        sentinel.style.pointerEvents = "none";
+        sentinel.style.opacity = "0";
+        document.body.appendChild(sentinel);
+        sentinelRef.current = sentinel;
+      }
 
-    // Start observing
-    if (sentinelRef.current && observerRef.current) {
-      observerRef.current.observe(sentinelRef.current);
-    }
+      // Create observer if it doesn't exist
+      if (!observerRef.current) {
+        observerRef.current = new IntersectionObserver(
+          ([entry]) => {
+            setHasScrolledPastHero(!entry.isIntersecting);
+          },
+          {
+            threshold: 0,
+          }
+        );
+      }
+
+      // Start observing
+      if (sentinelRef.current && observerRef.current) {
+        observerRef.current.observe(sentinelRef.current);
+      }
+    });
 
     // Cleanup function
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();
+        observerRef.current = null;
       }
       if (sentinelRef.current) {
         document.body.removeChild(sentinelRef.current);
@@ -57,10 +69,5 @@ export function useScrollPastHero() {
     };
   }, [isMounted]); // Only re-run if isMounted changes
 
-  // Only return false during SSR/initial mount
-  if (!isMounted) {
-    return false;
-  }
-
-  return hasScrolledPastHero;
+  return isMounted ? hasScrolledPastHero : false;
 }
