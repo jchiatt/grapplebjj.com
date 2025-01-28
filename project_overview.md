@@ -322,8 +322,9 @@ info@grapplebjj.com
 - Make GIFs
 - Make videos
 - Update about page copy
-- Add galaxy background to coach profile
 - More FAQs
+- Add galaxy background to coach profile
+- Add videos to coach profile page
 
 # Automations
 

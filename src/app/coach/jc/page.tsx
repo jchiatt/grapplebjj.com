@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Headline } from "@/components/ui/headline";
 import { siInstagram, siX } from "simple-icons";
 import { SocialLink } from "@/components/ui/social-link";
-import { FeaturedVideo } from "@/components/videos/featured-video";
+// import { FeaturedVideo } from "@/components/videos/featured-video";
 import { QandA } from "@/components/ui/q-and-a";
 import { CoachStatCard } from "@/components/coaches/coach-stat-card";
 import { Metadata } from "next";
@@ -137,7 +137,7 @@ export default function CoachProfile() {
         </div>
 
         {/* Featured Videos */}
-        <div>
+        {/* <div>
           <Headline as="h2" size="h3" className="text-center mb-8">
             Featured Videos
           </Headline>
@@ -163,7 +163,7 @@ export default function CoachProfile() {
               youtubeId="dQw4w9WgXcQ"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
