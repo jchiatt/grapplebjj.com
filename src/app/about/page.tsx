@@ -65,6 +65,29 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* Philosophy Section */}
+      <div className="mt-24">
+        <h2 className="text-3xl font-bold text-center">The Grapple Ethos</h2>
+        <div className="mt-12 grid gap-12 md:gap-16">
+          {philosophy.map((item, index) => (
+            <div
+              key={item.title}
+              className="grid md:grid-cols-[1fr,2fr] gap-8 items-start"
+            >
+              <div>
+                <div className="text-4xl font-bold text-primary mb-4">
+                  {(index + 1).toString().padStart(2, "0")}
+                </div>
+                <h3 className="text-2xl font-bold">{item.title}</h3>
+              </div>
+              <p className="text-lg text-muted-foreground">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <FeaturedPhotos className="mt-24" title="" />
 
       {/* CTA Section */}
@@ -111,5 +134,22 @@ const values = [
     title: "Competition Ready",
     description:
       "For those interested in competition, we provide the training and support needed to compete at any level. Competition is not required by an means, nor will you be treated any differently should you choose not to compete, but it is encouraged to help you grow and improve.",
+  },
+];
+
+const philosophy = [
+  {
+    title: "Embrace Exploration",
+    description:
+      "Doing things the way it's always been done is a sure way to never evolve. We embrace exploring new ways of doing things. We embrace lifelong learning and experimentation, never afraid to try something. We keep what is effective, and throw out what isn't.",
+  },
+  {
+    title: "Humility Over Hierarchy",
+    description: `We believe hierarchy in the gym purely as a means to exert dominance or "pull rank" over others is counterproductive and juvenille.`,
+  },
+  {
+    title: "Why so serious?",
+    description:
+      "We don't take ourselves too seriously, and you shouldn't either. There's a time for the competitive spirit — a time for intensity — but at the end of the day we're just grappling, and 'grappler' isn't much of a well-rounded identity on its own.",
   },
 ];

@@ -16,6 +16,7 @@ export function FeaturedVideo({
           className="w-full h-full"
           src={`https://www.youtube.com/embed/${youtubeId}`}
           title={title}
+          loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />

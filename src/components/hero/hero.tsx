@@ -16,7 +16,7 @@ export function Hero() {
       <GalaxyBackground key={theme} />
 
       {/* Content overlay */}
-      <div className="max-w-7xl container relative flex min-h-[80vh] flex-col items-center justify-center text-center">
+      <div className="max-w-7xl container relative flex min-h-[80vh] flex-col items-center justify-center text-center py-12">
         <LivestreamCallout />
         <Headline className="max-w-4xl">
           Good things come to those who Grapple.

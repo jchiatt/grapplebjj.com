@@ -50,6 +50,7 @@ export function FloatingPlayer() {
         <iframe
           src={`https://www.youtube.com/embed/${liveStatus.videoId}?autoplay=1&mute=1`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="lazy"
           allowFullScreen
           className="w-full h-full pointer-events-none"
         />
