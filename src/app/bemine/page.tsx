@@ -136,7 +136,7 @@ export default function BeminePage() {
       <div className="mx-auto max-w-2xl">
         <div className="text-center">
           <h1 className="font-heading my-4 text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-            Oh, hey Precision.
+            Oh hey, Precision.
           </h1>
 
           <p className="mt-4 text-xl text-muted-foreground">
