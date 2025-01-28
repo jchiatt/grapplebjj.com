@@ -359,3 +359,4 @@ info@grapplebjj.com
 - Wire up growth metrics to a database
 - Add analytics
 - Make Grapple its own Zapier account
+- Improve link shortener and integrate with our site
