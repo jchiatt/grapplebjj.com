@@ -360,3 +360,6 @@ info@grapplebjj.com
 - Add analytics
 - Make Grapple its own Zapier account
 - Improve link shortener and integrate with our site
+- Link growth metrics google sheet to our site and show historic data
+- Add more about the growth story (written and a quick video)
+- Create management system for growth metrics to easily update
