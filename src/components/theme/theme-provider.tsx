@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 
-type Theme = "purple" | "blue" | "valentine";
+export type Theme = "purple" | "blue" | "valentine";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ interface ThemeProviderProps {
 
 const ThemeContext = React.createContext<{
   theme: Theme;
-  setTheme: (theme: Theme) => void;
+  setTheme: (theme: Theme, persist?: boolean) => void;
 }>({
   theme: "purple",
   setTheme: () => null,
@@ -24,7 +24,7 @@ export function ThemeProvider({
   children,
   defaultTheme = "purple",
 }: ThemeProviderProps) {
-  const [theme, setTheme] = React.useState<Theme>(defaultTheme);
+  const [theme, setThemeState] = React.useState<Theme>(defaultTheme);
   const [mounted, setMounted] = React.useState(false);
 
   // Initialize theme from localStorage or default
@@ -32,7 +32,7 @@ export function ThemeProvider({
     setMounted(true);
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
     if (savedTheme && ["purple", "blue", "valentine"].includes(savedTheme)) {
-      setTheme(savedTheme);
+      setThemeState(savedTheme);
       document.documentElement.setAttribute("data-theme", savedTheme);
     } else {
       document.documentElement.setAttribute("data-theme", defaultTheme);
@@ -40,11 +40,16 @@ export function ThemeProvider({
   }, [defaultTheme]);
 
   // Handle theme changes
-  const handleThemeChange = React.useCallback((newTheme: Theme) => {
-    setTheme(newTheme);
-    localStorage.setItem(THEME_STORAGE_KEY, newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-  }, []);
+  const handleThemeChange = React.useCallback(
+    (newTheme: Theme, persist: boolean = true) => {
+      setThemeState(newTheme);
+      document.documentElement.setAttribute("data-theme", newTheme);
+      if (persist) {
+        localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+      }
+    },
+    []
+  );
 
   // Prevent flash of unstyled content
   if (!mounted) {

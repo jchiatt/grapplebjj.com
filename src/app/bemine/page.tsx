@@ -20,9 +20,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { FloatingHearts } from "@/components/ui/floating-hearts";
 import Image from "next/image";
+import { useTheme } from "@/components/theme/theme-provider";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -60,6 +61,17 @@ const formSchema = z.object({
 
 export default function BeminePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { setTheme } = useTheme();
+  const hasSetInitialTheme = useRef(false);
+
+  useEffect(() => {
+    // Only set the valentine theme once when the component mounts
+    // Pass false as second argument to prevent persisting to localStorage
+    if (!hasSetInitialTheme.current) {
+      setTheme("valentine", false);
+      hasSetInitialTheme.current = true;
+    }
+  }, [setTheme]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

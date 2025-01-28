@@ -12,6 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+// Note: The /bemine page automatically sets the theme to "valentine" on load,
+// but users can still change it using this switcher if they prefer.
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const { setTheme: setMode, resolvedTheme } = useNextTheme();
