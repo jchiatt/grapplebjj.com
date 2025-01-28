@@ -1,22 +1,69 @@
 "use client";
 
 import { useTheme } from "@/components/theme/theme-provider";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
 import { useTheme as useNextTheme } from "next-themes";
-import debounce from "lodash/debounce";
 
 interface GalaxyBackgroundProps {
   className?: string;
 }
 
+// Moved outside component to avoid recreation
+const CHUNK_SIZE = 5000;
+const RESIZE_DELAY = 250;
+
+// Fallback for browsers that don't support requestIdleCallback
+const requestIdleCallbackPolyfill = (
+  callback: IdleRequestCallback,
+  options?: IdleRequestOptions
+): number => {
+  const start = Date.now();
+  return window.setTimeout(() => {
+    callback({
+      didTimeout: false,
+      timeRemaining: () => Math.max(0, 50 - (Date.now() - start)),
+    });
+  }, options?.timeout || 1);
+};
+
+const requestIdle =
+  typeof window !== "undefined" && window.requestIdleCallback
+    ? window.requestIdleCallback
+    : requestIdleCallbackPolyfill;
+
 export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const resizeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { theme } = useTheme();
   const { resolvedTheme } = useNextTheme();
   const isDark = resolvedTheme === "dark";
   const [isFullyLoaded, setIsFullyLoaded] = useState(false);
+
+  // Memoize the resize handler
+  const handleResize = useCallback(() => {
+    const canvas = canvasRef.current;
+    const renderer = rendererRef.current;
+    const camera = cameraRef.current;
+    if (!canvas || !renderer || !camera) return;
+
+    const container = canvas.parentElement;
+    if (!container) return;
+
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    // Update camera aspect ratio
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    // Update renderer size
+    renderer.setSize(width, height, false);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  }, []);
 
   useEffect(() => {
     // Set a timeout to indicate full load after initial render
@@ -26,7 +73,6 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
 
   useEffect(() => {
     if (!canvasRef.current || !isDark) {
-      // Clean up if we switch to light mode
       if (rendererRef.current) {
         rendererRef.current.dispose();
         rendererRef.current = null;
@@ -34,71 +80,41 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
       return;
     }
 
-    // Store canvas reference
     const canvas = canvasRef.current;
-
-    // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 100);
     camera.position.set(0, 2, 6);
     camera.lookAt(0, 0, 0);
 
+    // Store refs for resize handler
+    sceneRef.current = scene;
+    cameraRef.current = camera;
+
     if (!rendererRef.current) {
       rendererRef.current = new THREE.WebGLRenderer({
-        canvas: canvasRef.current,
+        canvas,
         alpha: true,
         powerPreference: "high-performance",
+        antialias: false, // Disable antialiasing for better performance
       });
     }
 
     const renderer = rendererRef.current;
 
-    // Function to update sizes
-    const updateSizes = () => {
-      const container = canvas.parentElement;
-      if (!container) return;
-
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-
-      // Update camera
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-
-      // Update renderer
-      renderer.setSize(width, height, false);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    };
-
     // Initial size setup
-    updateSizes();
+    handleResize();
 
-    // Handle resize with debounce
-    const debouncedResize = debounce(() => {
-      updateSizes();
-    }, 250);
-
-    window.addEventListener("resize", debouncedResize);
-
-    // Check if context is lost
-    const handleContextLost = (event: Event): boolean => {
-      event.preventDefault();
-      console.log("WebGL context lost. Stopping render loop.");
-      return false;
+    // Efficient resize handler with debounce
+    const onResize = () => {
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      resizeTimeoutRef.current = setTimeout(handleResize, RESIZE_DELAY);
     };
 
-    const handleContextRestored = () => {
-      console.log("WebGL context restored. Restarting render loop.");
-      animate();
-    };
+    window.addEventListener("resize", onResize);
 
-    canvasRef.current.addEventListener("webglcontextlost", handleContextLost);
-    canvasRef.current.addEventListener(
-      "webglcontextrestored",
-      handleContextRestored
-    );
-
-    // Galaxy parameters - start with fewer particles, increase after full load
+    // Galaxy parameters with optimized initial state
     const parameters = {
       count: isFullyLoaded
         ? theme === "valentine"
@@ -113,7 +129,6 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
       spin: 1,
       randomness: 0.2,
       randomnessPower: 3,
-      // Theme-aware colors using the brand color palette
       insideColor:
         theme === "purple"
           ? "#6236ff"
@@ -134,186 +149,127 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
           : "#ff4d6d",
     };
 
-    // Generate galaxy
-    const generateGalaxy = () => {
-      // Create heart sprite texture for Valentine theme
-      let material;
-      if (theme === "valentine") {
-        const canvas = document.createElement("canvas");
-        canvas.width = 32;
-        canvas.height = 32;
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-          ctx.beginPath();
-          ctx.moveTo(16, 8);
-          ctx.bezierCurveTo(16, 7, 14, 4, 10, 4);
-          ctx.bezierCurveTo(4, 4, 4, 12, 4, 12);
-          ctx.bezierCurveTo(4, 18, 16, 24, 16, 24);
-          ctx.bezierCurveTo(16, 24, 28, 18, 28, 12);
-          ctx.bezierCurveTo(28, 12, 28, 4, 22, 4);
-          ctx.bezierCurveTo(18, 4, 16, 7, 16, 8);
-          ctx.fillStyle = "#ffffff";
-          ctx.fill();
-        }
-        const texture = new THREE.CanvasTexture(canvas);
-        material = new THREE.SpriteMaterial({
-          map: texture,
-          color: parameters.insideColor,
-          transparent: true,
-          blending: THREE.AdditiveBlending,
-        });
-      } else {
-        material = new THREE.PointsMaterial({
-          size: parameters.size,
-          sizeAttenuation: true,
-          depthWrite: false,
-          blending: THREE.AdditiveBlending,
-          vertexColors: true,
-        });
-      }
-
+    // Generate galaxy in chunks to avoid long tasks
+    const generateGalaxyChunked = async () => {
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(parameters.count * 3);
       const colors = new Float32Array(parameters.count * 3);
+
+      const material = new THREE.PointsMaterial({
+        size: parameters.size,
+        sizeAttenuation: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        vertexColors: true,
+      });
 
       const colorInside = new THREE.Color(parameters.insideColor);
       const colorMiddle = new THREE.Color(parameters.middleColor);
       const colorOutside = new THREE.Color(parameters.outsideColor);
 
-      let points;
+      // Process particles in chunks
+      for (let i = 0; i < parameters.count; i += CHUNK_SIZE) {
+        const chunkEnd = Math.min(i + CHUNK_SIZE, parameters.count);
 
-      if (theme === "valentine") {
-        const group = new THREE.Group();
+        await new Promise((resolve) => {
+          requestIdle(() => {
+            for (let j = i; j < chunkEnd; j++) {
+              const i3 = j * 3;
+              const radius = Math.random() * parameters.radius;
+              const spinAngle = radius * parameters.spin;
+              const branchAngle =
+                ((j % parameters.branches) / parameters.branches) * Math.PI * 2;
 
-        for (let i = 0; i < parameters.count; i++) {
-          const radius = Math.random() * parameters.radius;
-          const spinAngle = radius * parameters.spin;
-          const branchAngle =
-            ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
+              const randomX =
+                Math.pow(Math.random(), parameters.randomnessPower) *
+                (Math.random() < 0.5 ? 1 : -1);
+              const randomY =
+                Math.pow(Math.random(), parameters.randomnessPower) *
+                (Math.random() < 0.5 ? 1 : -1);
+              const randomZ =
+                Math.pow(Math.random(), parameters.randomnessPower) *
+                (Math.random() < 0.5 ? 1 : -1);
 
-          const randomX =
-            Math.pow(Math.random(), parameters.randomnessPower) *
-            (Math.random() < 0.5 ? 1 : -1);
-          const randomY =
-            Math.pow(Math.random(), parameters.randomnessPower) *
-            (Math.random() < 0.5 ? 1 : -1);
-          const randomZ =
-            Math.pow(Math.random(), parameters.randomnessPower) *
-            (Math.random() < 0.5 ? 1 : -1);
+              positions[i3] =
+                Math.cos(branchAngle + spinAngle) * radius + randomX;
+              positions[i3 + 1] = randomY;
+              positions[i3 + 2] =
+                Math.sin(branchAngle + spinAngle) * radius + randomZ;
 
-          const x = Math.cos(branchAngle + spinAngle) * radius + randomX;
-          const y = randomY;
-          const z = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+              const mixedColor = colorInside.clone();
+              if (radius < parameters.radius * 0.5) {
+                mixedColor.lerp(
+                  colorMiddle,
+                  radius / (parameters.radius * 0.5)
+                );
+              } else {
+                mixedColor.lerp(
+                  colorOutside,
+                  (radius - parameters.radius * 0.5) / (parameters.radius * 0.5)
+                );
+              }
 
-          const heartMaterial = material as THREE.SpriteMaterial;
-          const sprite = new THREE.Sprite(heartMaterial.clone());
-          sprite.position.set(x, y, z);
-          sprite.scale.set(parameters.size, parameters.size, 1);
-
-          // Color based on radius
-          const mixedColor = colorInside.clone();
-          if (radius < parameters.radius * 0.5) {
-            mixedColor.lerp(colorMiddle, radius / (parameters.radius * 0.5));
-          } else {
-            mixedColor.lerp(
-              colorOutside,
-              (radius - parameters.radius * 0.5) / (parameters.radius * 0.5)
-            );
-          }
-          sprite.material.color = mixedColor;
-
-          group.add(sprite);
-        }
-        points = group;
-      } else {
-        // Original circle particles logic
-        for (let i = 0; i < parameters.count; i++) {
-          const i3 = i * 3;
-          const radius = Math.random() * parameters.radius;
-          const spinAngle = radius * parameters.spin;
-          const branchAngle =
-            ((i % parameters.branches) / parameters.branches) * Math.PI * 2;
-
-          const randomX =
-            Math.pow(Math.random(), parameters.randomnessPower) *
-            (Math.random() < 0.5 ? 1 : -1);
-          const randomY =
-            Math.pow(Math.random(), parameters.randomnessPower) *
-            (Math.random() < 0.5 ? 1 : -1);
-          const randomZ =
-            Math.pow(Math.random(), parameters.randomnessPower) *
-            (Math.random() < 0.5 ? 1 : -1);
-
-          positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
-          positions[i3 + 1] = randomY;
-          positions[i3 + 2] =
-            Math.sin(branchAngle + spinAngle) * radius + randomZ;
-
-          const mixedColor = colorInside.clone();
-          if (radius < parameters.radius * 0.5) {
-            mixedColor.lerp(colorMiddle, radius / (parameters.radius * 0.5));
-          } else {
-            mixedColor.lerp(
-              colorOutside,
-              (radius - parameters.radius * 0.5) / (parameters.radius * 0.5)
-            );
-          }
-
-          colors[i3] = mixedColor.r;
-          colors[i3 + 1] = mixedColor.g;
-          colors[i3 + 2] = mixedColor.b;
-        }
-
-        geometry.setAttribute(
-          "position",
-          new THREE.BufferAttribute(positions, 3)
-        );
-        geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-        points = new THREE.Points(geometry, material);
+              colors[i3] = mixedColor.r;
+              colors[i3 + 1] = mixedColor.g;
+              colors[i3 + 2] = mixedColor.b;
+            }
+            resolve(null);
+          });
+        });
       }
 
+      geometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(positions, 3)
+      );
+      geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+      const points = new THREE.Points(geometry, material);
       scene.add(points);
+
       return { geometry, material, points };
     };
 
-    const { geometry, material, points } = generateGalaxy();
+    // Generate galaxy and start animation
+    let cleanup: (() => void) | undefined;
+    generateGalaxyChunked().then(({ geometry, material, points }) => {
+      const clock = new THREE.Clock();
+      let animationFrameId: number;
 
-    // Animation
-    const clock = new THREE.Clock();
-    let animationFrameId: number;
+      const animate = () => {
+        const elapsedTime = clock.getElapsedTime();
+        points.rotation.y = elapsedTime * 0.05;
+        renderer.render(scene, camera);
+        animationFrameId = requestAnimationFrame(animate);
+      };
+      animate();
 
-    const animate = () => {
-      const elapsedTime = clock.getElapsedTime();
-      points.rotation.y = elapsedTime * 0.05;
-      renderer.render(scene, camera);
-      animationFrameId = requestAnimationFrame(animate);
-    };
-    animate();
+      // Setup cleanup function
+      cleanup = () => {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        scene.remove(points);
+        geometry.dispose();
+        material.dispose();
+      };
+    });
 
     // Cleanup
     return () => {
-      window.removeEventListener("resize", debouncedResize);
-      debouncedResize.cancel();
-      canvas?.removeEventListener("webglcontextlost", handleContextLost);
-      canvas?.removeEventListener(
-        "webglcontextrestored",
-        handleContextRestored
-      );
-
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", onResize);
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
       }
-
-      scene.remove(points);
-      geometry.dispose();
-      material.dispose();
-
+      if (cleanup) {
+        cleanup();
+      }
       if (rendererRef.current && !canvas) {
         rendererRef.current.dispose();
         rendererRef.current = null;
       }
     };
-  }, [theme, isDark, resolvedTheme, isFullyLoaded]);
+  }, [theme, isDark, resolvedTheme, isFullyLoaded, handleResize]);
 
   if (!isDark) return null;
 

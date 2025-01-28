@@ -50,7 +50,9 @@ function CoachProfile({
         <p className="text-lg font-semibold text-primary mb-4">{role}</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">{bio}</p>
         <Button asChild>
-          <Link href={learnMoreHref}>Learn More</Link>
+          <Link href={learnMoreHref} title={`Learn more about ${name}.`}>
+            About {name}
+          </Link>
         </Button>
       </div>
     </div>

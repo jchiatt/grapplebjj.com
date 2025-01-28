@@ -57,7 +57,9 @@ export function Hero() {
             <Link href="/trial">Trial Class</Link>
           </Button>
           <Button size="lg" variant="outline" className="text-lg px-8" asChild>
-            <Link href="/about">Learn More</Link>
+            <Link href="/about" title="Learn more about Grapple.">
+              Our Values
+            </Link>
           </Button>
         </div>
 

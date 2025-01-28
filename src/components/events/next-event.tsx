@@ -107,7 +107,7 @@ export function NextEvent() {
                 </time>
               </div>
 
-              <h2 className="mt-4 text-2xl font-semibold">{nextEvent.title}</h2>
+              <h3 className="mt-4 text-2xl font-semibold">{nextEvent.title}</h3>
 
               <div className="mt-4 space-y-2 text-sm text-foreground/80">
                 <div className="flex items-center gap-2">

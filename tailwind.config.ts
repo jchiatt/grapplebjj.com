@@ -35,7 +35,7 @@ export default {
         purple: {
           primary: "#6236ff",
           secondary: "#7f6bff",
-          accent: "#998aff",
+          accent: "#FF1D8D",
           accent2: "#c3b3ff",
           accent3: "#f1d1ff",
         },

@@ -70,6 +70,7 @@ export function Footer() {
                 <Link
                   href="/about"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  title="Learn more about Grapple."
                 >
                   About
                 </Link>

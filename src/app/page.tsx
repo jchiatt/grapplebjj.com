@@ -44,10 +44,10 @@ export default async function Home() {
               href={feature.link}
               className="group rounded-lg border bg-card p-6 text-card-foreground shadow-sm transition-colors hover:bg-primary"
             >
-              <h3 className="mb-2 font-heading text-lg font-semibold">
+              <h3 className="mb-2 font-heading text-lg font-semibold text-primary">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground group-hover:text-black dark:group-hover:text-white">
+              <p className="text-black dark:text-white group-hover:text-black dark:group-hover:text-white">
                 {feature.description}
               </p>
               <span className="mt-4 inline-flex items-center text-sm text-primary dark:group-hover:text-white group-hover:text-black">

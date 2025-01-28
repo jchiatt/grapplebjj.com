@@ -30,6 +30,7 @@ export function ThemeSwitcher() {
                   theme === "valentine",
               })}
             />
+            <span className="sr-only">Toggle Theme</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
