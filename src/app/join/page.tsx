@@ -131,6 +131,16 @@ export default function JoinPage() {
           you&apos;ll be redirected to sign our waiver.
         </p>
 
+        <div className="aspect-video w-full mt-8 mb-12">
+          <iframe
+            className="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/IXLa44YajPg?si=58qrItkosKcn1TtM"
+            title="Ready to Grapple?"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

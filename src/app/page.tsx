@@ -30,6 +30,24 @@ export default async function Home() {
     <div>
       <Hero />
 
+      {/* Welcome Video Section */}
+      <FullWidthSection className="py-24">
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12">
+            Welcome to Grapple
+          </h2>
+          <div className="aspect-video w-full max-w-3xl mx-auto">
+            <iframe
+              className="w-full h-full rounded-lg shadow-lg"
+              src="https://www.youtube.com/embed/ZDCj1HWKyyQ?si=yJpzCYzynIdxs2tp"
+              title="Welcome to Grapple"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </FullWidthSection>
+
       <FeaturedPhotos title="" />
 
       <FeaturedVideos initialVideos={videos} />

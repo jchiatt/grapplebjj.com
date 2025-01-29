@@ -337,11 +337,7 @@ info@grapplebjj.com
 
 # Videos & GIFs
 
-- Video from me on homepage
 - Video from me on about page
-- Video from me on trial page
-- Video from me on the join page
-- Video from me on drop in page
 - GIF on the 404 page of me unconscious and a black hole animation
 - GIF from us on drop-in, trial, and join pages
 - Video from me on thank you page
@@ -364,3 +360,4 @@ info@grapplebjj.com
 - Add more about the growth story (written and a quick video)
 - Create management system for growth metrics to easily update
 - Implement real time tracker of growth metrics
+- Add gym finder to the site (similar to https://matmade.com/)

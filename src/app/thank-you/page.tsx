@@ -10,6 +10,17 @@ export default function ThankYouPage() {
           Your account has been created successfully. We&apos;ll see you on the
           mats!
         </p>
+
+        <div className="aspect-video w-full mt-8 mb-12">
+          <iframe
+            className="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/9GCscBQamsQ?si=5L5GTIgTe54vu5HN"
+            title="Your First Visit"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
         <div className="mt-8">
           <Button asChild>
             <Link href="/">Return Home</Link>
