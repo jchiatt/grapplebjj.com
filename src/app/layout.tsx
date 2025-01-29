@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   title: "Grapple Jiu Jitsu",
   description: "No-Gi submission grappling gym in Pearl, Mississippi.",
   metadataBase: new URL("https://grapplejj.com"),
+  themeColor: "#6236FF",
   openGraph: {
     type: "website",
     title: "Grapple Jiu Jitsu",

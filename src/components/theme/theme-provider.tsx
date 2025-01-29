@@ -5,6 +5,12 @@ import { ThemeProvider as NextThemeProvider } from "next-themes";
 
 export type Theme = "purple" | "blue" | "valentine";
 
+const themeColors = {
+  purple: "#6236FF",
+  blue: "#38BDF8",
+  valentine: "#EC4899",
+} as const;
+
 interface ThemeProviderProps {
   children: React.ReactNode;
   defaultTheme?: Theme;
@@ -44,6 +50,20 @@ export function ThemeProvider({
     (newTheme: Theme, persist: boolean = true) => {
       setThemeState(newTheme);
       document.documentElement.setAttribute("data-theme", newTheme);
+
+      // Update theme-color meta tag
+      const themeColor = themeColors[newTheme];
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute("content", themeColor);
+      } else {
+        const meta = document.createElement("meta");
+        meta.name = "theme-color";
+        meta.content = themeColor;
+        document.head.appendChild(meta);
+      }
+
       if (persist) {
         localStorage.setItem(THEME_STORAGE_KEY, newTheme);
       }
