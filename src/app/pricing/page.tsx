@@ -17,6 +17,7 @@ function PriceCard({
   cta,
   disclaimer,
   highlighted = false,
+  className,
 }: {
   title: string;
   price: string;
@@ -25,6 +26,7 @@ function PriceCard({
   cta: { text: string; href: string };
   disclaimer?: string;
   highlighted?: boolean;
+  className?: string;
 }) {
   return (
     <div
@@ -32,7 +34,7 @@ function PriceCard({
         highlighted
           ? "bg-primary text-white ring-2 ring-primary"
           : "bg-secondary"
-      }`}
+      } ${className || ""}`}
     >
       <h3 className="text-2xl font-semibold">{title}</h3>
       <div className="mt-4 flex items-baseline">
@@ -157,6 +159,7 @@ export default function PricingPage() {
           ]}
           cta={{ text: "Get Started", href: "/drop-in" }}
           disclaimer="Drop-in classes are available to anyone."
+          className="order-2 lg:order-1"
         />
 
         <PriceCard
@@ -173,6 +176,7 @@ export default function PricingPage() {
           ]}
           cta={{ text: "Schedule Trial", href: "/trial" }}
           highlighted
+          className="order-1 lg:order-2"
         />
 
         <PriceCard
@@ -189,6 +193,7 @@ export default function PricingPage() {
           ]}
           cta={{ text: "Join Now", href: "/join" }}
           disclaimer="Focus Fit membership required ($30/month, paid separately to Focus Fit)."
+          className="order-3"
         />
       </div>
 
