@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import schedule from "./schedule.json";
+import schedule from "@/data/schedule.json";
 import { useLiveStream } from "../livestream/livestream-context";
 import { LiveStreamStatus } from "@/lib/youtube";
 import { CallToAction } from "../ui/call-to-action";
@@ -30,6 +30,10 @@ const DAYS = [
 type Day = (typeof DAYS)[number];
 
 function formatTime(time: string): string {
+  if (time === "until") {
+    return "Until";
+  }
+
   const [hours, minutes] = time.split(":");
   const date = new Date();
   date.setHours(parseInt(hours));

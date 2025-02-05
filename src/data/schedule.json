@@ -1,9 +1,9 @@
 {
   "sunday": [
     {
-      "start": "12:00",
+      "start": "14:00",
       "end": "16:00",
-      "class": "Open Mat (Members Only)",
+      "class": "Self Directed Training (min. 4 members required)",
       "liveStreamed": false
     }
   ],
@@ -16,21 +16,27 @@
     },
     {
       "start": "18:30",
-      "end": "19:30",
-      "class": "Open Mat (Members Only)"
+      "end": "until",
+      "class": "Open Mat"
     }
   ],
   "tuesday": [
     {
       "start": "17:30",
       "end": "18:30",
-      "class": "Jiu Jitsu (No-Gi)",
+      "class": "Positional Rounds / Grapple Games",
       "liveStreamed": false
     },
     {
       "start": "18:30",
       "end": "19:30",
-      "class": "Open Mat (Members Only)",
+      "class": "Jiu Jitsu (No-Gi)",
+      "liveStreamed": false
+    },
+    {
+      "start": "19:30",
+      "end": "until",
+      "class": "Open Mat",
       "liveStreamed": false
     }
   ],
@@ -43,8 +49,8 @@
     },
     {
       "start": "18:30",
-      "end": "19:30",
-      "class": "Open Mat (Members Only)",
+      "end": "until",
+      "class": "Open Mat",
       "liveStreamed": false
     }
   ],
@@ -52,21 +58,27 @@
     {
       "start": "17:30",
       "end": "18:30",
-      "class": "Jiu Jitsu (No-Gi)",
+      "class": "Positional Rounds / Grapple Games",
       "liveStreamed": true
     },
     {
       "start": "18:30",
       "end": "19:30",
-      "class": "Open Mat (Members Only)",
+      "class": "Jiu Jitsu (No-Gi)",
+      "liveStreamed": true
+    },
+    {
+      "start": "19:30",
+      "end": "until",
+      "class": "Open Mat",
       "liveStreamed": false
     }
   ],
   "friday": [
     {
-      "start": "17:30",
-      "end": "18:30",
-      "class": "Open Mat (Members Only)",
+      "start": "18:00",
+      "end": "until",
+      "class": "Self Directed Training (min. 4 members required)",
       "liveStreamed": false
     }
   ],

@@ -1,4 +1,4 @@
-import schedule from "@/components/schedule/schedule.json";
+import schedule from "@/data/schedule.json";
 
 export const DAYS = [
   "sunday",
