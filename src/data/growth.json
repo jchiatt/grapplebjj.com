@@ -1,20 +1,20 @@
 {
   "current": {
+    "month": "January",
+    "year": "2025",
+    "income": 1599.11,
+    "expenses": 1980,
+    "profit": -380.89,
+    "members": 38,
+    "socialReach": 31803
+  },
+  "previous": {
     "month": "December",
     "year": "2024",
     "income": 1930.03,
     "expenses": 3000.0,
     "profit": -1069.97,
     "members": 30,
-    "socialReach": 14077
-  },
-  "previous": {
-    "month": "November",
-    "year": "2024",
-    "income": 2207.5,
-    "expenses": 2330.0,
-    "profit": -122.5,
-    "members": 33,
-    "socialReach": 15400
+    "socialReach": 132077
   }
 }
