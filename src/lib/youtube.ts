@@ -85,47 +85,25 @@ export const getLiveStreamStatus = cache(
     }
 
     try {
-      const cacheBuster = Date.now();
       const response = await fetch(
-        `https://www.youtube.com/channel/${CHANNEL_ID}/live?_=${cacheBuster}`,
+        `https://www.youtube.com/channel/${CHANNEL_ID}/live`,
         {
           headers: {
-            "User-Agent": "Mozilla/5.0",
-            "Cache-Control": "no-cache",
-            Pragma: "no-cache",
+            "User-Agent":
+              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
           },
-          cache: "no-store",
-          next: { revalidate: 0 },
+          next: { revalidate: 60 },
         }
       );
 
-      console.log("[LiveStream] Status code:", response.status);
-      console.log(
-        "[LiveStream] Headers:",
-        JSON.stringify(Object.fromEntries(response.headers.entries()))
-      );
-
       if (!response.ok) {
-        console.error(
-          "[LiveStream] Response not OK:",
-          response.status,
-          response.statusText
-        );
-        throw new Error(
-          `Failed to fetch live page: ${response.status} ${response.statusText}`
-        );
+        throw new Error("Failed to fetch live page");
       }
 
       const html = await response.text();
-      console.log("[LiveStream] HTML length:", html.length);
 
       const canonicalMatch = html.match(
         /<link\s+rel="canonical"\s+href="(https:\/\/www\.youtube\.com\/watch[^"]+)"/i
-      );
-
-      console.log(
-        "[LiveStream] Canonical match:",
-        canonicalMatch ? "found" : "not found"
       );
 
       if (!canonicalMatch) {
@@ -134,8 +112,6 @@ export const getLiveStreamStatus = cache(
 
       const canonicalUrl = canonicalMatch[1];
       const videoId = new URL(canonicalUrl).searchParams.get("v");
-
-      console.log("[LiveStream] Video ID:", videoId);
 
       if (!videoId) {
         return { isLive: false, lastChecked: now };
@@ -148,11 +124,7 @@ export const getLiveStreamStatus = cache(
         lastChecked: now,
       };
     } catch (error) {
-      console.error("[LiveStream] Error checking live status:", error);
-      console.error(
-        "[LiveStream] Full error:",
-        JSON.stringify(error, Object.getOwnPropertyNames(error))
-      );
+      console.error("Failed to check live status:", error);
       return { isLive: false, lastChecked: now };
     }
   }
