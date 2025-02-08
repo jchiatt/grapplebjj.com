@@ -1,5 +1,5 @@
 import { Poppins, Metrophobic } from "next/font/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Layout } from "@/components/layout/layout";
@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   title: "Grapple Jiu Jitsu",
   description: "No-Gi submission grappling gym in Pearl, Mississippi.",
   metadataBase: new URL("https://grapplejj.com"),
-  themeColor: "#6236FF",
   openGraph: {
     type: "website",
     title: "Grapple Jiu Jitsu",
@@ -59,6 +58,10 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#6236FF",
 };
 
 export default function RootLayout({
