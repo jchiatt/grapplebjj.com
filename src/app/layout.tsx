@@ -61,8 +61,18 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#6236FF",
+  themeColor: getThemeColor(),
 };
+
+function getThemeColor() {
+  const now = new Date();
+  const valentineEnd = new Date("2025-02-15T23:59:59");
+  if (now <= valentineEnd) {
+    return "#ff66c4";
+  }
+
+  return "#6236FF";
+}
 
 export default function RootLayout({
   children,
