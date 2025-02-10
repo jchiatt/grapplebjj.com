@@ -155,13 +155,42 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
       const positions = new Float32Array(parameters.count * 3);
       const colors = new Float32Array(parameters.count * 3);
 
-      const material = new THREE.PointsMaterial({
-        size: parameters.size,
-        sizeAttenuation: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-        vertexColors: true,
-      });
+      // Create heart texture for valentine theme
+      let material;
+      if (theme === "valentine") {
+        const canvas = document.createElement("canvas");
+        canvas.width = 64;
+        canvas.height = 64;
+        const ctx = canvas.getContext("2d");
+        if (ctx) {
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "40px Arial";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText("♥", canvas.width / 2, canvas.height / 2);
+          const texture = new THREE.CanvasTexture(canvas);
+          material = new THREE.PointsMaterial({
+            size: parameters.size * 3, // Slightly larger for hearts
+            sizeAttenuation: true,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending,
+            vertexColors: true,
+            map: texture,
+            transparent: true,
+          });
+        }
+      }
+
+      // Fallback to regular points for other themes
+      if (!material) {
+        material = new THREE.PointsMaterial({
+          size: parameters.size,
+          sizeAttenuation: true,
+          depthWrite: false,
+          blending: THREE.AdditiveBlending,
+          vertexColors: true,
+        });
+      }
 
       const colorInside = new THREE.Color(parameters.insideColor);
       const colorMiddle = new THREE.Color(parameters.middleColor);
