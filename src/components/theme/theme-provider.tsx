@@ -11,6 +11,20 @@ const themeColors = {
   valentine: "#EC4899",
 } as const;
 
+const getDefaultTheme = (): Theme => {
+  const now = new Date();
+  const valentineEnd = new Date("2025-02-15T23:59:59");
+  console.log({
+    now,
+    valentineEnd,
+  });
+  if (now <= valentineEnd) {
+    return "valentine";
+  }
+
+  return "purple";
+};
+
 interface ThemeProviderProps {
   children: React.ReactNode;
   defaultTheme?: Theme;
@@ -28,7 +42,7 @@ const THEME_STORAGE_KEY = "grapple-color-theme";
 
 export function ThemeProvider({
   children,
-  defaultTheme = "purple",
+  defaultTheme = getDefaultTheme(),
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<Theme>(defaultTheme);
   const [mounted, setMounted] = React.useState(false);
@@ -36,6 +50,17 @@ export function ThemeProvider({
   // Initialize theme from localStorage or default
   React.useEffect(() => {
     setMounted(true);
+    const now = new Date();
+    const valentineEnd = new Date("2025-02-15T23:59:59");
+
+    // During Valentine's period, always use valentine theme
+    if (now <= valentineEnd) {
+      setThemeState("valentine");
+      document.documentElement.setAttribute("data-theme", "valentine");
+      return;
+    }
+
+    // After Valentine's period, respect saved preferences
     const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
     if (savedTheme && ["purple", "blue", "valentine"].includes(savedTheme)) {
       setThemeState(savedTheme);
