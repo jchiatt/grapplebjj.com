@@ -66,7 +66,7 @@ export const viewport: Viewport = {
 
 function getThemeColor() {
   const now = new Date();
-  const valentineEnd = new Date("2025-02-15T23:59:59");
+  const valentineEnd = new Date("2025-02-15T00:00:00");
   if (now <= valentineEnd) {
     return "#ff66c4";
   }
