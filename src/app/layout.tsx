@@ -1,7 +1,7 @@
 import { Poppins, Metrophobic } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { ThemeProvider } from "@/components/theme/theme-provider";
+import { ThemeProvider, themeColors } from "@/components/theme/theme-provider";
 import { Layout } from "@/components/layout/layout";
 import { LiveStreamProvider } from "@/components/livestream/livestream-context";
 import { Analytics } from "@vercel/analytics/react";
@@ -61,18 +61,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: getThemeColor(),
+  themeColor: themeColors.purple,
 };
-
-function getThemeColor() {
-  const now = new Date();
-  const valentineEnd = new Date("2025-02-15T00:00:00");
-  if (now <= valentineEnd) {
-    return "#ff66c4";
-  }
-
-  return "#6236FF";
-}
 
 export default function RootLayout({
   children,

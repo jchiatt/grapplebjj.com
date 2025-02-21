@@ -38,12 +38,6 @@
     --theme-accent: 204 100% 44%; /* #0092e0 */
   }
 
-  [data-theme="valentine"] {
-    --theme-primary: 330 100% 71%; /* #ff66c4 */
-    --theme-secondary: 350 100% 68%; /* #ff4d6d */
-    --theme-accent: 340 100% 65%; /* #ff3366 */
-  }
-
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;

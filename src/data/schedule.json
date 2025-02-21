@@ -84,8 +84,8 @@
   ],
   "saturday": [
     {
-      "start": "08:00",
-      "end": "09:00",
+      "start": "11:00",
+      "end": "12:00",
       "class": "Jiu Jitsu (No-Gi)",
       "liveStreamed": false
     }

@@ -116,37 +116,16 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
 
     // Galaxy parameters with optimized initial state
     const parameters = {
-      count: isFullyLoaded
-        ? theme === "valentine"
-          ? 10000
-          : 100000
-        : theme === "valentine"
-        ? 2000
-        : 20000,
-      size: theme === "valentine" ? 0.04 : 0.01,
+      count: isFullyLoaded ? 100000 : 20000,
+      size: 0.01,
       radius: 5,
       branches: 3,
       spin: 1,
       randomness: 0.2,
       randomnessPower: 3,
-      insideColor:
-        theme === "purple"
-          ? "#6236ff"
-          : theme === "blue"
-          ? "#38b6ff"
-          : "#ff66c4",
-      outsideColor:
-        theme === "purple"
-          ? "#c3b3ff"
-          : theme === "blue"
-          ? "#0077b8"
-          : "#ff3366",
-      middleColor:
-        theme === "purple"
-          ? "#7f6bff"
-          : theme === "blue"
-          ? "#00aaff"
-          : "#ff4d6d",
+      insideColor: theme === "purple" ? "#6236ff" : "#38b6ff",
+      outsideColor: theme === "purple" ? "#c3b3ff" : "#0077b8",
+      middleColor: theme === "purple" ? "#7f6bff" : "#00aaff",
     };
 
     // Generate galaxy in chunks to avoid long tasks
@@ -155,42 +134,13 @@ export function GalaxyBackground({ className }: GalaxyBackgroundProps) {
       const positions = new Float32Array(parameters.count * 3);
       const colors = new Float32Array(parameters.count * 3);
 
-      // Create heart texture for valentine theme
-      let material;
-      if (theme === "valentine") {
-        const canvas = document.createElement("canvas");
-        canvas.width = 64;
-        canvas.height = 64;
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-          ctx.fillStyle = "#ffffff";
-          ctx.font = "40px Arial";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.fillText("♥", canvas.width / 2, canvas.height / 2);
-          const texture = new THREE.CanvasTexture(canvas);
-          material = new THREE.PointsMaterial({
-            size: parameters.size * 3, // Slightly larger for hearts
-            sizeAttenuation: true,
-            depthWrite: false,
-            blending: THREE.AdditiveBlending,
-            vertexColors: true,
-            map: texture,
-            transparent: true,
-          });
-        }
-      }
-
-      // Fallback to regular points for other themes
-      if (!material) {
-        material = new THREE.PointsMaterial({
-          size: parameters.size,
-          sizeAttenuation: true,
-          depthWrite: false,
-          blending: THREE.AdditiveBlending,
-          vertexColors: true,
-        });
-      }
+      const material = new THREE.PointsMaterial({
+        size: parameters.size,
+        sizeAttenuation: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        vertexColors: true,
+      });
 
       const colorInside = new THREE.Color(parameters.insideColor);
       const colorMiddle = new THREE.Color(parameters.middleColor);

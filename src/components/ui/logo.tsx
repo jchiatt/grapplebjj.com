@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
-  theme?: "purple" | "blue" | "valentine";
+  theme?: "purple" | "blue";
 }
 
 export function Logo({ className, size = "md", theme = "purple" }: LogoProps) {
@@ -16,7 +16,6 @@ export function Logo({ className, size = "md", theme = "purple" }: LogoProps) {
   const themeColors = {
     purple: "#6236ff",
     blue: "#38b6ff",
-    valentine: "#ff66c4",
   };
 
   return (
