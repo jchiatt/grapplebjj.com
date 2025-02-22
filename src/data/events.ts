@@ -61,15 +61,10 @@ export const upcomingEvents: Event[] = [
       amount: 60,
       currency: "USD",
       description: ``,
-      payWhatYouWant: {
-        enabled: true,
-        suggestedAmount: 49,
-        availableUntil: "2025-02-21T00:00:00-06:00",
-      },
     },
     time: {
-      start: "2025-03-24T13:00:00-06:00",
-      end: "2025-03-24T16:00:00-06:00",
+      start: "2025-03-24T17:30:00-06:00",
+      end: "2025-03-24T20:00:00-06:00",
     },
     category: "seminar",
     capacity: 100,
