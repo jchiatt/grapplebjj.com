@@ -63,8 +63,8 @@ export const upcomingEvents: Event[] = [
       description: ``,
     },
     time: {
-      start: "2025-03-24T17:30:00-06:00",
-      end: "2025-03-24T20:00:00-06:00",
+      start: "2025-03-24T16:30:00-06:00",
+      end: "2025-03-24T19:00:00-06:00",
     },
     category: "seminar",
     capacity: 100,
