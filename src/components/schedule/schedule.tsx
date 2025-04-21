@@ -11,10 +11,19 @@ type DaySchedule = {
   end: string;
   class: string;
   liveStreamed?: boolean;
+  isClosed?: boolean;
+};
+
+type Override = {
+  date: string;
+  description: string;
+  schedule: DaySchedule[];
 };
 
 type WeekSchedule = {
-  [key: string]: DaySchedule[];
+  [K in Day]: DaySchedule[];
+} & {
+  overrides: Override[];
 };
 
 const DAYS = [
@@ -51,87 +60,134 @@ function getSortedDays(currentDay: number): Day[] {
   return [...DAYS.slice(currentDay), ...DAYS.slice(0, currentDay)];
 }
 
+function getScheduleForDate(
+  date: Date,
+  weekSchedule: WeekSchedule
+): DaySchedule[] {
+  const dateStr = date.toISOString().split("T")[0];
+  const override = weekSchedule.overrides?.find((o) => o.date === dateStr);
+
+  if (override) {
+    return override.schedule;
+  }
+
+  const day = DAYS[date.getDay()];
+  return weekSchedule[day];
+}
+
 export function Schedule() {
   const { liveStatus } = useLiveStream();
+  const currentDate = useMemo(() => new Date(), []);
 
   const today = useMemo(() => {
-    return DAYS[new Date().getDay()];
-  }, []);
+    return DAYS[currentDate.getDay()];
+  }, [currentDate]);
 
   const sortedDays = useMemo(() => {
-    return getSortedDays(new Date().getDay());
-  }, []);
+    return getSortedDays(currentDate.getDay());
+  }, [currentDate]);
+
+  const getScheduleForDay = (day: Day) => {
+    const date = new Date(currentDate);
+    const currentDay = currentDate.getDay();
+    const targetDay = DAYS.indexOf(day);
+    const daysToAdd = (targetDay + 7 - currentDay) % 7;
+    date.setDate(date.getDate() + daysToAdd);
+    return getScheduleForDate(date, schedule as WeekSchedule);
+  };
 
   return (
     <div className="space-y-12">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {/* Mobile: Show sorted days */}
-        {sortedDays.map((day) => (
-          <div
-            key={day}
-            className={`md:hidden rounded-lg border-2 p-4 shadow-sm ${
-              day === today
-                ? "border-primary bg-primary/5"
-                : "border-secondary-foreground/20 dark:border-secondary-foreground"
-            }`}
-          >
-            <h2 className="mb-4 text-lg font-semibold capitalize">{day}</h2>
-            <div className="space-y-3">
-              {(schedule as WeekSchedule)[day].map((slot, index) => (
-                <div key={index} className="space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">
-                      {formatTime(slot.start)} - {formatTime(slot.end)}
-                    </span>
-                    {slot.liveStreamed && (
-                      <LiveStreamStatusIndicator
-                        liveStatus={liveStatus}
-                        today={day === today}
-                      />
+        {sortedDays.map((day) => {
+          const daySchedule = getScheduleForDay(day);
+          return (
+            <div
+              key={day}
+              className={`md:hidden rounded-lg border-2 p-4 shadow-sm ${
+                day === today
+                  ? "border-primary bg-primary/5"
+                  : "border-secondary-foreground/20 dark:border-secondary-foreground"
+              }`}
+            >
+              <h2 className="mb-4 text-lg font-semibold capitalize">{day}</h2>
+              <div className="space-y-3">
+                {daySchedule.map((slot, index) => (
+                  <div key={index} className="space-y-1">
+                    {!slot.isClosed ? (
+                      <>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium">
+                            {formatTime(slot.start)} - {formatTime(slot.end)}
+                          </span>
+                          {slot.liveStreamed && (
+                            <LiveStreamStatusIndicator
+                              liveStatus={liveStatus}
+                              today={day === today}
+                            />
+                          )}
+                        </div>
+                        <p className="text-sm text-secondary-foreground/80">
+                          {slot.class}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-sm text-secondary-foreground/80">
+                        {slot.class}
+                      </p>
                     )}
                   </div>
-                  <p className="text-sm text-secondary-foreground/80">
-                    {slot.class}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         {/* Desktop: Show regular order */}
-        {DAYS.map((day) => (
-          <div
-            key={`desktop-${day}`}
-            className={`hidden md:block rounded-lg border-2 p-4 shadow-sm ${
-              day === today
-                ? "border-primary bg-primary/5"
-                : "border-secondary-foreground/20 dark:border-secondary-foreground"
-            }`}
-          >
-            <h2 className="mb-4 text-lg font-semibold capitalize">{day}</h2>
-            <div className="space-y-3">
-              {(schedule as WeekSchedule)[day].map((slot, index) => (
-                <div key={index} className="space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">
-                      {formatTime(slot.start)} - {formatTime(slot.end)}
-                    </span>
-                    {slot.liveStreamed && (
-                      <LiveStreamStatusIndicator
-                        liveStatus={liveStatus}
-                        today={day === today}
-                      />
+        {DAYS.map((day) => {
+          const daySchedule = getScheduleForDay(day);
+          return (
+            <div
+              key={`desktop-${day}`}
+              className={`hidden md:block rounded-lg border-2 p-4 shadow-sm ${
+                day === today
+                  ? "border-primary bg-primary/5"
+                  : "border-secondary-foreground/20 dark:border-secondary-foreground"
+              }`}
+            >
+              <h2 className="mb-4 text-lg font-semibold capitalize">{day}</h2>
+              <div className="space-y-3">
+                {daySchedule.map((slot, index) => (
+                  <div key={index} className="space-y-1">
+                    {!slot.isClosed ? (
+                      <>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium">
+                            {formatTime(slot.start)} - {formatTime(slot.end)}
+                          </span>
+                          {slot.liveStreamed && (
+                            <LiveStreamStatusIndicator
+                              liveStatus={liveStatus}
+                              today={day === today}
+                            />
+                          )}
+                        </div>
+                        <p className="text-sm text-secondary-foreground/80">
+                          {slot.class}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-sm text-secondary-foreground/80">
+                        {slot.class}
+                      </p>
                     )}
                   </div>
-                  <p className="text-sm text-secondary-foreground/80">
-                    {slot.class}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-16 md:mt-24">
