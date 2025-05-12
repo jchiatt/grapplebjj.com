@@ -21,6 +21,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -56,7 +58,17 @@ const formSchema = z.object({
 });
 
 export default function JoinPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <JoinPageContent />
+    </Suspense>
+  );
+}
+
+function JoinPageContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const searchParams = useSearchParams();
+  const membershipId = searchParams.get("membership_id");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -90,7 +102,7 @@ export default function JoinPage() {
       // Create the URL with query parameters
       const baseUrl = "https://members.grapplejj.com/signup";
       const queryParams = new URLSearchParams({
-        membership_id: "6823",
+        membership_id: membershipId || "6823",
         type: "2",
         first_name: values.firstName,
         last_name: values.lastName,

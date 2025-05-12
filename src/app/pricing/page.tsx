@@ -23,18 +23,17 @@ function PriceCard({
   price: string;
   description: string;
   features: string[];
-  cta: { text: string; href: string };
+  cta: { text: string; href: string; membership_id?: number };
   disclaimer?: string;
   highlighted?: boolean;
   className?: string;
 }) {
   return (
     <div
-      className={`rounded-2xl p-8 ${
-        highlighted
-          ? "bg-primary text-white ring-2 ring-primary"
-          : "bg-secondary"
-      } ${className || ""}`}
+      className={`rounded-2xl p-8 max-w-sm ${highlighted
+        ? "bg-primary text-white ring-2 ring-primary"
+        : "bg-secondary"
+        } ${className || ""}`}
     >
       <h3 className="text-2xl font-semibold">{title}</h3>
       <div className="mt-4 flex items-baseline">
@@ -60,20 +59,18 @@ function PriceCard({
         ))}
       </ul>
       <a
-        href={cta.href}
-        className={`mt-8 block w-full rounded-lg px-6 py-4 text-center text-sm font-semibold ${
-          highlighted
-            ? "bg-white text-primary hover:bg-gray-50"
-            : "bg-primary text-white hover:bg-primary/90"
-        }`}
+        href={`${cta.href}${cta.membership_id ? `?membership_id=${cta.membership_id}` : ""}`}
+        className={`mt-8 block w-full rounded-lg px-6 py-4 text-center text-sm font-semibold ${highlighted
+          ? "bg-white text-primary hover:bg-gray-50"
+          : "bg-primary text-white hover:bg-primary/90"
+          }`}
       >
         {cta.text}
       </a>
       {disclaimer && (
         <p
-          className={`mt-4 text-xs text-center ${
-            highlighted ? "text-white/80" : "text-muted-foreground"
-          }`}
+          className={`mt-4 text-xs text-center ${highlighted ? "text-white/80" : "text-muted-foreground"
+            }`}
         >
           {disclaimer}
         </p>
@@ -144,7 +141,9 @@ export default function PricingPage() {
         </p>
       </div>
 
-      <div className="mt-16 grid gap-8 lg:grid-cols-3">
+      {/* === PRICING GRID === */}
+      <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {/* Top row (3 cards) */}
         <PriceCard
           title="Drop-In"
           price="$20"
@@ -159,7 +158,6 @@ export default function PricingPage() {
           ]}
           cta={{ text: "Get Started", href: "/drop-in" }}
           disclaimer="Drop-in classes are available to anyone."
-          className="order-2 lg:order-1"
         />
 
         <PriceCard
@@ -176,25 +174,67 @@ export default function PricingPage() {
           ]}
           cta={{ text: "Schedule Trial", href: "/trial" }}
           highlighted
-          className="order-1 lg:order-2"
         />
 
         <PriceCard
-          title="Grapple Membership"
-          price="$100"
-          description="Unlimited access to all classes."
+          title="Grapple Kids"
+          price="$49"
+          description="Unlimited access to all kids classes."
           features={[
             "All classes included",
             "No contracts or other fees",
-            "Shower available",
-            "Access to private online learning",
-            "Access to special events",
-            "Off-schedule access to gym",
+            "Safe, fun, and friendly environment",
+            "No required gear purchases",
           ]}
-          cta={{ text: "Join Now", href: "/join" }}
-          disclaimer="Focus Fit membership required ($30/month, paid separately to Focus Fit)."
-          className="order-3"
+          cta={{ text: "Join Now", href: "/join", membership_id: 118781 }}
         />
+
+        {/* Bottom row (2 cards), centered on desktop */}
+        <div className="lg:col-span-3 lg:flex lg:justify-center lg:space-x-8 space-y-8 lg:space-y-0">
+          <PriceCard
+            title="Grapple Founations"
+            price="$49"
+            description="Perfect for beginners looking to start their journey with a slower pace."
+            features={[
+              "One beginner class per week included",
+              "Safe, fun, and friendly environment",
+              "No sparring",
+              "No contracts or other fees",
+              "Shower available",
+              "Access to private online learning",
+            ]}
+            cta={{ text: "Join Now", href: "/join", membership_id: 118782 }}
+          />
+
+          <PriceCard
+            title="Grapple Limited"
+            price="$49"
+            description="Access to training one day per week."
+            features={[
+              "One training day per week included",
+              "No contracts or other fees",
+              "Shower available",
+              "Access to private online learning",
+            ]}
+            cta={{ text: "Join Now", href: "/join", membership_id: 118786 }}
+          />
+
+          <PriceCard
+            title="Grapple Membership"
+            price="$100"
+            description="Unlimited access to all classes."
+            features={[
+              "All classes included",
+              "No contracts or other fees",
+              "Shower available",
+              "Access to private online learning",
+              "Access to special events",
+              "Off-schedule access to gym",
+            ]}
+            cta={{ text: "Join Now", href: "/join", membership_id: 6823 }}
+            disclaimer="Focus Fit membership required ($30/month, paid separately to Focus Fit)."
+          />
+        </div>
       </div>
 
       <DiscountSection />
@@ -211,5 +251,6 @@ export default function PricingPage() {
         />
       </div>
     </div>
+
   );
 }
