@@ -9,6 +9,11 @@ import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
+interface Child {
+  name: string;
+  age: number;
+}
+
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
@@ -20,6 +25,27 @@ export function InterestForm() {
     email?: string;
     phone?: string;
   }>({});
+  const [children, setChildren] = useState<Child[]>([{ name: "", age: 4 }]);
+
+  const addChild = () => {
+    if (children.length < 5) {
+      setChildren([...children, { name: "", age: 4 }]);
+    }
+  };
+
+  const removeChild = (index: number) => {
+    setChildren(children.filter((_, i) => i !== index));
+  };
+
+  const updateChild = (
+    index: number,
+    field: keyof Child,
+    value: string | number
+  ) => {
+    const newChildren = [...children];
+    newChildren[index] = { ...newChildren[index], [field]: value };
+    setChildren(newChildren);
+  };
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -44,6 +70,16 @@ export function InterestForm() {
       errors.phone = "Please enter a valid phone number (e.g., 769-257-0260)";
     }
 
+    // Validate children
+    const hasEmptyChildFields = children.some(
+      (child) => !child.name || !child.age
+    );
+    if (hasEmptyChildFields) {
+      setStatus("error");
+      setErrorMessage("Please fill in all child information");
+      return;
+    }
+
     // If there are validation errors, stop submission
     if (Object.keys(errors).length > 0) {
       setValidationErrors(errors);
@@ -55,8 +91,7 @@ export function InterestForm() {
       parentName: formData.get("parentName"),
       email,
       phone,
-      childName: formData.get("childName"),
-      childAge: formData.get("childAge"),
+      children,
       message: formData.get("message"),
     };
 
@@ -75,6 +110,7 @@ export function InterestForm() {
 
       setStatus("success");
       formRef.current?.reset();
+      setChildren([{ name: "", age: 4 }]);
     } catch (error) {
       console.error("Error submitting form:", error);
       setStatus("error");
@@ -163,29 +199,75 @@ export function InterestForm() {
               </p>
             )}
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="childName">Child&apos;s Name</Label>
-            <Input
-              id="childName"
-              name="childName"
-              placeholder="Child's name"
-              required
-              disabled={status === "submitting"}
-            />
+
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <Label>Children</Label>
+              {children.length < 5 && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={addChild}
+                  disabled={status === "submitting"}
+                >
+                  Add Child
+                </Button>
+              )}
+            </div>
+            {children.map((child, index) => (
+              <div key={index} className="space-y-4 p-4 border rounded-lg">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-medium">Child {index + 1}</h3>
+                  {children.length > 1 && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => removeChild(index)}
+                      disabled={status === "submitting"}
+                    >
+                      Remove
+                    </Button>
+                  )}
+                </div>
+                <div className="grid gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor={`childName-${index}`}>Name</Label>
+                    <Input
+                      id={`childName-${index}`}
+                      value={child.name}
+                      onChange={(e) =>
+                        updateChild(index, "name", e.target.value)
+                      }
+                      placeholder="Child's name"
+                      required
+                      disabled={status === "submitting"}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor={`childAge-${index}`}>
+                      Age (Age 4 Minimum)
+                    </Label>
+                    <Input
+                      id={`childAge-${index}`}
+                      type="number"
+                      min="4"
+                      max="17"
+                      value={child.age}
+                      onChange={(e) =>
+                        updateChild(index, "age", parseInt(e.target.value))
+                      }
+                      placeholder="Age"
+                      required
+                      disabled={status === "submitting"}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="childAge">Child&apos;s Age (Age 4 Minimum)</Label>
-            <Input
-              id="childAge"
-              name="childAge"
-              type="number"
-              min="4"
-              max="17"
-              placeholder="Age"
-              required
-              disabled={status === "submitting"}
-            />
-          </div>
+
           <div className="space-y-2">
             <Label htmlFor="message">Additional Information (Optional)</Label>
             <Textarea
