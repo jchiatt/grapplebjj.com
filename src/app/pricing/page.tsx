@@ -181,7 +181,7 @@ export default function PricingPage() {
         />
 
         <PriceCard
-          title="Grapple Founations"
+          title="Grapple Foundations"
           price="$49"
           description="Perfect for beginners looking to start their journey with a slower pace"
           features={[
