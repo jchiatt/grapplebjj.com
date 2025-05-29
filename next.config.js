@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/youtube",
-        destination: "https://www.youtube.com/@grppletheworld",
+        destination: "https://www.youtube.com/@msgrappling",
         permanent: false,
       },
       // {
