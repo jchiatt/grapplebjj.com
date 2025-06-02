@@ -10,39 +10,42 @@ export function Testimonials() {
       </h2>
 
       <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {testimonialData.testimonials.slice(0, 5).map((testimonial, index) => (
-          <div
-            key={testimonial.id}
-            className={`rounded-lg border bg-card p-6 shadow-sm transition-colors hover:bg-accent/80 ${
-              // Make the middle testimonials span 2 rows on larger screens
-              index === 1 || index === 3 ? "lg:col-span-1 lg:row-span-2" : ""
-            }`}
-          >
-            <div className="flex items-center gap-4">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  fill
-                  className="object-cover"
-                  placeholder="blur"
-                  blurDataURL={testimonial?.blurImageUrl ?? testimonial.image}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  loading="lazy"
-                />
+        {testimonialData.testimonials
+          .sort((a, b) => b.id - a.id)
+          .slice(0, 5)
+          .map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className={`rounded-lg border bg-card p-6 shadow-sm transition-colors hover:bg-accent/80 ${
+                // Make the middle testimonials span 2 rows on larger screens
+                index === 1 || index === 3 ? "lg:col-span-1 lg:row-span-2" : ""
+              }`}
+            >
+              <div className="flex items-center gap-4">
+                <div className="relative h-12 w-12 overflow-hidden rounded-full">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                    placeholder="blur"
+                    blurDataURL={testimonial?.blurImageUrl ?? testimonial.image}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-semibold">{testimonial.name}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.role}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold">{testimonial.name}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {testimonial.role}
-                </p>
-              </div>
+              <blockquote className="mt-4">
+                <p className="text-muted-foreground">{testimonial.content}</p>
+              </blockquote>
             </div>
-            <blockquote className="mt-4">
-              <p className="text-muted-foreground">{testimonial.content}</p>
-            </blockquote>
-          </div>
-        ))}
+          ))}
       </div>
 
       <div className="text-center">

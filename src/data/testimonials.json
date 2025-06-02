@@ -10,10 +10,11 @@
     },
     {
       "id": 1,
-      "name": "Anonymous",
-      "role": "Police Officer",
-      "content": "I was training in another martial arts gym that's build around a belt system. While I did learn the basics, I didn't like the \"pay to advance\" system. I did a lot of research, and I spoke with many other martial arts practitioners. I told them I don't want to learn a program, but that I want to learn how to fight effectively and proficiently. Many from the law enforcement community pointed me to Grapple. I can't even begin to calculate how many tactic classes I've had. All fall short to your method of instruction. You demonstrate, make sure the class can see all angles, instruct your students to apply the tactic being taught, and follow up with each pair to make sure it's done correctly. Brother, you are an outstanding trainer. You communicate well and have a passion for what you do. Don't change a thing. The only feedback I have is gratitude. Thank you for being law enforcement friendly. Thank you for realizing that cops don't make a lot, and making it financially possible for me to do this. I've already applied these tactics in fights in my job. They work, and have kept me and my teammates safe.",
-      "image": "/images/testimonials/avatar.svg"
+      "name": "Greg Guidry",
+      "role": "Visitor",
+      "content": "Very knowledgeable instructor, gym was very clean and spacious. Anyone in the area needs to train here for sure.",
+      "image": "/images/testimonials/greg_guidry.jpg",
+      "blurImageUrl": "data:image/jpeg;base64,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"
     },
     {
       "id": 2,
@@ -48,11 +49,41 @@
     },
     {
       "id": 6,
-      "name": "Greg Guidry",
+      "name": "Braden Ishee",
       "role": "Visitor",
-      "content": "Very knowledgeable instructor, gym was very clean and spacious. Anyone in the area needs to train here for sure.",
-      "image": "/images/testimonials/greg_guidry.jpg",
-      "blurImageUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACwALADASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAQIDBAAFBv/EABsQAQEBAQEBAQEAAAAAAAAAAAACAQMREmET/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APqHF9d6A6Ghuhug7SaO6TdAtJ0atSrQJaNqXqF6CdoWreoXoI2jat6jeglSdHrU9AugOlAXA70Bc5wPv/p30l9B9ArtF2k9ou2Cm0SqT206sFKpKqJVpVYHqkbotWjdgN0jdBdpVQBepVo1SVUAVpN126XdB26V26HoC4B9AXeg4H2v2G2z/YbYL7ZNtHbTroC9WnXRCuiVdAXrolXRCuiVdQXrolXRnrqnXQF6tKrRroTbBWqJtJbYbQKbpfSfTvQN670vo+gPol9EBcDvQfS/Zdtn/oXbBeuiddEK6JX0BeuiN9UL6oX1BovqjXVmvqhXYGuuqe9WSu36Tev6DZvQv9GT+rv6A1/Y/TLlnygaMoc1HNPmgp6JM02AZwD6A+u9BwPT2y1aO2WrBSrQvoS7Q6WB+nRm6dU+nRl6df0Fr6/qF9v1m6dWe+oNm9v0v9f1g3t+uzqD0M6nno8+ei0WDfNqzTHFLxQNU6pOoRq06CuGwmHwDY4MEHO9c4FtolUG6StAt0zdLUvWbroI9bZOtq9aYu1An16M19HdaZOlgtvV09GTaNNA3xbTzp5/PWvloN/OmrnrFy1r5g1Rq0oQvAKyphJPgDguEA8HxzgdpKV3CVgM3Rl6tl4zdZBg7MPZ6PWWLtIPO7MnRv6yyXAM2ng3waIBXk2cmbnLZykGnk18sZ+WNXPAaOa8Jc8XjAUk+FnFMwHYPg5g+AVxnAfZJUtOySpBjuWbpLfcs/SAeb1hj6w9XpDJ15g8rrzZb5vV6c2e+YPO3mM82zebs5glzhq5y6ObRzgDc5aueJ85aYkFIxacJGLTgGnFMwJw+YAZg+DmD4AeO8Hx3gNmyWpafkuyDHcIXDdUo3APO6QzdOb0rhn6QDzOnNCub0r5o1zB5+8wzm27zD+YM081ohTIUmACJXiQmVpkBnFZwJxScAcw+Y7MNmAHg+D4PgF8HwfHeA9X5Lsr+F3AZqlG5a6lK5BiuELhuuULkGG4RqG65RqQY9gvw1bJfkEMg2Sp8myQLMqTg5h5wHTimYGYfMAcw2Y7MHAcPjh8APHeD44HteBuHDQRrEqxek6BmvEbxptG8BmvEaxptGsBDcLuK1hNwCeDmCOA7MNmOw2AOYfC4fAHBdg4DhcIB47wXA//2Q=="
+      "content": "After a college friend recommended Grapple, I decided to check it out. As someone with four years of BJJ experience, I believe cross-training is key to improving your skills. Having trained at six different gyms across Mississippi, I can confidently say Grapple stands out as one of my favorite places to roll. Though it's not my home gym, Grapple feels like a second home. The members are welcoming, genuine, and stay connected with me regularly. I've built strong relationships with the owner and many teammates, who care not only about sharpening my BJJ skills but also about me as a person. Their support extends beyond the mats, making every visit meaningful. Training at Grapple has boosted my confidence in multiple areas of my BJJ game. If you're in the Rankin area looking to compete or simply want a great workout, Grapple is an excellent choice for learning and growing in a supportive environment",
+      "image": "/images/testimonials/avatar.svg"
+    },
+    {
+      "id": 7,
+      "name": "Nevada DeLapp",
+      "role": "Student",
+      "content": "Grapple has a fantastic atmosphere! The coach is a great teacher, who doesn't take himself too seriously. Also, there is a camaraderie and joyful ethos in the gym as a whole. I have been only training here two months, and yet everyone is eager to help and works to avoid the \"one-upping\" that can creep into martial arts.",
+      "image": "/images/testimonials/nevada_delapp.jpg",
+      "blurImageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAw0lEQVR4nB3BsQpHQBwA4CvPQZ6BJ/AGPAJlNehewCAmo8VokTc45fqZdGVCEtOVYrhuUDKpf/2/D+m6bpqmYRiapvm+X9c1IYQxhhzHsW3bsixVVT3Pq6qq6zoAQFEUpWmKMXZdNwzDLMsAoO97hDEuimIcx7IsFUUJgmDf92VZUJIkwzB83zfPcxzHhJDjODjnSEpJKQUAKSVj7Hme8zyFEOi+72ma2rZtmoZSuq6rEOJ9X8Q5Z4xt2wYAeZ4TQq6/H8+rfdq4DH5+AAAAAElFTkSuQmCC"
+    },
+    {
+      "id": 8,
+      "name": "Patrick Davis",
+      "role": "Visitor",
+      "content": "JC has done an incredible job with this school, creating an environment where students receive top-quality instruction and genuine care. His dedication and investment in the school are evident in every aspect, from the expert teaching to the welcoming and supportive atmosphere. The culture here is truly one of a kind, making it an exceptional place to learn and grow. Highly recommended!",
+      "image": "/images/testimonials/patrick_davis.jpg",
+      "blurImageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAICAIAAAC+k6JsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAi0lEQVR4nAGAAH//ABUSFAIBAQwICQ8ODQ0NDQAhISAiGRkGBAYRDg5LRTwAFhcVaVJMPS8sJxwZmpCIAA8PEIJpYP/bw352ctfe5QAODg6Gc2v/7NW9rq1jYmQACgkKZl5aYlZU1cK/bGpqAAQAAKF4anBOQX18d1xWVgCjlZHpy8K9p5/Avr7KyMfX1Cuz5XsK1QAAAABJRU5ErkJggg=="
+    },
+    {
+      "id": 9,
+      "name": "Anonymous",
+      "role": "Police Officer",
+      "content": "I was training in another martial arts gym that's build around a belt system. While I did learn the basics, I didn't like the \"pay to advance\" system. I did a lot of research, and I spoke with many other martial arts practitioners. I told them I don't want to learn a program, but that I want to learn how to fight effectively and proficiently. Many from the law enforcement community pointed me to Grapple. I can't even begin to calculate how many tactic classes I've had. All fall short to you' method of instruction. You demonstrate, make sure the class can see all angles, instruct your students to apply the tactic being taught, and follow up with each pair to make sure it's done correctly. Brother, you are an outstanding trainer. You communicate well and have a passion for what you do. Don't change a thing. The only feedback I have is gratitude. Thank you for being law enforcement friendly. Thank you for realizing that cops don't make a lot, and making it financially possible for me to do this. I've already applied these tactics in fights in my job. They work, and have kept me and my teammates safe.",
+      "image": "/images/testimonials/avatar.svg"
+    },
+    {
+      "id": 10,
+      "name": "Hudson Matheny",
+      "role": "Student",
+      "content": "If you have any interest in learning jiu jitsu and what no gi submission grappling is all about, this is the place to be in Mississippi. I travel 4 hours every week just to train here on Thursdays. The owner and head instructor JC brings everything to the table you could want for a training environment. He actively studies from the BEST IN THE WORLD and brings guys from the best teams in the world to train and teach on his mats to expose our region to world class jiu jitsu. This gym is the best bang for your buck and you will be able to make life long friends along the way. Come give it a try!",
+      "image": "/images/testimonials/hudson_matheny.jpg",
+      "blurImageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nAHIADf/AOH5/+L3/+X6/+3//7vM26q5wX1/dmdyeADS1tvk/P/K5/za+P9dT10+MTSGh359iI0Am5mUhIOKZW59XGNyq5ubOyIha25rk6OtAImUiVBBPEA6NT0pJquvsHFxgl5ofYGRkQCTmHwwHBwkEhYjGCBSRlWbqMV2f5R2fYQAzdunPCUlHwAAMAgAVEA9oa3KeHeFdm5vAK+6in14YiwxSjo3NYCEg6y21HVqd2haNgCqwiqHm3g7SGs1P0R9ho2XpcJwa3aknpuRiV+K4CUFcAAAAABJRU5ErkJggg=="
     }
   ]
 }
