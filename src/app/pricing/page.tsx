@@ -150,18 +150,19 @@ export default function PricingPage() {
 
       {/* === PRICING GRID === */}
       <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-        {/* Top row (3 cards) */}
         <PriceCard
-          title="Grapple Limited"
+          title="Grapple Foundations"
           price="$49"
-          description="Access to training one day per week"
+          description="Perfect for beginners looking to start their journey with a slower pace"
           features={[
-            "One training day per week included",
+            "One beginner class per week included",
+            "Safe, fun, and friendly environment",
+            "No sparring",
             "No contracts or other fees",
             "Shower available",
             "Access to private online learning",
           ]}
-          cta={{ text: "Join Now", href: "/join", membership_id: 118786 }}
+          cta={{ text: "Join Now", href: "/join", membership_id: 118782 }}
         />
 
         <PriceCard
@@ -181,67 +182,63 @@ export default function PricingPage() {
         />
 
         <PriceCard
-          title="Grapple Foundations"
+          title="Grapple Limited"
           price="$49"
-          description="Perfect for beginners looking to start their journey with a slower pace"
+          description="Access to training one day per week"
           features={[
-            "One beginner class per week included",
-            "Safe, fun, and friendly environment",
-            "No sparring",
+            "One training day per week included",
             "No contracts or other fees",
             "Shower available",
             "Access to private online learning",
           ]}
-          cta={{ text: "Join Now", href: "/join", membership_id: 118782 }}
+          cta={{ text: "Join Now", href: "/join", membership_id: 118786 }}
         />
-        {/*<PriceCard
+
+        <PriceCard
+          title="Grapple Membership"
+          price="$100"
+          description="Unlimited access to all classes"
+          features={[
+            "All classes included",
+            "No contracts or other fees",
+            "Shower available",
+            "Access to private online learning",
+            "Access to special events",
+            "Off-schedule access to gym",
+          ]}
+          cta={{ text: "Join Now", href: "/join", membership_id: 6823 }}
+          disclaimer="Focus Fit membership required."
+        />
+
+        <PriceCard
           title="Grapple Kids"
           price="$49"
           description="Unlimited access to all kids classes."
           features={[
-            "All classes included",
+            "All kids classes included",
             "No contracts or other fees",
             "Safe, fun, and friendly environment",
             "No required gear purchases",
           ]}
           cta={{ text: "Join Now", href: "/join", membership_id: 118781 }}
-        />*/}
+          disclaimer="A parent must remain present for the duration of the class"
+        />
 
-        {/* Bottom row (2 cards), centered on desktop */}
-
-        <div className="lg:col-span-3 lg:flex lg:justify-center lg:space-x-8 space-y-8 lg:space-y-0">
-          <PriceCard
-            title="Grapple Membership"
-            price="$100"
-            description="Unlimited access to all classes"
-            features={[
-              "All classes included",
-              "No contracts or other fees",
-              "Shower available",
-              "Access to private online learning",
-              "Access to special events",
-              "Off-schedule access to gym",
-            ]}
-            cta={{ text: "Join Now", href: "/join", membership_id: 6823 }}
-            disclaimer="Focus Fit membership required."
-          />
-
-          <PriceCard
-            title="Drop-In"
-            price="$20"
-            description="Perfect for visitors or occasional training"
-            features={[
-              "Access to all classes",
-              "Valid for one day",
-              "No commitment or other fees",
-              "Bring a friend, get $10 cash",
-              "No gear or equipment required",
-              "Shower available",
-            ]}
-            cta={{ text: "Get Started", href: "/drop-in" }}
-            disclaimer="Drop-in classes are available to anyone."
-          />
-        </div>
+        <PriceCard
+          title="Drop-In"
+          price="$20"
+          description="Perfect for visitors or occasional training"
+          features={[
+            "Access to all classes",
+            "Valid for one day",
+            "No commitment or other fees",
+            "Bring a friend, get $10 cash",
+            "No gear or equipment required",
+            "Shower available",
+          ]}
+          cta={{ text: "Get Started", href: "/drop-in" }}
+          disclaimer="Drop-in classes are available to anyone."
+        />
       </div>
 
       <DiscountSection />

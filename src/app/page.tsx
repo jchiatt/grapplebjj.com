@@ -205,10 +205,10 @@ const features = [
 
 const audiences = [
   {
-    title: "Kids (Coming Soon)",
+    title: "Kids",
     description:
       "Build confidence, discipline, and healthy habits from an early age.",
-    link: "/kids",
+    link: "/trial",
   },
   {
     title: "Adults",
