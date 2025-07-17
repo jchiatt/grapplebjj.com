@@ -102,4 +102,35 @@ We really appreciate your help and kindness towards the Hess family. ANY donatio
     category: "seminar",
     capacity: 100,
   },
+  {
+    id: "4",
+    title: "Grapple Nights 1 - $400 Trios Tournament",
+    description: `4 teams. Submission-only. $400 total prizes. Join us for the inaugural Grapple Nights tournament series on Friday, August 22, 2025 at Grapple Jiu Jitsu, located at 5709 US-80, Pearl, MS 39208 (inside Focus Fit Gym).
+
+This exciting monthly series is designed to create a fun and friendly atmosphere to showcase the best grapplers in Mississippi under varying formats. `,
+    date: "2025-08-22",
+    imageUrl: "/images/events/grapple-nights-1.png",
+    ctaText: "Register",
+    ctaLink: "https://smoothcomp.com/en/event/25570",
+    featured: true,
+    location: {
+      name: "Grapple Jiu Jitsu",
+      address: "5709 US-80 E, Pearl, MS 39208",
+      mapsLink:
+        "https://www.google.com/maps/place/Grapple/@32.2846794,-90.0599141,15z/data=!3m1!4b1!4m6!3m5!1s0x86282be6569a058b:0x6fa2de5de2bfc836!8m2!3d32.2846807!4d-90.0414817!16s%2Fg%2F11k7vbhgm5?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D",
+      instructions:
+        "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
+    },
+    price: {
+      amount: 25,
+      currency: "USD",
+      description: `Team registration is $75 total ($25 per person)`,
+    },
+    time: {
+      start: "2025-08-22T18:00:00-06:00",
+      end: "2025-08-22T21:00:00-06:00",
+    },
+    category: "tournament",
+    capacity: 100,
+  },
 ];
