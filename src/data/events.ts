@@ -127,8 +127,8 @@ This exciting monthly series is designed to create a fun and friendly atmosphere
       description: `Team registration is $75 total ($25 per person)`,
     },
     time: {
-      start: "2025-08-22T18:00:00-06:00",
-      end: "2025-08-22T21:00:00-06:00",
+      start: "2025-08-22T18:00:00-05:00",
+      end: "2025-08-22T21:00:00-05:00",
     },
     category: "tournament",
     capacity: 100,
