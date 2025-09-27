@@ -3,6 +3,7 @@
 import { Event, upcomingEvents } from "@/data/events";
 import { CalendarDays, Clock, MapPin, Users, Tag } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 function formatTime(isoString: string) {
   return new Date(isoString).toLocaleTimeString("en-US", {
@@ -182,14 +183,12 @@ export function NextEvent() {
             </div>
 
             <div className="mt-8">
-              <a
-                href={nextEvent.ctaLink}
+              <Link
+                href={`/events/${nextEvent.id}`}
                 className="inline-block rounded-lg px-6 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 {nextEvent.ctaText}
-              </a>
+              </Link>
             </div>
 
             {nextEvent.registrationDeadline && (

@@ -44,14 +44,23 @@ export const upcomingEvents: Event[] = [
     id: "mason-fowler-no-gi-seminar",
     title: "Mason Fowler No-Gi Seminar",
     description:
-      "Saturday, January 25, 2025 · 12:00 PM – 3:00 PM · Grapple Jiu Jitsu (Pearl, MS)",
+      "🔥 Dont miss your chance to train with Mason Fowler — the UFC BJJ Light Heavyweight Champion and two-time ADCC veteran. He's bringing world-class no-gi techniques and championship-level strategy straight to Pearl, MS. Spots are limited — secure yours now!",
     longDescription: [
-      "Reserve your spot for a three-hour no-gi seminar with Mason Fowler at Grapple Jiu Jitsu.",
-      "The session runs on Saturday, January 25, 2025 from 12:00 PM to 3:00 PM inside Focus Fit (second floor) at 5709 US-80 E, Pearl, MS 39208.",
-      "Registration is handled through Grapple Store — secure your seat early to guarantee entry.",
+      "Train with one of the best in the world. Mason Fowler, the current UFC BJJ Light Heavyweight Champion and a two-time ADCC veteran, is coming to Pearl, MS for an exclusive no-gi seminar.",
+      "Mason has competed at the highest levels of submission grappling, earning wins over some of the sport's biggest names. His technical precision, relentless pace, and proven strategies make him one of the most respected competitors in modern jiu jitsu. This is your chance to learn directly from an elite athlete who has tested his skills on the biggest stages in the world.",
+      "Event Details:",
+      "📅 Date: Wednesday, October 9, 2025",
+      "🕕 Time: 6:00 PM",
+      "📍 Location: Grapple Jiu Jitsu, Pearl, MS",
+      "Why You Should Attend:",
+      "Learn from the UFC BJJ Light Heavyweight Champion",
+      "Gain insights from a two-time ADCC veteran with years of world-class experience",
+      "Discover competition-tested no-gi techniques and strategies you can apply immediately",
+      "Train alongside a motivated community of grapplers",
+      "Spots are limited — reserve your spot today and don't miss this rare opportunity to level up your jiu jitsu with one of the best in the game.",
     ],
-    date: "2025-01-25",
-    imageUrl: "/images/squad.jpg",
+    date: "2025-10-09",
+    imageUrl: "/images/events/mason-fowler-oct-2025.jpg",
     ctaText: "Reserve Your Spot",
     ctaLink: "https://www.grapple.store/events/mason-fowler-no-gi-seminar",
     featured: true,
@@ -64,109 +73,16 @@ export const upcomingEvents: Event[] = [
         "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
     },
     price: {
-      amount: 120,
+      amount: 80,
       currency: "USD",
-      description: "Registration is $120 per participant and is limited to 60 attendees.",
+      description:
+        "Registration is $80 per participant and is limited to 60 attendees. Note: If you register for the October 11 MSGF tournament, you can get 50% off (reach out for coupon code after registering for MSGF).",
     },
     time: {
-      start: "2025-01-25T12:00:00-06:00",
-      end: "2025-01-25T15:00:00-06:00",
+      start: "2025-10-09T18:00:00-05:00",
+      end: "2025-10-09T20:00:00-05:00",
     },
     category: "seminar",
     capacity: 60,
-  },
-  {
-    id: "2",
-    title: "Placido Santos No-Gi Seminar",
-    description:
-      "Come hang out and learn from the world's most famous uke, owner of Five Stones Jiu Jitsu, and purple belt under John Danaher, Placido Santos!",
-    date: "2025-03-24",
-    imageUrl: "/images/placido-santos-03-24-25.png",
-    ctaText: "Get Tickets",
-    ctaLink: "https://www.grapple.store/events/placido-santos-no-gi-seminar",
-    featured: true,
-    location: {
-      name: "Grapple Jiu Jitsu",
-      address: "5709 US-80 E, Pearl, MS 39208",
-      mapsLink:
-        "https://www.google.com/maps/place/Grapple/@32.2846794,-90.0599141,15z/data=!3m1!4b1!4m6!3m5!1s0x86282be6569a058b:0x6fa2de5de2bfc836!8m2!3d32.2846807!4d-90.0414817!16s%2Fg%2F11k7vbhgm5?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D",
-      instructions:
-        "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
-    },
-    price: {
-      amount: 60,
-      currency: "USD",
-      description: ``,
-    },
-    time: {
-      start: "2025-03-24T16:30:00-06:00",
-      end: "2025-03-24T19:00:00-06:00",
-    },
-    category: "seminar",
-    capacity: 100,
-  },
-  {
-    id: "3",
-    title:
-      "[Hess Family Benefit] Odie Delaney & Bobby Emmons Wrestling Seminar",
-    description: `SEMINAR IS FREE TO ANYONE WHO MAKES A DONATION OF ANY AMOUNT. Baby Levi, born February 17th, was diagnosed with Transposition of the Great Arteries (TGA) and will undergo open-heart surgery on February 25th, followed by 4-8 weeks in the MUSC Shawn Jenkins Children's Hospital NICU in Charleston, South Carolina. Cassidi and Austin Hess will remain by Levi's side facing financial burdens for medical bills, lodging, and daily expenses, all while caring for their 2-year-old daughter, Brinley hours from home. Join us on March 8th for a donation-based seminar to help ease their burden. Can't make it? We'll also be livestreaming on YouTube!
-
-We really appreciate your help and kindness towards the Hess family. ANY donation of ANY AMOUNT helps!`,
-    date: "2025-03-08",
-    imageUrl: "/images/seminars/odie-delaney-03-08-25.jpeg",
-    ctaText: "Get Tickets",
-    ctaLink:
-      "https://www.grapple.store/events/hess-family-benefit-odie-delaney-bobby-emmons-wrestling-seminar",
-    featured: true,
-    location: {
-      name: "Grapple Jiu Jitsu",
-      address: "5709 US-80 E, Pearl, MS 39208",
-      mapsLink:
-        "https://www.google.com/maps/place/Grapple/@32.2846794,-90.0599141,15z/data=!3m1!4b1!4m6!3m5!1s0x86282be6569a058b:0x6fa2de5de2bfc836!8m2!3d32.2846807!4d-90.0414817!16s%2Fg%2F11k7vbhgm5?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D",
-      instructions:
-        "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
-    },
-    price: {
-      amount: 0,
-      currency: "USD",
-      description: `Please make a donation of any amount to the Hess family. All proceeds go to the Hess family, and a donation of any amount helps!`,
-    },
-    time: {
-      start: "2025-03-08T10:30:00-06:00",
-      end: "2025-03-08T12:00:00-06:00",
-    },
-    category: "seminar",
-    capacity: 100,
-  },
-  {
-    id: "4",
-    title: "Grapple Nights 1 - $400 Trios Tournament",
-    description: `4 teams. Submission-only. $400 total prizes. Join us for the inaugural Grapple Nights tournament series on Friday, August 22, 2025 at Grapple Jiu Jitsu, located at 5709 US-80, Pearl, MS 39208 (inside Focus Fit Gym).
-
-This exciting monthly series is designed to create a fun and friendly atmosphere to showcase the best grapplers in Mississippi under varying formats. `,
-    date: "2025-08-22",
-    imageUrl: "/images/events/grapple-nights-1.png",
-    ctaText: "Register",
-    ctaLink: "https://smoothcomp.com/en/event/25570",
-    featured: true,
-    location: {
-      name: "Grapple Jiu Jitsu",
-      address: "5709 US-80 E, Pearl, MS 39208",
-      mapsLink:
-        "https://www.google.com/maps/place/Grapple/@32.2846794,-90.0599141,15z/data=!3m1!4b1!4m6!3m5!1s0x86282be6569a058b:0x6fa2de5de2bfc836!8m2!3d32.2846807!4d-90.0414817!16s%2Fg%2F11k7vbhgm5?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D",
-      instructions:
-        "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
-    },
-    price: {
-      amount: 25,
-      currency: "USD",
-      description: `Team registration is $75 total ($25 per person)`,
-    },
-    time: {
-      start: "2025-08-22T18:00:00-05:00",
-      end: "2025-08-22T21:00:00-05:00",
-    },
-    category: "tournament",
-    capacity: 100,
   },
 ];

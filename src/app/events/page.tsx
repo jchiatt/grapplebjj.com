@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { CallToAction } from "@/components/ui/call-to-action";
 import Image from "next/image";
 import { Event, upcomingEvents } from "@/data/events";
@@ -144,7 +145,7 @@ function EventCard({ event }: { event: Event }) {
         <p className="mt-4 text-foreground/80">{event.description}</p>
 
         <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
+          <div className="w-2/3">
             <span className="text-lg font-semibold">
               {formatPrice(event.price)}
             </span>
@@ -168,12 +169,12 @@ function EventCard({ event }: { event: Event }) {
               </div>
             )}
           </div>
-          <a
-            href={event.ctaLink}
+          <Link
+            href={`/events/${event.id}`}
             className="w-full sm:w-auto text-center rounded-lg px-6 py-3 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-colors"
           >
             {event.ctaText}
-          </a>
+          </Link>
         </div>
 
         {event.registrationDeadline && (
