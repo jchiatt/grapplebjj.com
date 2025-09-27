@@ -2,6 +2,7 @@ export interface Event {
   id: string;
   title: string;
   description: string;
+  longDescription?: string[];
   date: string;
   imageUrl: string;
   ctaText: string;
@@ -39,6 +40,41 @@ export interface Event {
 }
 
 export const upcomingEvents: Event[] = [
+  {
+    id: "mason-fowler-no-gi-seminar",
+    title: "Mason Fowler No-Gi Seminar",
+    description:
+      "Saturday, January 25, 2025 · 12:00 PM – 3:00 PM · Grapple Jiu Jitsu (Pearl, MS)",
+    longDescription: [
+      "Reserve your spot for a three-hour no-gi seminar with Mason Fowler at Grapple Jiu Jitsu.",
+      "The session runs on Saturday, January 25, 2025 from 12:00 PM to 3:00 PM inside Focus Fit (second floor) at 5709 US-80 E, Pearl, MS 39208.",
+      "Registration is handled through Grapple Store — secure your seat early to guarantee entry.",
+    ],
+    date: "2025-01-25",
+    imageUrl: "/images/squad.jpg",
+    ctaText: "Reserve Your Spot",
+    ctaLink: "https://www.grapple.store/events/mason-fowler-no-gi-seminar",
+    featured: true,
+    location: {
+      name: "Grapple Jiu Jitsu",
+      address: "5709 US-80 E, Pearl, MS 39208",
+      mapsLink:
+        "https://www.google.com/maps/place/Grapple/@32.2846794,-90.0599141,15z/data=!3m1!4b1!4m6!3m5!1s0x86282be6569a058b:0x6fa2de5de2bfc836!8m2!3d32.2846807!4d-90.0414817!16s%2Fg%2F11k7vbhgm5?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D",
+      instructions:
+        "We're located inside Focus Fit gym, on the second floor. Follow the jiu jitsu signs inside.",
+    },
+    price: {
+      amount: 120,
+      currency: "USD",
+      description: "Registration is $120 per participant and is limited to 60 attendees.",
+    },
+    time: {
+      start: "2025-01-25T12:00:00-06:00",
+      end: "2025-01-25T15:00:00-06:00",
+    },
+    category: "seminar",
+    capacity: 60,
+  },
   {
     id: "2",
     title: "Placido Santos No-Gi Seminar",
