@@ -59,10 +59,10 @@
   ],
   "friday": [
     {
-      "start": "18:00",
-      "end": "until",
-      "class": "Open Mat",
-      "liveStreamed": false
+      "start": "00:00",
+      "end": "23:59",
+      "class": "Closed",
+      "isClosed": true
     }
   ],
   "saturday": [
