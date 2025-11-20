@@ -9,57 +9,39 @@
   ],
   "monday": [
     {
-      "start": "17:30",
-      "end": "18:30",
+      "start": "18:00",
+      "end": "19:00",
       "class": "Adult Jiu Jitsu",
       "liveStreamed": true
     },
     {
-      "start": "18:30",
-      "end": "19:30",
+      "start": "19:00",
+      "end": "20:00",
       "class": "Competition Jiu Jitsu",
-      "liveStreamed": false
-    },
-    {
-      "start": "18:30",
-      "end": "19:30",
-      "class": "Open Rounds",
       "liveStreamed": false
     }
   ],
   "tuesday": [
     {
-      "start": "17:30",
-      "end": "18:30",
-      "class": "Beginner Jiu Jitsu",
-      "liveStreamed": false
-    },
-    {
-      "start": "18:30",
-      "end": "19:30",
+      "start": "18:00",
+      "end": "19:00",
       "class": "Adult Jiu Jitsu",
       "liveStreamed": false
     }
   ],
   "wednesday": [
     {
-      "start": "18:00",
-      "end": "19:00",
-      "class": "Positional Rounds / Grapple Games",
-      "liveStreamed": false
-    },
-    {
-      "start": "19:00",
-      "end": "until",
-      "class": "Open Mat",
-      "liveStreamed": false
+      "start": "00:00",
+      "end": "23:59",
+      "class": "Closed",
+      "isClosed": true
     }
   ],
   "thursday": [
     {
       "start": "17:00",
       "end": "17:45",
-      "class": "Kids Class (Coming Soon!)",
+      "class": "Kids Jiu Jitsu",
       "liveStreamed": false
     },
     {
@@ -73,34 +55,22 @@
       "end": "20:00",
       "class": "Competition Jiu Jitsu",
       "liveStreamed": false
-    },
-    {
-      "start": "19:00",
-      "end": "20:00",
-      "class": "Open Rounds",
-      "liveStreamed": false
     }
   ],
   "friday": [
     {
-      "start": "18:00",
-      "end": "until",
-      "class": "Open Mat",
-      "liveStreamed": false
+      "start": "00:00",
+      "end": "23:59",
+      "class": "Closed",
+      "isClosed": true
     }
   ],
   "saturday": [
     {
-      "start": "10:00",
-      "end": "11:00",
-      "class": "Open Mat",
-      "liveStreamed": false
-    },
-    {
-      "start": "11:00",
-      "end": "12:00",
-      "class": "Competition Jiu Jitsu",
-      "liveStreamed": false
+      "start": "00:00",
+      "end": "23:59",
+      "class": "Closed",
+      "isClosed": true
     }
   ],
   "overrides": [
