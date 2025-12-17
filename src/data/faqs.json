@@ -2,11 +2,11 @@
   "pricing": [
     {
       "question": "What's included in the membership?",
-      "answer": "Our standard membership includes access to all classes on our schedule. Train as much as you want! You're also given access to our private online learning platform, where you can watch classes and training sessions from previous weeks, ask questions and get video answers, and more. Additionally, you are able to access the gym outside of our scheduled hours for self-directed training with other Grapplers. Note that a minimum 4 members required to access for self-directed training."
+      "answer": "Our standard membership includes access to all classes on our schedule. Train as much as you want! You're also given access to our private online learning platform, where you can watch classes and training sessions from previous weeks, ask questions and get video answers, and more."
     },
     {
       "question": "Are there other fees?",
-      "answer": "For members 18 and over, a Focus Fit membership is required. This is the commercial gym we are located inside of. Focus Fit membership is $30/month, paid separately to Focus Fit. You don't need to worry about this for your first class or drop-in visits. Outside of that, there are absolutely no other fees whatsoever. No forced gear purchases, no setup fees, no cancellation fees — nothing."
+      "answer": "There is a $29 registration fee that will be added to your first month's bill. Outside of that, there are absolutely no other fees whatsoever. No required gear purchases, no cancellation fees — nothing."
     },
     {
       "question": "Do you offer contracts?",
@@ -42,7 +42,7 @@
     },
     {
       "question": "Do you have showers?",
-      "answer": "Yes, we have both men's and women's showers available."
+      "answer": "No, we do not have showers available yet."
     },
     {
       "question": "Can I show up late?",

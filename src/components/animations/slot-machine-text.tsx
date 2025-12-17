@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 
 const words = [
+  "everyone",
   "kids",
   "adults",
   "military",

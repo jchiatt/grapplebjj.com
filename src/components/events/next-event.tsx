@@ -1,6 +1,7 @@
 "use client";
 
-import { Event, upcomingEvents } from "@/data/events";
+import { Event } from "@/data/events";
+import { getNextEvent } from "@/lib/events";
 import { CalendarDays, Clock, MapPin, Users, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,19 +46,6 @@ function formatPrice(price: Event["price"]): string {
   }
 
   return `$${price.amount}`;
-}
-
-function getNextEvent(): Event | null {
-  if (upcomingEvents.length === 0) return null;
-
-  const now = new Date();
-  return (
-    upcomingEvents
-      .filter((event) => new Date(event.date) >= now)
-      .sort(
-        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-      )[0] || null
-  );
 }
 
 export function NextEvent() {

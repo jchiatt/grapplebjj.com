@@ -135,7 +135,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="text-sm text-muted-foreground">
-                <em>Located on the 2nd floor of Focus Fit Gym</em>
+                <em>Located just behind Pumpt It Up (same building)</em>
               </li>
             </ul>
           </div>

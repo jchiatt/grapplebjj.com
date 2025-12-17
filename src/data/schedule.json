@@ -67,10 +67,10 @@
   ],
   "saturday": [
     {
-      "start": "00:00",
-      "end": "23:59",
-      "class": "Closed",
-      "isClosed": true
+      "start": "10:00",
+      "end": "12:00",
+      "class": "Open Mat",
+      "isClosed": false
     }
   ],
   "overrides": [

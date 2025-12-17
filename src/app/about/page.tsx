@@ -140,7 +140,7 @@ const values = [
 const philosophy = [
   {
     title: "People Over Profits",
-    description: `You, the customer, pay to be here. We don't take that lightly. We're here to serve you, and we're here to help you grow. While we would like to make money like any other business, we love the art of jiu jitsu and aren't in this for the money. Our aim is to see you learn to grapple and fall in love with the art just as we have. We prioritize making the best experience possible for you and earning your business every day over making a quick buck. You won't find setup fees, required gear purchases, pay-to-progress fees, or any other hidden costs here.`,
+    description: `You, the customer, pay to be here. We don't take that lightly. We're here to serve you, and we're here to help you grow. While we would like to make money like any other business, we love the art of jiu jitsu and aren't in this for the money. Our aim is to see you learn to grapple and fall in love with the art just as we have. We prioritize making the best experience possible for you and earning your business every day over making a quick buck. You won't find required gear purchases, pay-to-progress fees, or any other hidden costs here.`,
   },
   {
     title: "Transparency",

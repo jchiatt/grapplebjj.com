@@ -6,6 +6,7 @@ import { FullWidthSection } from "@/components/ui/full-width-section";
 import { SlotMachineText } from "@/components/animations/slot-machine-text";
 import { CoachProfiles } from "@/components/coaches/coach-profiles";
 import { NextEvent } from "@/components/events/next-event";
+import { getNextEvent } from "@/lib/events";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 import { CallToAction } from "@/components/ui/call-to-action";
@@ -23,6 +24,8 @@ async function getVideos() {
 
 export default async function Home() {
   const videos = await getVideos();
+
+  const nextEvent = getNextEvent();
 
   return (
     <div>
@@ -118,10 +121,14 @@ export default async function Home() {
       </FullWidthSection>
 
       <div className="container mx-auto px-4 py-24">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-          Next Event at Grapple
-        </h2>
-        <NextEvent />
+        {nextEvent && (
+          <>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+              Next Event at Grapple
+            </h2>
+            <NextEvent />
+          </>
+        )}
       </div>
 
       {/* Coach Profiles */}
