@@ -46,7 +46,7 @@ export default function ContactPage() {
                     <Navigation className="h-4 w-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    We are located in the same building as Pumpt It Up (side of
+                    We are located in the same building as Pump It Up (side of
                     the building). Call if you have trouble finding us!
                   </p>
                 </div>

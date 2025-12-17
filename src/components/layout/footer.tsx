@@ -135,7 +135,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="text-sm text-muted-foreground">
-                <em>Located just behind Pumpt It Up (same building)</em>
+                <em>Located just behind Pump It Up (same building)</em>
               </li>
             </ul>
           </div>

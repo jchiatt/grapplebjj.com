@@ -312,7 +312,7 @@ Address
 Suite D
 Brandon, MS 39047
 
-We are located in the same building as Pumpt It Up (side of the building).Call if you have trouble finding us!
+We are located in the same building as Pump It Up (side of the building).Call if you have trouble finding us!
 
 Email
 info@grapplebjj.com
