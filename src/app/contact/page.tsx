@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, Navigation } from "lucide-react";
 export const metadata: Metadata = {
   title: "Contact Us | Grapple Jiu Jitsu",
   description:
-    "Get in touch with Grapple Jiu Jitsu. Located in Pearl, Mississippi, we're here to answer your questions about no-gi submission grappling training.",
+    "Get in touch with Grapple Jiu Jitsu. Located in Flowood, Mississippi, we're here to answer your questions about no-gi submission grappling training.",
 };
 
 export default function ContactPage() {
@@ -37,19 +37,17 @@ export default function ContactPage() {
                     className="group text-muted-foreground hover:text-foreground transition-colors inline-flex items-start gap-1"
                   >
                     <span>
-                      5709 US 80 E<br />
-                      2nd Floor
+                      1576 Old Fannin Road
                       <br />
-                      Pearl, MS 39208
+                      Suite D
+                      <br />
+                      Brandon, MS 39047
                     </span>
                     <Navigation className="h-4 w-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    We are located on the 2nd floor of Focus Fit gym. Walk in,
-                    and follow the jiu jitsu signs. Staircase is on the left
-                    after you&apos;ve walked all the way back. If you can&apos;t
-                    find us, ask the front desk and they&apos;ll be happy to
-                    help!
+                    We are located in the same building as Pumpt It Up (side of
+                    the building). Call if you have trouble finding us!
                   </p>
                 </div>
               </div>
@@ -59,10 +57,10 @@ export default function ContactPage() {
                 <div>
                   <p className="font-medium">Phone</p>
                   <a
-                    href="tel:+17692570260"
+                    href="tel:+16016734320"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    (769) 257-0260
+                    (601) 673-4320
                   </a>
                 </div>
               </div>

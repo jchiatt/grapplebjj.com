@@ -67,7 +67,7 @@ export function InterestForm() {
     if (!phone) {
       errors.phone = "Phone number is required";
     } else if (!PHONE_REGEX.test(phone)) {
-      errors.phone = "Please enter a valid phone number (e.g., 769-257-0260)";
+      errors.phone = "Please enter a valid phone number (e.g., 601-673-4320)";
     }
 
     // Validate children
@@ -185,7 +185,7 @@ export function InterestForm() {
               id="phone"
               name="phone"
               type="tel"
-              placeholder="(769) 257-0260"
+              placeholder="(601) 673-4320"
               required
               disabled={status === "submitting"}
               aria-invalid={!!validationErrors.phone}

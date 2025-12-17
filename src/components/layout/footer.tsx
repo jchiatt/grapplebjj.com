@@ -12,7 +12,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              A no-gi jiu jitsu school in Pearl, Mississippi, dedicated to the
+              A no-gi jiu jitsu school in Flowood, Mississippi, dedicated to the
               art of submission grappling.
             </p>
           </div>
@@ -106,22 +106,24 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href="https://maps.google.com/?q=5709+US+80+E,+Pearl,+MS+39208"
+                  href="https://maps.google.com/?q=1576+Old+Fannin+Road,+Suite+D,+Brandon,+MS+39047"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  5709 US 80 E, 2nd Floor
+                  1576 Old Fannin Road
                   <br />
-                  Pearl, MS 39208
+                  Suite D
+                  <br />
+                  Brandon, MS 39047
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+17692570260"
+                  href="tel:+16016734320"
                   className="font-technical text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  (769) 257-0260
+                  (601) 673-4320
                 </a>
               </li>
               <li>

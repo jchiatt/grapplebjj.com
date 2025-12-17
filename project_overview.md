@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-A modern, responsive website redesign for Grapple, a submission grappling gym in Pearl, Mississippi. The site will serve as both an informational platform for prospective students and a portal for current members.
+A modern, responsive website redesign for Grapple, a submission grappling gym in Flowood, Mississippi. The site will serve as both an informational platform for prospective students and a portal for current members.
 
 ## Technical Requirements
 
@@ -305,14 +305,14 @@ A modern, responsive website redesign for Grapple, a submission grappling gym in
 ## Company Metadata
 
 Phone
-(769) 257-0260
+(601) 673-4320
 
 Address
-5709 US 80 E
-2nd Floor
-Pearl, MS 39208
+1576 Old Fannin Road
+Suite D
+Brandon, MS 39047
 
-We are located in the 2nd floor of Focus Fit. Walk in, check in with their front desk, and then walk all the way back. Staircase is on the left after you've walked all the way back. Call if you have trouble finding us!
+We are located in the same building as Pumpt It Up (side of the building).Call if you have trouble finding us!
 
 Email
 info@grapplebjj.com

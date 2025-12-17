@@ -65,7 +65,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${event.title} | Grapple Events`,
       description: event.description,
-      url: `https://grapplejj.com/events/${eventId}`,
+      url: `https://grapplejiujitsu.com/events/${eventId}`,
       images: [
         {
           url: event.imageUrl,

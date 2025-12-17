@@ -23,27 +23,27 @@ const metrophobic = Metrophobic({
 
 export const metadata: Metadata = {
   title: "Grapple Jiu Jitsu",
-  description: "No-Gi submission grappling gym in Pearl, Mississippi.",
-  metadataBase: new URL("https://grapplejj.com"),
+  description: "No-Gi submission grappling gym in Flowood, Mississippi.",
+  metadataBase: new URL("https://grapplejiujitsu.com"),
   openGraph: {
     type: "website",
     title: "Grapple Jiu Jitsu",
-    description: "No-Gi submission grappling gym in Pearl, Mississippi.",
+    description: "No-Gi submission grappling gym in Flowood, Mississippi.",
     siteName: "Grapple Jiu Jitsu",
-    url: "https://grapplejj.com",
+    url: "https://grapplejiujitsu.com",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Grapple Jiu Jitsu - No-Gi submission grappling in Pearl, Mississippi",
+        alt: "Grapple Jiu Jitsu - No-Gi submission grappling in Flowood, Mississippi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Grapple Jiu Jitsu",
-    description: "No-Gi submission grappling gym in Pearl, Mississippi.",
+    description: "No-Gi submission grappling gym in Flowood, Mississippi.",
     images: ["/og-image.jpg"],
     creator: "@jchiatt",
     site: "@grapplebjj",
