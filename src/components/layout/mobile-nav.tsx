@@ -10,18 +10,21 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import Link from "next/link";
 import { LivestreamLink } from "../livestream/livestream-link";
+import { cn } from "@/lib/utils";
 
 function NavLink({
   href,
   children,
   external,
+  className,
 }: {
   href: string;
   children: React.ReactNode;
   external?: boolean;
+  className?: string;
 }) {
   if (external) {
     return (
@@ -30,7 +33,10 @@ function NavLink({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-foreground/60 transition-colors hover:text-foreground/80"
+          className={cn(
+            "text-foreground/60 transition-colors hover:text-foreground/80",
+            className
+          )}
         >
           {children}
         </a>
@@ -42,7 +48,10 @@ function NavLink({
     <SheetClose asChild>
       <Link
         href={href}
-        className="text-foreground/60 transition-colors hover:text-foreground/80"
+        className={cn(
+          "text-foreground/60 transition-colors hover:text-foreground/80",
+          className
+        )}
       >
         {children}
       </Link>
@@ -66,16 +75,61 @@ export function MobileNav() {
             Quick access to all pages
           </SheetDescription>
         </SheetHeader>
-        <nav className="flex flex-col gap-4 mt-6">
-          <NavLink href="/schedule">Schedule</NavLink>
-          <LivestreamLink mobile={true} />
-          <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/articles">Articles</NavLink>
-          <NavLink href="/events">Events</NavLink>
-          <NavLink href="https://www.grapple.store" external>
+        <nav className="mt-6 flex flex-col gap-4">
+          <details className="group">
+            <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground list-none">
+              Programs
+              <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="mt-3 flex flex-col gap-2 pl-4">
+              <NavLink
+                href="/jiu-jitsu-programs/kids"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Kids Jiu Jitsu
+              </NavLink>
+            </div>
+          </details>
+
+          <NavLink href="/schedule" className="block text-base font-medium">
+            Schedule
+          </NavLink>
+          <NavLink href="/pricing" className="block text-base font-medium">
+            Pricing
+          </NavLink>
+
+          <details className="group">
+            <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground list-none">
+              Resources
+              <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="mt-3 flex flex-col gap-2 pl-4">
+              <LivestreamLink
+                mobile={true}
+                className="block text-base font-medium text-foreground/80"
+              />
+              <NavLink
+                href="/articles"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Articles
+              </NavLink>
+            </div>
+          </details>
+
+          <NavLink href="/events" className="block text-base font-medium">
+            Events
+          </NavLink>
+          <NavLink
+            href="https://www.grapple.store"
+            external
+            className="block text-base font-medium"
+          >
             Merch
           </NavLink>
-          <NavLink href="/contact">Contact</NavLink>
+          <NavLink href="/contact" className="block text-base font-medium">
+            Contact
+          </NavLink>
 
           <div className="pt-4 mt-4 border-t flex flex-col gap-3">
             <SheetClose asChild>

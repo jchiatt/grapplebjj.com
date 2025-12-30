@@ -3,8 +3,15 @@
 import Link from "next/link";
 import { useLiveStream } from "./livestream-context";
 import { SheetClose } from "../ui/sheet";
+import { cn } from "@/lib/utils";
 
-export function LivestreamLink({ mobile }: { mobile?: boolean }) {
+export function LivestreamLink({
+  mobile,
+  className,
+}: {
+  mobile?: boolean;
+  className?: string;
+}) {
   const { liveStatus, isLoading } = useLiveStream();
 
   if (mobile) {
@@ -12,7 +19,10 @@ export function LivestreamLink({ mobile }: { mobile?: boolean }) {
       <SheetClose asChild>
         <Link
           href="/livestream"
-          className="relative flex items-center gap-2 text-foreground/60 transition-colors hover:text-foreground/80"
+          className={cn(
+            "relative flex items-center gap-2 text-foreground/60 transition-colors hover:text-foreground/80",
+            className
+          )}
         >
           {!isLoading && liveStatus?.isLive && (
             <span className="absolute -left-3 flex h-2 w-2">
@@ -29,7 +39,10 @@ export function LivestreamLink({ mobile }: { mobile?: boolean }) {
   return (
     <Link
       href="/livestream"
-      className="relative flex items-center gap-2 text-foreground/60 transition-colors hover:text-foreground/80"
+      className={cn(
+        "relative flex items-center gap-2 text-foreground/60 transition-colors hover:text-foreground/80",
+        className
+      )}
     >
       {!isLoading && liveStatus?.isLive && (
         <span className="absolute -left-3 flex h-2 w-2">

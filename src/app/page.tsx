@@ -194,7 +194,7 @@ const audiences = [
     title: "Kids",
     description:
       "Build confidence, discipline, and healthy habits from an early age.",
-    link: "/trial",
+    link: "/jiu-jitsu-programs/kids",
   },
   {
     title: "Adults",

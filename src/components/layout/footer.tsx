@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t bg-background">
       <div className="container py-12 md:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
           <div>
             <Link href="/" className="flex items-center space-x-2">
               <span className="font-heading text-xl font-semibold">
@@ -60,6 +60,19 @@ export function Footer() {
                 >
                   Login
                 </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-heading text-lg font-semibold">Programs</h3>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <Link
+                  href="/jiu-jitsu-programs/kids"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Kids Jiu Jitsu
+                </Link>
               </li>
             </ul>
           </div>

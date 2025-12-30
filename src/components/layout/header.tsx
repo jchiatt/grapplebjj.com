@@ -6,6 +6,13 @@ import { Logo } from "../ui/logo";
 import { MobileNav } from "./mobile-nav";
 import { LivestreamLink } from "../livestream/livestream-link";
 import { useTheme } from "../theme/theme-provider";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 export function Header() {
   const { theme } = useTheme();
@@ -22,25 +29,53 @@ export function Header() {
             />
           </Link>
           <nav className="hidden md:flex gap-8">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1 text-foreground/60 transition-colors hover:text-foreground/80"
+                >
+                  Programs
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/kids">Kids Jiu Jitsu</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link
               href="/schedule"
               className="text-foreground/60 transition-colors hover:text-foreground/80"
             >
               Schedule
             </Link>
-            <LivestreamLink />
             <Link
               href="/pricing"
               className="text-foreground/60 transition-colors hover:text-foreground/80"
             >
               Pricing
             </Link>
-            <Link
-              href="/articles"
-              className="text-foreground/60 transition-colors hover:text-foreground/80"
-            >
-              Articles
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1 text-foreground/60 transition-colors hover:text-foreground/80"
+                >
+                  Resources
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <LivestreamLink />
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/articles">Articles</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link
               href="/events"
               className="text-foreground/60 transition-colors hover:text-foreground/80"
