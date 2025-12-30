@@ -126,7 +126,10 @@ export function ConfidenceTrialModal({
                 Close
               </Button>
             </div>
-            <div className="rounded-lg border bg-muted/40 p-4">
+            <div className="rounded-lg border bg-muted/40 p-4 space-y-3">
+              <p className="text-sm font-medium text-foreground">
+                Here&apos;s a quick video of next steps!
+              </p>
               <div className="aspect-[9/16] w-full overflow-hidden rounded-lg border border-border bg-black">
                 <iframe
                   className="h-full w-full"

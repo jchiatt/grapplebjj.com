@@ -38,17 +38,20 @@ export function CallToAction({
       <p className="mt-8 max-w-2xl mx-auto text-xl md:text-2xl text-gray-700 dark:text-white/90">
         {description}
       </p>
-      <div className="mt-12 flex gap-6 justify-center">
+      <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
         {primaryAction.href ? (
           <Link href={primaryAction.href}>
-            <Button size="lg" className="text-lg px-8">
+            <Button
+              size="lg"
+              className="w-full px-6 text-sm leading-snug whitespace-nowrap sm:w-auto sm:px-8 sm:text-lg"
+            >
               {primaryAction.label}
             </Button>
           </Link>
         ) : (
           <Button
             size="lg"
-            className="text-lg px-8"
+            className="w-full px-6 text-sm leading-snug whitespace-nowrap sm:w-auto sm:px-8 sm:text-lg"
             type="button"
             onClick={primaryAction.onClick}
           >
@@ -59,7 +62,11 @@ export function CallToAction({
           <>
             {secondaryAction.href ? (
               <Link href={secondaryAction.href}>
-                <Button size="lg" variant="outline" className="text-lg px-8">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full px-6 text-sm leading-snug whitespace-nowrap sm:w-auto sm:px-8 sm:text-lg"
+                >
                   {secondaryAction.label}
                 </Button>
               </Link>
@@ -67,7 +74,7 @@ export function CallToAction({
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-8"
+                className="w-full px-6 text-sm leading-snug whitespace-nowrap sm:w-auto sm:px-8 sm:text-lg"
                 type="button"
                 onClick={secondaryAction.onClick}
               >
