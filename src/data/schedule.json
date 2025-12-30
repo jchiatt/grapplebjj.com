@@ -9,94 +9,105 @@
   ],
   "monday": [
     {
+      "start": "17:00",
+      "end": "17:45",
+      "class": "Kids (7-12)"
+    },
+    {
       "start": "18:00",
       "end": "19:00",
-      "class": "Adult Jiu Jitsu",
-      "liveStreamed": true
+      "class": "Adult Jiu Jitsu"
     },
     {
       "start": "19:00",
       "end": "20:00",
-      "class": "Competition Jiu Jitsu",
-      "liveStreamed": false
+      "class": "Live Rounds / Comp Training"
     }
   ],
   "tuesday": [
     {
-      "start": "18:00",
-      "end": "19:00",
-      "class": "Adult Jiu Jitsu",
-      "liveStreamed": false
-    }
-  ],
-  "wednesday": [
+      "start": "16:45",
+      "end": "17:15",
+      "class": "Lil' Grapplers (4-6)"
+    },
     {
-      "start": "00:00",
-      "end": "23:59",
-      "class": "Closed",
-      "isClosed": true
-    }
-  ],
-  "thursday": [
-    {
-      "start": "17:00",
-      "end": "17:45",
-      "class": "Kids Jiu Jitsu",
-      "liveStreamed": false
+      "start": "17:15",
+      "end": "18:00",
+      "class": "Kids (7-12)"
     },
     {
       "start": "18:00",
       "end": "19:00",
-      "class": "Adult Jiu Jitsu",
-      "liveStreamed": true
+      "class": "Jiu Jitsu Fundamentals"
     },
     {
       "start": "19:00",
       "end": "20:00",
-      "class": "Competition Jiu Jitsu",
-      "liveStreamed": false
+      "class": "Live Rounds"
+    }
+  ],
+  "wednesday": [
+    {
+      "start": "06:00",
+      "end": "07:00",
+      "class": "Jiu Jitsu Fundamentals"
+    },
+    {
+      "start": "18:00",
+      "end": "19:00",
+      "class": "Adult Jiu Jitsu"
+    },
+    {
+      "start": "19:00",
+      "end": "20:00",
+      "class": "Live Rounds"
+    }
+  ],
+  "thursday": [
+    {
+      "start": "16:30",
+      "end": "17:00",
+      "class": "Lil' Grapplers (4-6)"
+    },
+    {
+      "start": "17:00",
+      "end": "17:45",
+      "class": "Kids (7-12)"
+    },
+    {
+      "start": "18:00",
+      "end": "19:00",
+      "class": "Adult Jiu Jitsu"
+    },
+    {
+      "start": "19:00",
+      "end": "20:00",
+      "class": "Live Rounds / Comp Training"
     }
   ],
   "friday": [
     {
-      "start": "00:00",
-      "end": "23:59",
-      "class": "Closed",
-      "isClosed": true
+      "start": "12:00",
+      "end": "13:00",
+      "class": "Adult Jiu Jitsu"
+    },
+    {
+      "start": "18:00",
+      "end": "19:00",
+      "class": "Adult Jiu Jitsu & Wrestling"
+    },
+    {
+      "start": "19:00",
+      "end": "20:00",
+      "class": "Live Rounds"
     }
   ],
   "saturday": [
     {
       "start": "10:00",
       "end": "12:00",
-      "class": "Open Mat",
-      "isClosed": false
+      "class": "Open Mat"
     }
   ],
-  "overrides": [
-    {
-      "date": "2025-04-01",
-      "description": "Test Override",
-      "schedule": [
-        {
-          "start": "09:00",
-          "end": "10:00",
-          "class": "🎉 Test Class 1",
-          "liveStreamed": true
-        },
-        {
-          "start": "10:30",
-          "end": "11:30",
-          "class": "🚀 Test Class 2",
-          "liveStreamed": false
-        },
-        {
-          "start": "12:00",
-          "end": "until",
-          "class": "✨ Open Mat (Test)",
-          "liveStreamed": false
-        }
-      ]
-    }
-  ]
+  "overrides": []
 }

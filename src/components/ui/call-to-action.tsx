@@ -8,11 +8,13 @@ interface CallToActionProps {
   description: string;
   primaryAction: {
     label: string;
-    href: string;
+    href?: string;
+    onClick?: () => void;
   };
   secondaryAction?: {
     label: string;
-    href: string;
+    href?: string;
+    onClick?: () => void;
   };
   className?: string;
 }
@@ -37,17 +39,42 @@ export function CallToAction({
         {description}
       </p>
       <div className="mt-12 flex gap-6 justify-center">
-        <Link href={primaryAction.href}>
-          <Button size="lg" className="text-lg px-8">
-            {primaryAction.label}
-          </Button>
-        </Link>
-        {secondaryAction && (
-          <Link href={secondaryAction.href}>
-            <Button size="lg" variant="outline" className="text-lg px-8">
-              {secondaryAction.label}
+        {primaryAction.href ? (
+          <Link href={primaryAction.href}>
+            <Button size="lg" className="text-lg px-8">
+              {primaryAction.label}
             </Button>
           </Link>
+        ) : (
+          <Button
+            size="lg"
+            className="text-lg px-8"
+            type="button"
+            onClick={primaryAction.onClick}
+          >
+            {primaryAction.label}
+          </Button>
+        )}
+        {secondaryAction && (
+          <>
+            {secondaryAction.href ? (
+              <Link href={secondaryAction.href}>
+                <Button size="lg" variant="outline" className="text-lg px-8">
+                  {secondaryAction.label}
+                </Button>
+              </Link>
+            ) : (
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8"
+                type="button"
+                onClick={secondaryAction.onClick}
+              >
+                {secondaryAction.label}
+              </Button>
+            )}
+          </>
         )}
       </div>
     </div>
