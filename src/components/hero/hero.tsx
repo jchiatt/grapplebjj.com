@@ -39,16 +39,17 @@ export function Hero() {
         <LivestreamCallout />
         {isEnhanced ? (
           <Headline className="max-w-4xl">
-            Good things come to those who Grapple.
+            The Science of Submission Grappling in Flowood.
           </Headline>
         ) : (
           <h1 className="max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground/80">
-            Good things come to those who Grapple.
+            The Science of Submission Grappling in Flowood.
           </h1>
         )}
         <p className="mt-8 max-w-2xl text-xl md:text-2xl text-gray-700 dark:text-white/90">
-          We&apos;re obsessed with learning and growing the beautiful art of
-          submission grappling.
+          We teach a systematic, No-Gi approach to Jiu Jitsu that builds real
+          confidence and technical skill. No ego, no fluff—just a community
+          obsessed with learning and growing.
         </p>
 
         <div className="mt-12 flex gap-6 justify-center">
