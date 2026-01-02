@@ -133,15 +133,19 @@ export default function TrialPage() {
           submitting, you&apos;ll be redirected to sign our waiver.
         </p>
 
-        {/* <div className="aspect-video w-full mt-8 mb-12">
-          <iframe
-            className="w-full h-full rounded-lg shadow-lg"
-            src="https://www.youtube.com/embed/IXLa44YajPg?si=58qrItkosKcn1TtM"
-            title="Ready to Grapple?"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div> */}
+        <div className="mt-8 mb-12 flex justify-center">
+          <div className="w-full max-w-xs rounded-lg border bg-card p-1 shadow-lg">
+            <div className="aspect-[9/16] w-full overflow-hidden rounded-md border border-border bg-black">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/6HPsq1FB8lg?playsinline=1"
+                title="Grapple Jiu Jitsu Welcome Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
 
         <Form {...form}>
           <form

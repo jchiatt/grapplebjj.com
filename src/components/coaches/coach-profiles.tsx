@@ -61,7 +61,7 @@ function CoachProfile({
 
 export function CoachProfiles() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary dark:bg-primary/20 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         <Headline as="h2" size="h2" className="text-center">
           Meet Our Coaches

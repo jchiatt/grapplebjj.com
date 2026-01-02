@@ -31,54 +31,6 @@ export default async function Home() {
     <div>
       <Hero />
 
-      {/* Welcome Video Section */}
-      <FullWidthSection className="py-24">
-        <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12">
-            Welcome to Grapple
-          </h2>
-          <div className="aspect-video w-full max-w-3xl mx-auto">
-            <iframe
-              className="w-full h-full rounded-lg shadow-lg"
-              src="https://www.youtube.com/embed/ZDCj1HWKyyQ?si=yJpzCYzynIdxs2tp"
-              title="Welcome to Grapple"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </FullWidthSection>
-
-      <FeaturedPhotos title="" />
-
-      <FeaturedVideos initialVideos={videos} />
-
-      {/* Features Section */}
-      <FullWidthSection className="py-24">
-        <h2 className="max-w-4xl mx-auto bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-4xl md:text-6xl lg:text-7xl font-bold text-transparent pb-8 text-center">
-          Why Grapple?
-        </h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {features.map((feature) => (
-            <Link
-              key={feature.title}
-              href={feature.link}
-              className="group rounded-lg border bg-card p-6 text-card-foreground shadow-sm transition-colors hover:bg-primary"
-            >
-              <h3 className="mb-2 font-heading text-lg font-semibold text-primary group-hover:text-white">
-                {feature.title}
-              </h3>
-              <p className="text-black dark:text-white group-hover:text-black dark:group-hover:text-white">
-                {feature.description}
-              </p>
-              <span className="mt-4 inline-flex items-center text-sm text-primary dark:group-hover:text-white group-hover:text-black">
-                Get Started →
-              </span>
-            </Link>
-          ))}
-        </div>
-      </FullWidthSection>
-
       {/* Who We Serve Section */}
       <FullWidthSection className="bg-primary dark:bg-primary/20 backdrop-blur-sm py-24">
         <div className="text-center max-w-3xl mx-auto">
@@ -120,6 +72,52 @@ export default async function Home() {
         </div>
       </FullWidthSection>
 
+      {/* Features Section */}
+      <FullWidthSection className="py-24">
+        <h2 className="max-w-4xl mx-auto bg-gradient-to-r from-primary via-black to-primary dark:from-primary dark:via-white dark:to-primary bg-clip-text text-4xl md:text-6xl lg:text-7xl font-bold text-transparent pb-8 text-center">
+          Why Grapple?
+        </h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {features.map((feature) => (
+            <Link
+              key={feature.title}
+              href={feature.link}
+              className="group rounded-lg border bg-card p-6 text-card-foreground shadow-sm transition-colors hover:bg-primary"
+            >
+              <h3 className="mb-2 font-heading text-lg font-semibold text-primary group-hover:text-white">
+                {feature.title}
+              </h3>
+              <p className="text-black dark:text-white group-hover:text-black dark:group-hover:text-white">
+                {feature.description}
+              </p>
+              <span className="mt-4 inline-flex items-center text-sm text-primary dark:group-hover:text-white group-hover:text-black">
+                Get Started →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </FullWidthSection>
+
+      <div className="py-24">
+        <CallToAction
+          title="Start Your Jiu Jitsu Journey Today"
+          description="Whether you're looking to get fit, build confidence, learn self-defense, or simply challenge yourself with something new, we'd love to have you. If you want to learn and grow, we're here to help."
+          primaryAction={{
+            label: "Start Free Trial",
+            href: "/trial",
+          }}
+        />
+      </div>
+
+      {/* Coach Profiles */}
+      <CoachProfiles />
+
+      <Testimonials />
+
+      <FeaturedPhotos title="" />
+
+      <FeaturedVideos initialVideos={videos} />
+
       <div className="container mx-auto px-4 py-24">
         {nextEvent && (
           <>
@@ -130,11 +128,6 @@ export default async function Home() {
           </>
         )}
       </div>
-
-      {/* Coach Profiles */}
-      <CoachProfiles />
-
-      <Testimonials />
 
       <div className="py-24">
         <CallToAction
