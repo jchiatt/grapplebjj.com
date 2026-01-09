@@ -218,18 +218,15 @@ export default function KidsPage() {
                   Parents welcome on the mats for the first class.
                 </p>
               </div>
-              <Card className="overflow-hidden">
-                <div className="aspect-video bg-muted/60">
-                  <video
-                    className="h-full w-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source src="/videos/kids-timber.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+              <Card className="w-full max-w-xs overflow-hidden">
+                <div className="aspect-[9/16] bg-black">
+                  <iframe
+                    className="h-full w-full"
+                    src="https://www.youtube.com/embed/G1EYlbpsSgI?playsinline=1"
+                    title="Grapple Kids Intro"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
                 </div>
               </Card>
             </div>
