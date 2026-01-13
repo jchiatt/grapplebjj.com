@@ -190,32 +190,33 @@ const audiences = [
     link: "/jiu-jitsu-programs/kids",
   },
   {
-    title: "Adults",
+    title: "Adult Jiu Jitsu",
     description:
       "Challenge yourself, get fit, and join a community of lifelong learners.",
-    link: "/trial",
+    link: "/jiu-jitsu-programs/adult-jiu-jitsu",
   },
   {
-    title: "Military & Law Enforcement",
+    title: "Women's Jiu Jitsu",
     description:
-      "Enhance your tactical skills with proven grappling techniques. And at Grapple, you can pay whatever you can afford, even if it's $0.",
-    link: "/trial",
+      "Train in a supportive environment and build real-world confidence.",
+    link: "/jiu-jitsu-programs/womens-jiu-jitsu",
   },
   {
-    title: "Healthcare Workers",
-    description: `Learn practical skills for managing challenging situations safely. And medical professionals working in a hospital can take advantage of our "pay what you want" discount`,
-    link: "/trial",
+    title: "Jiu Jitsu for LEO/First Responders",
+    description:
+      "Enhance control and composure with proven grappling techniques.",
+    link: "/jiu-jitsu-programs/first-responders",
   },
   {
-    title: "Competitors",
+    title: "Jiu Jitsu for Hospital Workers",
+    description:
+      "Learn practical skills for managing challenging situations safely.",
+    link: "/jiu-jitsu-programs/hospital-workers",
+  },
+  {
+    title: "Grapple Competition Team",
     description:
       "Train with others who are dedicated to improving and prepare for tournaments.",
-    link: "/trial",
-  },
-  {
-    title: "Hobbyists",
-    description:
-      "Enjoy the art of grappling at your own pace in a supportive environment.",
-    link: "/trial",
+    link: "/jiu-jitsu-programs/competition-team",
   },
 ];
