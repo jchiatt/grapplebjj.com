@@ -26,6 +26,10 @@ export default function SchedulePage() {
       <p className="mb-8 text-center text-sm text-secondary-foreground/80 md:mb-12">
         Class times for the week of {formattedWeekStart}
       </p>
+      <p className="mb-10 text-center text-sm text-secondary-foreground/80">
+        Classes marked “Requires RSVP” can be booked by members through their
+        account, and visitors/non-members can call ahead to reserve a spot.
+      </p>
       <Schedule />
     </div>
   );
