@@ -63,7 +63,7 @@ export function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden">
+        <Button variant="ghost" size="icon" className="lg:hidden">
           <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle menu</span>
         </Button>
@@ -76,6 +76,13 @@ export function MobileNav() {
           </SheetDescription>
         </SheetHeader>
         <nav className="mt-6 flex flex-col gap-4">
+          <NavLink href="/schedule" className="block text-base font-medium">
+            Schedule
+          </NavLink>
+          <NavLink href="/pricing" className="block text-base font-medium">
+            Pricing
+          </NavLink>
+
           <details className="group">
             <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground list-none">
               Programs
@@ -88,22 +95,51 @@ export function MobileNav() {
               >
                 Kids Jiu Jitsu
               </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/adult-jiu-jitsu"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Adult Jiu Jitsu
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/womens-jiu-jitsu"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Women&apos;s Jiu Jitsu
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/competition-team"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Grapple Competition Team
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/first-responders"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Jiu Jitsu for Law Enforcement Officers/First Responders
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/hospital-workers"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Jiu Jitsu for Hospital Workers
+              </NavLink>
             </div>
           </details>
 
-          <NavLink href="/schedule" className="block text-base font-medium">
-            Schedule
-          </NavLink>
-          <NavLink href="/pricing" className="block text-base font-medium">
-            Pricing
-          </NavLink>
-
           <details className="group">
             <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground list-none">
-              Resources
+              Community
               <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
             </summary>
             <div className="mt-3 flex flex-col gap-2 pl-4">
+              <NavLink
+                href="/events"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Events
+              </NavLink>
               <LivestreamLink
                 mobile={true}
                 className="block text-base font-medium text-foreground/80"
@@ -114,19 +150,22 @@ export function MobileNav() {
               >
                 Articles
               </NavLink>
+              <NavLink
+                href="/sponsor"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Sponsor
+              </NavLink>
+              <NavLink
+                href="https://www.grapple.store"
+                external
+                className="block text-base font-medium text-foreground/80"
+              >
+                Merch
+              </NavLink>
             </div>
           </details>
 
-          <NavLink href="/events" className="block text-base font-medium">
-            Events
-          </NavLink>
-          <NavLink
-            href="https://www.grapple.store"
-            external
-            className="block text-base font-medium"
-          >
-            Merch
-          </NavLink>
           <NavLink href="/contact" className="block text-base font-medium">
             Contact
           </NavLink>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   BadgeCheck,
@@ -25,6 +26,9 @@ import { Headline } from "@/components/ui/headline";
 import { CallToAction } from "@/components/ui/call-to-action";
 import schedule from "@/data/schedule.json";
 import { ConfidenceTrialModal } from "@/components/kids/confidence-trial-modal";
+import { LiteYouTube } from "@/components/ui/lite-youtube";
+import testimonialsData from "@/data/testimonials.json";
+import Script from "next/script";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -45,10 +49,17 @@ const featureCards = [
     icon: Users,
   },
   {
-    title: "Belt at Sign-Up",
+    title: "Official IBJJF Ranking",
     description:
-      "Your child joins the team instantly with their own belt, ready to rank up and progress on their jiu jitsu journey.",
+      "We use the global standard belt system to track progress. Kids receive belts for ceremonies, but train in comfortable athletic attire (No-Gi) for maximum safety.",
     icon: BadgeCheck,
+  },
+  {
+    title: "Hospital-Grade Hygiene",
+    description:
+      "We sanitize mats after every session using Virex II 256 (medical-grade disinfectant). We maintain the cleanest training environment in Flowood.",
+    icon: Shield,
+    href: "/hygiene-promise",
   },
 ];
 
@@ -78,6 +89,27 @@ const programCards = [
       "Competition opportunities",
     ],
     icon: Shield,
+  },
+];
+
+const kidsPhotos = [
+  {
+    title: "The whole Grapple family",
+    description: "Kids and adults training together in a supportive environment.",
+    src: "/images/landing/kids-martial-arts-flowood-team.jpg",
+    alt: "Kids martial arts class in Flowood building confidence together",
+  },
+  {
+    title: "Kids on the mats",
+    description: "Young grapplers learning technique and having fun.",
+    src: "/images/landing/kids-jiu-jitsu-flowood-training.jpg",
+    alt: "Kids Brazilian Jiu Jitsu training in Flowood for confidence",
+  },
+  {
+    title: "Parent-child training",
+    description: "Parents can train alongside their kids at Grapple.",
+    src: "/images/landing/kids-jiu-jitsu-flowood-parent.jpg",
+    alt: "Parents helping introverted kids in Flowood jiu jitsu class",
   },
 ];
 
@@ -130,6 +162,57 @@ const kidsSchedule = daysInOrder
   })
   .filter((day): day is KidsScheduleDay => day !== null);
 
+const scheduleTabs: { day: DayKey; label: string }[] = [
+  { day: "monday", label: "Mon" },
+  { day: "tuesday", label: "Tue" },
+  { day: "thursday", label: "Thu" },
+];
+const kidsScheduleByDay = kidsSchedule.reduce(
+  (acc, day) => {
+    acc[day.day] = day;
+    return acc;
+  },
+  {} as Record<DayKey, KidsScheduleDay>
+);
+
+type Testimonial = {
+  id: number;
+  name: string;
+  role: string;
+  content: string;
+};
+
+const testimonialHighlights = (
+  testimonialsData as { testimonials: Testimonial[] }
+).testimonials.filter((testimonial) => [3, 6, 2].includes(testimonial.id));
+
+const kidsSchema = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  name: "Grapple Jiu Jitsu",
+  description:
+    "Premier No-Gi Jiu Jitsu program for kids ages 4-12 in Flowood, MS. Building confidence through play-based martial arts instruction.",
+  url: "https://grapplejiujitsu.com/jiu-jitsu-programs/kids",
+  telephone: "+1-601-673-4320",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1576 Old Fannin Road Suite D",
+    addressLocality: "Brandon",
+    addressRegion: "MS",
+    postalCode: "39047",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "32.3168",
+    longitude: "-90.1167",
+  },
+  image: [
+    "https://grapplejiujitsu.com/images/landing/kids-martial-arts-flowood-team.jpg",
+  ],
+  priceRange: "$$",
+};
+
 function formatTime(time: string): string {
   const [hours, minutes] = time.split(":");
   const date = new Date();
@@ -165,7 +248,7 @@ const faqs = [
   {
     question: "Is it safe?",
     answer:
-      "Jiu Jitsu is a contact sport, so bumps and bruises can happen. Our no-striking and game-based rules minimize risk significantly compared to other sports.",
+      "Jiu Jitsu is a contact sport, so bumps and bruises can happen. No strikes are allowed. The focus is on leverage and physics, which minimizes risk significantly compared to other sports.",
   },
   {
     question: "My child is shy. What if they freeze?",
@@ -174,15 +257,39 @@ const faqs = [
   },
   {
     question: "Do I need to buy gear?",
-    answer: "Shorts and a t-shirt work for the trial.",
+    answer: "Shorts and a t-shirt only. No expensive Gis required.",
   },
 ];
 
 export default function KidsPage() {
   const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
+  const [activeScheduleDay, setActiveScheduleDay] = useState<DayKey>(() => {
+    const defaultDay =
+      scheduleTabs.find((tab) => kidsScheduleByDay[tab.day])?.day ??
+      kidsSchedule[0]?.day ??
+      "monday";
+    return defaultDay;
+  });
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const activeSchedule = kidsScheduleByDay[activeScheduleDay];
+
+  const scrollCarousel = (direction: "prev" | "next") => {
+    const container = carouselRef.current;
+    if (!container) return;
+    container.scrollBy({
+      left: direction === "next" ? 320 : -320,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="relative overflow-hidden bg-background">
+      <Script
+        id="kids-program-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(kidsSchema) }}
+      />
       <div className="relative">
         <FullWidthSection className="py-16 md:py-24">
           <motion.div
@@ -219,16 +326,74 @@ export default function KidsPage() {
                 </p>
               </div>
               <Card className="w-full max-w-xs overflow-hidden">
-                <div className="aspect-[9/16] bg-black">
-                  <iframe
-                    className="h-full w-full"
-                    src="https://www.youtube.com/embed/G1EYlbpsSgI?playsinline=1"
-                    title="Grapple Kids Intro"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
+                <LiteYouTube
+                  videoId="G1EYlbpsSgI"
+                  title="Kids Brazilian Jiu Jitsu in Flowood Intro"
+                  posterSrc="/images/landing/kids-martial-arts-flowood-team.jpg"
+                  className="rounded-none"
+                />
               </Card>
+            </div>
+          </motion.div>
+        </FullWidthSection>
+
+        <FullWidthSection className="py-12 md:py-16">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="max-w-2xl">
+                <Headline as="h2" size="h3">
+                  Confidence wins, even for introverted kids.
+                </Headline>
+                <p className="mt-3 text-lg text-muted-foreground">
+                  Parents see shy kids open up, build resilience, and feel proud
+                  of their progress.
+                </p>
+              </div>
+              <div className="hidden items-center gap-2 md:flex">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  type="button"
+                  onClick={() => scrollCarousel("prev")}
+                >
+                  Prev
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  type="button"
+                  onClick={() => scrollCarousel("next")}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+            <div
+              ref={carouselRef}
+              className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4"
+            >
+              {testimonialHighlights.map((testimonial) => (
+                <Card
+                  key={testimonial.id}
+                  className="min-w-[260px] snap-center border-border/70 bg-card/95 shadow-sm md:min-w-[320px]"
+                >
+                  <CardHeader>
+                    <CardTitle className="text-base">
+                      {testimonial.name}
+                    </CardTitle>
+                    <CardDescription>{testimonial.role}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-sm text-muted-foreground">
+                    {testimonial.content}
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </motion.div>
         </FullWidthSection>
@@ -236,11 +401,14 @@ export default function KidsPage() {
         <FullWidthSection className="border-y border-border/60 py-6">
           <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-muted-foreground md:flex-row md:text-left">
             <p>
-              Trusted by parents in Flowood, Brandon, and the surrounding area.
+              Trusted by parents in Flowood, Brandon, Pearl, and the Reservoir.
             </p>
             <div className="flex items-center gap-1 text-primary">
               {Array.from({ length: 5 }).map((_, index) => (
-                <Star key={`trust-star-${index}`} className="h-4 w-4" />
+                <Star
+                  key={`trust-star-${index}`}
+                  className="h-4 w-4 fill-current"
+                />
               ))}
               <span className="ml-2 text-xs text-muted-foreground">
                 5.0 parent rating
@@ -267,11 +435,13 @@ export default function KidsPage() {
                 learn.
               </p>
             </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {featureCards.map((feature) => {
                 const Icon = feature.icon;
-                return (
-                  <Card key={feature.title}>
+                const card = (
+                  <Card
+                    className={feature.href ? "transition hover:shadow-md" : ""}
+                  >
                     <CardHeader>
                       <div className="flex items-center gap-3">
                         <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -287,6 +457,20 @@ export default function KidsPage() {
                     </CardContent>
                   </Card>
                 );
+
+                if (feature.href) {
+                  return (
+                    <Link
+                      key={feature.title}
+                      href={feature.href}
+                      className="group block"
+                    >
+                      {card}
+                    </Link>
+                  );
+                }
+
+                return <div key={feature.title}>{card}</div>;
               })}
             </div>
           </motion.div>
@@ -338,6 +522,51 @@ export default function KidsPage() {
           </motion.div>
         </FullWidthSection>
 
+        <FullWidthSection id="photos" className="py-16 md:py-24">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div className="text-center max-w-3xl mx-auto">
+              <Headline as="h2" size="h2">
+                See the kids in action.
+              </Headline>
+              <p className="mt-4 text-lg text-muted-foreground">
+                A glimpse into our kids program and the Grapple community.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {kidsPhotos.map((photo, index) => (
+                <div
+                  key={`kids-photo-${index}`}
+                  className="overflow-hidden rounded-2xl border border-border/70 bg-muted/40"
+                >
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="space-y-1 p-4">
+                    <p className="text-sm font-medium text-foreground">
+                      {photo.title}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {photo.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </FullWidthSection>
+
         <FullWidthSection
           id="kids-schedule"
           className="bg-muted/40 py-16 md:py-24"
@@ -358,16 +587,32 @@ export default function KidsPage() {
                 days. See the full schedule anytime.
               </p>
             </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {kidsSchedule.map((day) => (
-                <Card key={day.day}>
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              {scheduleTabs.map((tab) => (
+                <Button
+                  key={tab.day}
+                  type="button"
+                  variant={activeScheduleDay === tab.day ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setActiveScheduleDay(tab.day)}
+                  aria-pressed={activeScheduleDay === tab.day}
+                >
+                  {tab.label}
+                </Button>
+              ))}
+            </div>
+            <div className="mt-8 flex justify-center">
+              {activeSchedule ? (
+                <Card className="w-full max-w-md">
                   <CardHeader>
-                    <CardTitle className="text-lg">{day.label}</CardTitle>
+                    <CardTitle className="text-lg">
+                      {activeSchedule.label}
+                    </CardTitle>
                     <CardDescription>Kids programs</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 text-sm">
-                    {day.slots.map((slot) => (
-                      <div key={`${day.day}-${slot.class}-${slot.start}`}>
+                    {activeSchedule.slots.map((slot) => (
+                      <div key={`${activeSchedule.day}-${slot.class}-${slot.start}`}>
                         <p className="font-medium">{slot.class}</p>
                         <p className="text-muted-foreground">
                           {formatTime(slot.start)} - {formatTime(slot.end)}
@@ -376,7 +621,11 @@ export default function KidsPage() {
                     ))}
                   </CardContent>
                 </Card>
-              ))}
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  Schedule updates coming soon.
+                </p>
+              )}
             </div>
             <div className="mt-8 flex justify-center">
               <Button variant="outline" asChild>

@@ -10,6 +10,7 @@ import { getNextEvent } from "@/lib/events";
 import Link from "next/link";
 import { getFeaturedVideos } from "@/lib/youtube";
 import { CallToAction } from "@/components/ui/call-to-action";
+import Image from "next/image";
 
 export const revalidate = 86400; // Revalidate every day
 
@@ -129,6 +130,40 @@ export default async function Home() {
         )}
       </div>
 
+      {/* Sponsors Section */}
+      <div className="container mx-auto px-4 py-24">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Sponsors</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We&apos;re grateful for the support of our community partners who help make Grapple possible.
+          </p>
+        </div>
+        <div className="flex flex-wrap justify-center items-center gap-12">
+          <a
+            href="https://brumfieldchiropractic.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity hover:opacity-75"
+          >
+            <Image
+              src="/images/sponsors/Brumfield_logo_black.png"
+              alt="Brumfield Chiropractic"
+              width={250}
+              height={100}
+              className="dark:invert"
+            />
+          </a>
+        </div>
+        <div className="text-center mt-12">
+          <Link
+            href="/sponsor"
+            className="inline-flex items-center text-primary hover:underline"
+          >
+            Become a Sponsor →
+          </Link>
+        </div>
+      </div>
+
       <div className="py-24">
         <CallToAction
           title="Ready to Start Your Journey?"
@@ -190,32 +225,33 @@ const audiences = [
     link: "/jiu-jitsu-programs/kids",
   },
   {
-    title: "Adults",
+    title: "Adult Jiu Jitsu",
     description:
       "Challenge yourself, get fit, and join a community of lifelong learners.",
-    link: "/trial",
+    link: "/jiu-jitsu-programs/adult-jiu-jitsu",
   },
   {
-    title: "Military & Law Enforcement",
+    title: "Women's Jiu Jitsu",
     description:
-      "Enhance your tactical skills with proven grappling techniques. And at Grapple, you can pay whatever you can afford, even if it's $0.",
-    link: "/trial",
+      "Train in a supportive environment and build real-world confidence.",
+    link: "/jiu-jitsu-programs/womens-jiu-jitsu",
   },
   {
-    title: "Healthcare Workers",
-    description: `Learn practical skills for managing challenging situations safely. And medical professionals working in a hospital can take advantage of our "pay what you want" discount`,
-    link: "/trial",
+    title: "Jiu Jitsu for Law Enforcement Officers/First Responders",
+    description:
+      "Enhance control and composure with proven grappling techniques.",
+    link: "/jiu-jitsu-programs/first-responders",
   },
   {
-    title: "Competitors",
+    title: "Jiu Jitsu for Hospital Workers",
+    description:
+      "Learn practical skills for managing challenging situations safely.",
+    link: "/jiu-jitsu-programs/hospital-workers",
+  },
+  {
+    title: "Grapple Competition Team",
     description:
       "Train with others who are dedicated to improving and prepare for tournaments.",
-    link: "/trial",
-  },
-  {
-    title: "Hobbyists",
-    description:
-      "Enjoy the art of grappling at your own pace in a supportive environment.",
-    link: "/trial",
+    link: "/jiu-jitsu-programs/competition-team",
   },
 ];

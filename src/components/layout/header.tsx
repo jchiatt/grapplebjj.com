@@ -28,23 +28,7 @@ export function Header() {
               className="w-auto h-12 md:h-[84px]"
             />
           </Link>
-          <nav className="hidden md:flex gap-8">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1 text-foreground/60 transition-colors hover:text-foreground/80"
-                >
-                  Programs
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild>
-                  <Link href="/jiu-jitsu-programs/kids">Kids Jiu Jitsu</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <nav className="hidden lg:flex gap-6 xl:gap-8">
             <Link
               href="/schedule"
               className="text-foreground/60 transition-colors hover:text-foreground/80"
@@ -63,33 +47,71 @@ export function Header() {
                   type="button"
                   className="inline-flex items-center gap-1 text-foreground/60 transition-colors hover:text-foreground/80"
                 >
-                  Resources
+                  Programs
                   <ChevronDown className="h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/kids">Kids Jiu Jitsu</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/adult-jiu-jitsu">
+                    Adult Jiu Jitsu
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/womens-jiu-jitsu">
+                    Women&apos;s Jiu Jitsu
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/competition-team">
+                    Grapple Competition Team
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/first-responders">
+                    Jiu Jitsu for Law Enforcement Officers/First Responders
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/hospital-workers">
+                    Jiu Jitsu for Hospital Workers
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1 text-foreground/60 transition-colors hover:text-foreground/80"
+                >
+                  Community
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <Link href="/events">Events</Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <LivestreamLink />
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/articles">Articles</Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/sponsor">Sponsor</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="https://www.grapple.store" target="_blank" rel="noopener noreferrer">
+                    Merch
+                  </a>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link
-              href="/events"
-              className="text-foreground/60 transition-colors hover:text-foreground/80"
-            >
-              Events
-            </Link>
-            <a
-              href="https://www.grapple.store"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground/60 transition-colors hover:text-foreground/80"
-            >
-              Merch
-            </a>
             <Link
               href="/contact"
               className="text-foreground/60 transition-colors hover:text-foreground/80"
@@ -98,13 +120,13 @@ export function Header() {
             </Link>
           </nav>
         </div>
-        <div className="flex items-center gap-4">
-          <nav className="hidden md:flex">
+        <div className="flex items-center gap-6">
+          <nav className="hidden lg:flex">
             <a
               href="https://members.grapplejj.com/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors mr-2"
             >
               Login
             </a>
