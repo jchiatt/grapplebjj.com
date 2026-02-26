@@ -184,7 +184,7 @@ type Testimonial = {
 
 const testimonialHighlights = (
   testimonialsData as { testimonials: Testimonial[] }
-).testimonials.filter((testimonial) => [3, 6, 2].includes(testimonial.id));
+).testimonials.filter((testimonial) => [11, 12, 13, 14, 15].includes(testimonial.id));
 
 const kidsSchema = {
   "@context": "https://schema.org",
