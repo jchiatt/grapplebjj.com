@@ -6,7 +6,6 @@ import {
   BadgeCheck,
   CheckCircle2,
   Gamepad2,
-  Rocket,
   Shield,
   Star,
   Users,
@@ -54,20 +53,7 @@ const featureCards = [
 
 const programCards = [
   {
-    title: "Lil' Grapplers (Ages 4-6)",
-    tagline: "Blast off into movement.",
-    description:
-      "Coordination, balance, and listening skills through playful, structured games.",
-    bullets: [
-      "Build coordination and dexterity",
-      "Body awareness and agility",
-      "Sharing, turn-taking, and confidence",
-      "All while having fun",
-    ],
-    icon: Rocket,
-  },
-  {
-    title: "Junior Grapplers (Ages 7-12)",
+    title: "Grapple Kids (Ages 7-12)",
     tagline: "Forging future leaders.",
     description:
       "Technique, teamwork, and social dynamics with purpose and clarity.",
@@ -115,9 +101,7 @@ type KidsScheduleDay = {
 const kidsSchedule = daysInOrder
   .map((day) => {
     const slots = scheduleData[day].filter(
-      (slot) =>
-        !slot.isClosed &&
-        (slot.class.includes("Kids") || slot.class.includes("Grapplers"))
+      (slot) => !slot.isClosed && slot.class.includes("Kids")
     );
 
     if (!slots.length) return null;
@@ -211,7 +195,7 @@ export default function KidsPage() {
                     Claim Your 3-Day Confidence Trial
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <Link href="#programs">Explore Programs</Link>
+                    <Link href="#programs">Explore the Program</Link>
                   </Button>
                 </div>
                 <p className="mt-4 text-sm text-muted-foreground">
@@ -302,14 +286,14 @@ export default function KidsPage() {
           >
             <div className="text-center max-w-3xl mx-auto">
               <Headline as="h2" size="h2">
-                Two programs, one mission.
+                One program, one mission.
               </Headline>
               <p className="mt-4 text-lg text-muted-foreground">
-                Age-appropriate coaching keeps every child challenged, safe, and
-                excited to grow.
+                Age-appropriate coaching keeps every child challenged, safe,
+                and excited to grow.
               </p>
             </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="mx-auto mt-12 max-w-2xl">
               {programCards.map((program) => {
                 const Icon = program.icon;
                 return (
@@ -354,8 +338,8 @@ export default function KidsPage() {
                 Kids class schedule.
               </Headline>
               <p className="mt-4 text-lg text-muted-foreground">
-                Lil&apos; Grapplers and Kids (7-12) classes are offered on these
-                days. See the full schedule anytime.
+                Grapple Kids (7-12) classes start at 5:15pm on these days. See
+                the full schedule anytime.
               </p>
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -363,7 +347,7 @@ export default function KidsPage() {
                 <Card key={day.day}>
                   <CardHeader>
                     <CardTitle className="text-lg">{day.label}</CardTitle>
-                    <CardDescription>Kids programs</CardDescription>
+                    <CardDescription>Grapple Kids</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 text-sm">
                     {day.slots.map((slot) => (
