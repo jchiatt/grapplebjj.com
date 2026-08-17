@@ -9,9 +9,9 @@
   ],
   "monday": [
     {
-      "start": "17:00",
-      "end": "17:45",
-      "class": "Kids (7-12)"
+      "start": "17:15",
+      "end": "18:00",
+      "class": "Grapple Kids (7-12)"
     },
     {
       "start": "18:00",
@@ -26,14 +26,9 @@
   ],
   "tuesday": [
     {
-      "start": "16:45",
-      "end": "17:15",
-      "class": "Lil' Grapplers (4-6)"
-    },
-    {
       "start": "17:15",
       "end": "18:00",
-      "class": "Kids (7-12)"
+      "class": "Grapple Kids (7-12)"
     },
     {
       "start": "18:00",
@@ -65,14 +60,9 @@
   ],
   "thursday": [
     {
-      "start": "16:30",
-      "end": "17:00",
-      "class": "Lil' Grapplers (4-6)"
-    },
-    {
-      "start": "17:00",
-      "end": "17:45",
-      "class": "Kids (7-12)"
+      "start": "17:15",
+      "end": "18:00",
+      "class": "Grapple Kids (7-12)"
     },
     {
       "start": "18:00",
