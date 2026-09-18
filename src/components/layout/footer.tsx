@@ -74,6 +74,46 @@ export function Footer() {
                   Kids Jiu Jitsu
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/jiu-jitsu-programs/adult-jiu-jitsu"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Adult Jiu Jitsu
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/jiu-jitsu-programs/womens-jiu-jitsu"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Women&apos;s Jiu Jitsu
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/jiu-jitsu-programs/competition-team"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Grapple Competition Team
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/jiu-jitsu-programs/first-responders"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Jiu Jitsu for LEO/First Responders
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/jiu-jitsu-programs/hospital-workers"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Jiu Jitsu for Hospital Workers
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
