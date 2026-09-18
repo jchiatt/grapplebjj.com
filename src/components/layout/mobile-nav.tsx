@@ -88,6 +88,36 @@ export function MobileNav() {
               >
                 Kids Jiu Jitsu
               </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/adult-jiu-jitsu"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Adult Jiu Jitsu
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/womens-jiu-jitsu"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Women&apos;s Jiu Jitsu
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/competition-team"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Grapple Competition Team
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/first-responders"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Jiu Jitsu for LEO/First Responders
+              </NavLink>
+              <NavLink
+                href="/jiu-jitsu-programs/hospital-workers"
+                className="block text-base font-medium text-foreground/80"
+              >
+                Jiu Jitsu for Hospital Workers
+              </NavLink>
             </div>
           </details>
 

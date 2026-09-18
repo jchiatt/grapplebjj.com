@@ -43,6 +43,31 @@ export function Header() {
                 <DropdownMenuItem asChild>
                   <Link href="/jiu-jitsu-programs/kids">Kids Jiu Jitsu</Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/adult-jiu-jitsu">
+                    Adult Jiu Jitsu
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/womens-jiu-jitsu">
+                    Women&apos;s Jiu Jitsu
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/competition-team">
+                    Grapple Competition Team
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/first-responders">
+                    Jiu Jitsu for LEO/First Responders
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/jiu-jitsu-programs/hospital-workers">
+                    Jiu Jitsu for Hospital Workers
+                  </Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <Link
